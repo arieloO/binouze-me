@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/binouze-me/static/css/main.1db858db.chunk.css",
+    "main.js": "/binouze-me/static/js/main.5650eac5.chunk.js",
+    "main.js.map": "/binouze-me/static/js/main.5650eac5.chunk.js.map",
+    "runtime-main.js": "/binouze-me/static/js/runtime-main.f81a8c63.js",
+    "runtime-main.js.map": "/binouze-me/static/js/runtime-main.f81a8c63.js.map",
+    "static/js/2.4eab3518.chunk.js": "/binouze-me/static/js/2.4eab3518.chunk.js",
+    "static/js/2.4eab3518.chunk.js.map": "/binouze-me/static/js/2.4eab3518.chunk.js.map",
+    "index.html": "/binouze-me/index.html",
+    "precache-manifest.b3936dfbe6aa04ab9bf342dd2d475b99.js": "/binouze-me/precache-manifest.b3936dfbe6aa04ab9bf342dd2d475b99.js",
+    "service-worker.js": "/binouze-me/service-worker.js",
+    "static/css/main.1db858db.chunk.css.map": "/binouze-me/static/css/main.1db858db.chunk.css.map",
+    "static/js/2.4eab3518.chunk.js.LICENSE.txt": "/binouze-me/static/js/2.4eab3518.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f81a8c63.js",
+    "static/js/2.4eab3518.chunk.js",
+    "static/css/main.1db858db.chunk.css",
+    "static/js/main.5650eac5.chunk.js"
+  ]
+}
