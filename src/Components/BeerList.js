@@ -2,22 +2,22 @@ import React, { useState, useEffect } from "react";
 import BeerPic from "./BeerPic.js";
 import BeerCard from "./BeerCard.js";
 
-const BeerList = () => {
-  const [nextPage, setNextPage] = useState(1);
+const BeerList = ({ page }) => {
   const [beers, setBeers] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.punkapi.com/v2/beers?page=${nextPage}&per_page=24`)
+    fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=24`)
       .then((response) => response.json())
       .then((responseData) => {
-        setBeers((oldBeers) => [...oldBeers, ...responseData]);
+        setBeers(responseData);
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [nextPage]);
+  }, [page]);
 
   console.log("WTF __OKPOJO", beers && beers, typeof beers);
+  console.log(page);
 
   return (
     <div>
@@ -30,9 +30,9 @@ const BeerList = () => {
       ) : (
         <p>LOADING...</p>
       )}
-      <button onClick={() => setNextPage((prevPage) => prevPage + 1)}>
+      {/* <button onClick={() => setNextPage((prevPage) => prevPage + 1)}>
         ShowMore
-      </button>
+      </button> */}
     </div>
   );
 };
