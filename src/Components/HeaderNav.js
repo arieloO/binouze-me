@@ -17,6 +17,7 @@ const HeaderNav = () => {
       </li>
       <li>
         <NavLink to="/?page=4">4</NavLink>
+        yuoz
       </li>
     </ul>
   );
