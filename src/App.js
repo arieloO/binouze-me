@@ -17,7 +17,7 @@ function App() {
         </header>
 
         <Switch>
-          <Route exact path="/binouze.me/" component={BeerList} />
+          <Route path="/binouze.me/" component={BeerList} />
           <Route path="/binouze.me/beers/:id" component={BeerCard} />
         </Switch>
       </div>
