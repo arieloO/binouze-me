@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BeerPic from "./BeerItem";
 
 const BeerCard = (props) => {
   console.log("+_BEERCARD_-=+=", props);

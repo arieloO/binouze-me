@@ -14,6 +14,11 @@
   color: #f0f0c9;
 }
 
+.error404 {
+  font-weight: 900;
+  font-size: 10vh;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -38,6 +43,7 @@ ul {
 a {
   text-decoration: none;
 }
+a:link,
 a:visited {
   color: inherit;
 }

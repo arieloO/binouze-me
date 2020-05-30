@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BeerList from "./Components/BeerList.js";
 import HeaderNav from "./Components/HeaderNav.js";
 import BeerCard from "./Components/BeerCard";
+import NoMatch from "./Components/NoMatch";
 
 function App() {
   console.log("render app");
@@ -17,8 +18,9 @@ function App() {
         </header>
 
         <Switch>
-          <Route path="/binouze.me/" component={BeerList} />
+          <Route path="/binouze.me" component={BeerList} />
           <Route path="/binouze.me/beers/:id" component={BeerCard} />
+          <Route component={NoMatch} />
         </Switch>
       </div>
     </BrowserRouter>
