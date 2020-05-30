@@ -5,19 +5,18 @@ const HeaderNav = () => {
   return (
     <ul className="main-nav">
       <li>
-        <NavLink exact to="/">
+        <NavLink exact to="/binouze.me/">
           1
         </NavLink>
       </li>
       <li>
-        <NavLink to="/?page=2">2</NavLink>
+        <NavLink to="/binouze.me/?page=2">2</NavLink>
       </li>
       <li>
-        <NavLink to="/?page=3">3</NavLink>
+        <NavLink to="/binouze.me/?page=3">3</NavLink>
       </li>
       <li>
-        <NavLink to="/?page=4">4</NavLink>
-        yuoz
+        <NavLink to="/binouze.me/?page=4">4</NavLink>
       </li>
     </ul>
   );

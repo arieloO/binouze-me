@@ -12,13 +12,13 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1>binouze.me</h1>
-          <h3>bienvenue chez vous</h3>
+          <h3>bienvenue chez BrewDog</h3>
           <HeaderNav />
         </header>
 
         <Switch>
-          <Route exact path="/" component={BeerList} />
-          <Route path="/beers/:id" component={BeerCard} />
+          <Route exact path="/binouze.me/" component={BeerList} />
+          <Route path="/binouze.me/beers/:id" component={BeerCard} />
         </Switch>
       </div>
     </BrowserRouter>
