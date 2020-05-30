@@ -41,18 +41,10 @@ a {
 a:visited {
   color: inherit;
 }
-
-.beer-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.beer-image {
-  height: 150px;
-  width: 76px;
-  margin: 20px;
-  object-fit: contain;
+button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
 }
 
 .main-nav {
@@ -75,7 +67,7 @@ a:visited {
   position: relative;
   border-right: 1px solid #124e78;
   color: #bd632f;
-  border-radius: 100%;
+  border-radius: 5px;
   transition: all 200ms ease-in-out;
 }
 .main-nav a {
@@ -89,12 +81,92 @@ a:visited {
   color: #124e78;
   background: rgba(242, 187, 5);
   transform: scale(1.05);
-  border-radius: 3px;
 }
 .main-nav li .selected {
   border-color: rgba(0, 0, 0, 0.1);
   color: #bd632f;
   background-color: #124e78;
+}
+
+.nav-options {
+  display: flex;
+  padding: 4px;
+  justify-content: space-between;
+  background-color: #f0f0c9;
+  border-bottom: solid 1px #124e78;
+}
+
+.nav-options select {
+  margin-left: 15px;
+  margin-right: 15px;
+  color: #bd632f;
+  background-color: inherit;
+  border-style: none;
+  box-shadow: 0px 0px 2px 1px #124e78;
+}
+
+.nav-page {
+  background-color: inherit;
+  border-style: none;
+  margin-left: 15px;
+  margin-right: 15px;
+  transition: all 200ms ease-in-out;
+}
+.nav-page button:hover {
+  background-color: ;
+}
+
+.beer-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.beer-item {
+  display: flex;
+  flex-direction: column;
+  flex-basis: baseline;
+  border: dashed 1px #124e78;
+  border-radius: 5px;
+  margin: 5px;
+  height: 244px;
+}
+
+.beer-image {
+  height: 150px;
+  width: 76px;
+  margin: 20px;
+  object-fit: contain;
+}
+
+.pic-name {
+  margin: 0 auto;
+  width: 100px;
+  max-height: 54px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  color: #042a2b;
+}
+
+.beer-card {
+  display: flex;
+  margin: 0 auto;
+}
+
+.beer-card-image {
+  margin: 5vh;
+  padding: 5vh;
+  object-fit: contain;
+  height: 50vh;
+}
+
+.beer-card-info {
+  margin: 5vh;
+  padding: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
 }
 
 #modal-root {

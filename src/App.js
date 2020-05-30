@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BeerList from "./Components/BeerList.js";
 import HeaderNav from "./Components/HeaderNav.js";
+import BeerCard from "./Components/BeerCard";
 
 function App() {
   console.log("render app");
@@ -16,10 +17,8 @@ function App() {
         </header>
 
         <Switch>
-          <Route exact path="/" render={() => <BeerList page={1} />} />
-          <Route exact path="/24" render={() => <BeerList page={2} />} />
-          <Route exact path="/48" render={() => <BeerList page={3} />} />
-          <Route exact path="/72" render={() => <BeerList page={4} />} />
+          <Route exact path="/" component={BeerList} />
+          <Route path="/beers/:id" component={BeerCard} />
         </Switch>
       </div>
     </BrowserRouter>

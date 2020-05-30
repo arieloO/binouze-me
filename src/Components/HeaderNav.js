@@ -5,23 +5,18 @@ const HeaderNav = () => {
   return (
     <ul className="main-nav">
       <li>
-        {" "}
         <NavLink exact to="/">
-          {" "}
-          0-24{" "}
+          1
         </NavLink>
       </li>
       <li>
-        {" "}
-        <NavLink to="/24"> 25 to 50 </NavLink>
+        <NavLink to="/?page=2">2</NavLink>
       </li>
       <li>
-        {" "}
-        <NavLink to="/48"> 50 to 75 </NavLink>
+        <NavLink to="/?page=3">3</NavLink>
       </li>
       <li>
-        {" "}
-        <NavLink to="/72"> 75 to 100 </NavLink>
+        <NavLink to="/?page=4">4</NavLink>
       </li>
     </ul>
   );
