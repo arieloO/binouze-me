@@ -79,17 +79,24 @@ button {
 }
 .main-nav a {
   display: block;
-  margin: 5px;
   padding: 20px;
+  border-right: 1px solid #124e78;
+  border-radius: 5px;
+  transition: all 200ms ease-in-out;
 }
 
-.main-nav li:hover {
+.main-nav li a:hover {
   border-color: rgba(0, 0, 0, 0.1);
   color: #124e78;
   background: rgba(242, 187, 5);
   transform: scale(1.05);
 }
-.main-nav li .selected {
+.main-nav li a .selected {
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #bd632f;
+  background-color: #124e78;
+}
+.main-nav li a:active {
   border-color: rgba(0, 0, 0, 0.1);
   color: #bd632f;
   background-color: #124e78;

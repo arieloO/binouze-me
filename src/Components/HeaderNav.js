@@ -5,7 +5,7 @@ const HeaderNav = () => {
   return (
     <ul className="main-nav">
       <li>
-        <NavLink exact to="/binouze-me/">
+        <NavLink exact to="/binouze-me" activeClassName="active-nav-route">
           Catalogue
         </NavLink>
       </li>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import qs from "qs";
 import BeerPic from "./BeerItem.js";
+import NavOptions from "./NavOptions.js";
 
 const BeerList = ({ location, history }) => {
   const [beers, setBeers] = useState([]);
@@ -32,32 +33,15 @@ const BeerList = ({ location, history }) => {
   const pageDisplay = `page : ${page}`;
   return (
     <div>
-      <div className="nav-options">
-        <button
-          onClick={() => handlePageChanges(-1)}
-          className="page-nav"
-          disabled={page === 1 ? true : false}
-        >
-          ⇦
-        </button>
-        <span>{pageDisplay}</span>
-        <div>
-          <label>Bières par page :</label>
-          <select onChange={(e) => setItemsPage(parseInt(e.target.value))}>
-            <option value={25}>25</option>
-            <option value={50}>50</option>
-            <option value={75}>75</option>
-          </select>
-        </div>
+      <NavOptions
+        beers={beers}
+        itemsPage={itemsPage}
+        page={page}
+        handlePageChanges={handlePageChanges}
+        setItemsPage={setItemsPage}
+        pageDisplay={pageDisplay}
+      />
 
-        <button
-          onClick={() => handlePageChanges(1)}
-          className="page-nav"
-          disabled={beers.length !== itemsPage ? true : false}
-        >
-          ⇨
-        </button>
-      </div>
       {beers.length > 0 ? (
         <ul className="beer-list">
           {beers.map((beer) => (
