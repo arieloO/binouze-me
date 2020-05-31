@@ -21,7 +21,7 @@ const BeerList = ({ location, history }) => {
   }, [page, itemsPage]);
 
   const handlePageChanges = (delta) => {
-    const path = `/binouze.me/?page=${parseInt(page) + delta}`;
+    const path = `/binouze-me/?page=${parseInt(page) + delta}`;
     history.push(path);
   };
 

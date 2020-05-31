@@ -12,14 +12,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
-          <h1>binouze.me</h1>
-          <h3>bienvenue chez BrewDog</h3>
+          <h1>binouze-me</h1>
+          <h3>bienvenue chez Brewdog</h3>
           <HeaderNav />
         </header>
 
         <Switch>
-          <Route path="/binouze.me" component={BeerList} />
-          <Route path="/binouze.me/beers/:id" component={BeerCard} />
+          <Route path="/binouze-me" component={BeerList} />
+          <Route path="/binouze-me/beers/:id" component={BeerCard} />
           <Route component={NoMatch} />
         </Switch>
       </div>

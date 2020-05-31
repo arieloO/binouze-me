@@ -32,6 +32,7 @@ const BeerCard = (props) => {
         <h1>
           <strong>{beerData.name}</strong>
         </h1>
+        <p>{beerData.tagline}</p>
         <h2>BREWERS TIPS</h2>
         <p>{beerData.brewers_tips}</p>
         <h2>FOOD PAIRING</h2>
