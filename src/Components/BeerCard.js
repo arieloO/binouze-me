@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const BeerCard = (props) => {
   console.log("+_BEERCARD_-=+=", props);
 
-  const beerID = props.match.params.id;
+  const beerID = props.match.params.id || "random";
   const [beerData, setBeerData] = useState();
 
   useEffect(() => {

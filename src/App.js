@@ -9,17 +9,18 @@ import NoMatch from "./Components/NoMatch";
 function App() {
   console.log("render app");
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/binouze-me">
       <div className="App">
         <header className="App-header">
           <h1>binouze-me</h1>
           <h3>bienvenue chez Brewdog</h3>
           <HeaderNav />
         </header>
-
         <Switch>
-          <Route path="/binouze-me" component={BeerList} />
-          <Route path="/binouze-me/beers/:id" component={BeerCard} />
+          <Route exact path="/" component={BeerList} />
+          <Route path="/beers/:id" component={BeerCard} />
+
+          <Route path="/beers" component={BeerCard} />
           <Route component={NoMatch} />
         </Switch>
       </div>

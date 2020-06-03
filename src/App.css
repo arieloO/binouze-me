@@ -55,6 +55,9 @@ button {
 }
 
 .main-nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 200px;
   width: 65%;
   display: flex;
   flex-direction: row;
@@ -71,7 +74,6 @@ button {
   flex-grow: 1;
   flex-basis: auto;
   text-align: center;
-  position: relative;
   border-right: 1px solid #124e78;
   color: #bd632f;
   border-radius: 5px;
@@ -101,13 +103,30 @@ button {
   color: #bd632f;
   background-color: #124e78;
 }
+.body-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  flex-grow: 1;
+  width: 75%;
+}
 
 .nav-options {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
   display: flex;
   padding: 4px;
   justify-content: space-between;
   background-color: #f0f0c9;
-  border-bottom: solid 1px #124e78;
+  border: solid 1px #124e78;
 }
 
 .nav-options select {
@@ -130,6 +149,29 @@ button {
   background-color: ;
 }
 
+.nav-filters {
+  margin-right: 4px;
+  flex-grow: 2;
+  width: 15%;
+  border-right: solid 1px #124e78;
+  padding: 4px;
+}
+
+.nav-filters ul {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+.nav-filters ul li {
+  position: static;
+  background-color: khaki;
+  flex-grow: 1;
+}
+
 .beer-list {
   display: flex;
   flex-wrap: wrap;
@@ -149,7 +191,7 @@ button {
 .beer-image {
   height: 150px;
   width: 76px;
-  margin: 20px;
+  margin: 10px;
   object-fit: contain;
 }
 
