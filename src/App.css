@@ -93,16 +93,13 @@ button {
   background: rgba(242, 187, 5);
   transform: scale(1.05);
 }
-.main-nav li a .selected {
+
+.active-nav-route {
   border-color: rgba(0, 0, 0, 0.1);
-  color: #bd632f;
-  background-color: #124e78;
+  color: #124e78;
+  background: rgba(242, 187, 5);
 }
-.main-nav li a:active {
-  border-color: rgba(0, 0, 0, 0.1);
-  color: #bd632f;
-  background-color: #124e78;
-}
+
 .body-wrapper {
   display: flex;
   flex-direction: row;

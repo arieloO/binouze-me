@@ -18,9 +18,12 @@ function App() {
         </header>
         <Switch>
           <Route exact path="/" component={BeerList} />
+          <Route path="/catalogue" component={BeerList} />
+          <Route path="search/" component={BeerCard} />
+          <Route path="/top/" component={BeerCard} />
           <Route path="/beers/:id" component={BeerCard} />
 
-          <Route path="/beers" component={BeerCard} />
+          <Route exact path="/beers" component={BeerCard} />
           <Route component={NoMatch} />
         </Switch>
       </div>

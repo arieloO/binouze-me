@@ -5,18 +5,24 @@ const HeaderNav = () => {
   return (
     <ul className="main-nav">
       <li>
-        <NavLink to="/" activeClassName="active-nav-route">
+        <NavLink to="/catalogue" activeClassName="active-nav-route">
           catalogue
         </NavLink>
       </li>
       <li>
-        <NavLink to="/?page=2">search</NavLink>
+        <NavLink to="/search" activeClassName="active-nav-route">
+          search
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/?page=3">top beers</NavLink>
+        <NavLink to="/top" activeClassName="active-nav-route">
+          top beers
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/beers/">random</NavLink>
+        <NavLink to="/beers" activeClassName="active-nav-route">
+          random
+        </NavLink>
       </li>
     </ul>
   );
