@@ -1,4 +1,6 @@
 import React from "react";
+import Slider from "react-rangeslider";
+import "react-rangeslider/lib/index.css";
 
 const ListFilters = ({
   beers,
@@ -26,6 +28,15 @@ const ListFilters = ({
           <label htmlFor="prout">prout</label>
         </li>
       </ul>
+      <Slider
+        min={0}
+        max={100}
+        step={1}
+        value={50}
+        orientation="vertical"
+        tooltip={true}
+        labels={{ 0: "Low", 50: "Medium", 100: "High" }}
+      />
     </div>
   );
 };
