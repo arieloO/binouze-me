@@ -75,29 +75,32 @@ button {
   flex-basis: auto;
   text-align: center;
   border-right: 1px solid #124e78;
-  color: #bd632f;
+
   border-radius: 5px;
   transition: all 200ms ease-in-out;
 }
 .main-nav a {
   display: block;
   padding: 20px;
+  color: #bd632f;
   border-right: 1px solid #124e78;
   border-radius: 5px;
   transition: all 200ms ease-in-out;
 }
 
-.main-nav li a:hover {
+.main-nav a:hover {
   border-color: rgba(0, 0, 0, 0.1);
   color: #124e78;
   background: rgba(242, 187, 5);
   transform: scale(1.05);
 }
 
-.active-nav-route {
+a.active-nav-route {
   border-color: rgba(0, 0, 0, 0.1);
   color: #124e78;
+  color: #124e78;
   background: rgba(242, 187, 5);
+  transform: scale(1.05);
 }
 
 .body-wrapper {
