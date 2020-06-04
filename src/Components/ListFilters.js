@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import Slider from "react-rangeslider";
 import "react-rangeslider/lib/index.css";
 
@@ -10,6 +11,12 @@ const ListFilters = ({
   setItemsPage,
   pageDisplay,
 }) => {
+  const [abvValue, setAbvValue] = useState(50);
+
+  const handleOnChange = (value) => {
+    setAbvValue(value);
+  };
+
   return (
     <div className="nav-filters">
       <ul className="filters-list">
@@ -27,16 +34,28 @@ const ListFilters = ({
           <input type="checkbox" id="prout" name="prout" />
           <label htmlFor="prout">prout</label>
         </li>
+        <li>
+          <Slider
+            min={0.5}
+            max={55}
+            step={1}
+            value={abvValue}
+            orientation="vertical"
+            tooltip={true}
+            labels={{
+              3: "0,5°",
+              15: "15°",
+              30: "30°",
+              55: "55°",
+            }}
+            // handleLabel={abvValue}
+            // format={Function}
+            // onChangeStart={handleOnChange}
+            onChange={handleOnChange}
+            onChangeComplete={handleFilterChanges}
+          />
+        </li>
       </ul>
-      <Slider
-        min={0}
-        max={100}
-        step={1}
-        value={50}
-        orientation="vertical"
-        tooltip={true}
-        labels={{ 0: "Low", 50: "Medium", 100: "High" }}
-      />
     </div>
   );
 };
