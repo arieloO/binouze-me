@@ -150,6 +150,9 @@ a.active-nav-route {
 }
 
 .nav-filters {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 30px;
   margin-right: 4px;
   flex-grow: 2;
   width: 15%;
@@ -157,17 +160,18 @@ a.active-nav-route {
   padding: 4px;
 }
 
-.nav-filters ul {
+.filters-list {
   position: -webkit-sticky;
   position: sticky;
   top: 30px;
+  margin: auto;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: stretch;
 }
 .nav-filters ul li {
-  position: static;
   background-color: khaki;
   flex-grow: 1;
 }
