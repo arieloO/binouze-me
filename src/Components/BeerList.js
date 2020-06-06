@@ -12,8 +12,14 @@ const BeerList = ({ location, history }) => {
   console.log("query String", queryString);
 
   const [itemsPage, setItemsPage] = useState(25);
+
+  const [abvHigherThanValue, setAbvHigherThanValue] = useState(5.5);
+  const [abvLowerThanValue, setAbvLowerThanValue] = useState(50);
+
   useEffect(() => {
-    fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}`)
+    fetch(
+      `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}&abv_lt=${abvLowerThanValue}&abv_gt=${abvHigherThanValue}`
+    )
       .then((response) => response.json())
       .then((responseData) => {
         setBeers(responseData);
@@ -21,7 +27,7 @@ const BeerList = ({ location, history }) => {
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [page, itemsPage]);
+  }, [page, itemsPage, abvHigherThanValue, abvLowerThanValue]);
 
   const handlePageChanges = (delta) => {
     const path = `/binouze-me/?page=${parseInt(page) + delta}`;
@@ -29,7 +35,7 @@ const BeerList = ({ location, history }) => {
   };
 
   const handleFilterChanges = () => {
-    console.log(history, "<history-location>", location);
+    // console.log(history, "<history-location>", location);
   };
 
   console.log("Type of BEERS", beers && beers, typeof beers);
@@ -37,9 +43,18 @@ const BeerList = ({ location, history }) => {
   console.log(itemsPage, "!==", beers.length, itemsPage !== beers.length);
 
   const pageDisplay = `page : ${page}`;
+
+  //console.log(abvValue);
+
   return (
     <div className="body-wrapper">
-      <ListFilters handleFilterChanges={handleFilterChanges} />
+      <ListFilters
+        handleFilterChanges={handleFilterChanges}
+        abvHigher={abvHigherThanValue}
+        abvLower={abvLowerThanValue}
+        handleHigherSlider={setAbvHigherThanValue}
+        handleLowerSlider={setAbvLowerThanValue}
+      />
 
       <div className="wrapper">
         <NavOptions

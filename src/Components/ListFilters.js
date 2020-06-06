@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Slider from "react-rangeslider";
 import "react-rangeslider/lib/index.css";
@@ -10,13 +10,11 @@ const ListFilters = ({
   handleFilterChanges,
   setItemsPage,
   pageDisplay,
+  abvHigher,
+  abvLower,
+  handleHigherSlider,
+  handleLowerSlider,
 }) => {
-  const [abvValue, setAbvValue] = useState(50);
-
-  const handleOnChange = (value) => {
-    setAbvValue(value);
-  };
-
   return (
     <div className="nav-filters">
       <ul className="filters-list">
@@ -36,22 +34,45 @@ const ListFilters = ({
         </li>
         <li>
           <Slider
-            min={0.5}
+            min={1}
             max={55}
             step={1}
-            value={abvValue}
-            orientation="vertical"
+            value={abvHigher}
+            orientation="horizontal"
+            reverse={false}
             tooltip={true}
             labels={{
-              3: "0,5°",
+              1: "0,5°",
               15: "15°",
               30: "30°",
               55: "55°",
             }}
             // handleLabel={abvValue}
             // format={Function}
-            // onChangeStart={handleOnChange}
-            onChange={handleOnChange}
+            onChangeStart={undefined}
+            onChange={handleHigherSlider}
+            onChangeComplete={handleFilterChanges}
+          />
+        </li>
+        <li>
+          <Slider
+            min={1}
+            max={55}
+            step={1}
+            value={abvLower}
+            orientation="horizontal"
+            reverse={false}
+            tooltip={true}
+            labels={{
+              1: "0,5°",
+              15: "15°",
+              30: "30°",
+              55: "55°",
+            }}
+            // handleLabel={abvValue}
+            // format={Function}
+            onChangeStart={undefined}
+            onChange={handleLowerSlider}
             onChangeComplete={handleFilterChanges}
           />
         </li>
