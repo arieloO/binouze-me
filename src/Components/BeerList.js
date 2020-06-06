@@ -7,14 +7,35 @@ import ListFilters from "./ListFilters.js";
 const BeerList = ({ location, history }) => {
   const [beers, setBeers] = useState([]);
 
+  //get Page from url
   const queryString = qs.parse(location.search, { ignoreQueryPrefix: true });
   const page = parseInt(queryString.page) || 1;
   console.log("query String", queryString);
 
+  //HeaderNav.js parameters
   const [itemsPage, setItemsPage] = useState(25);
 
+  const handlePageChanges = (delta) => {
+    const path = `/binouze-me/?page=${parseInt(page) + delta}`;
+    history.push(path);
+  };
+
+  const pageDisplay = `page : ${page}`;
+
+  //
+  //
+  //
+  //ListFilters.js parameters
   const [abvHigherThanValue, setAbvHigherThanValue] = useState(5.5);
   const [abvLowerThanValue, setAbvLowerThanValue] = useState(50);
+
+  const handleFilterChanges = () => {
+    // console.log(history, "<history-location>", location);
+  };
+
+  console.log("Type of BEERS", beers && beers, typeof beers);
+  console.log("BEERLIST", page);
+  console.log(itemsPage, "!==", beers.length, itemsPage !== beers.length);
 
   useEffect(() => {
     fetch(
@@ -28,23 +49,6 @@ const BeerList = ({ location, history }) => {
         console.log("Error fetching and parsing data", error);
       });
   }, [page, itemsPage, abvHigherThanValue, abvLowerThanValue]);
-
-  const handlePageChanges = (delta) => {
-    const path = `/binouze-me/?page=${parseInt(page) + delta}`;
-    history.push(path);
-  };
-
-  const handleFilterChanges = () => {
-    // console.log(history, "<history-location>", location);
-  };
-
-  console.log("Type of BEERS", beers && beers, typeof beers);
-  console.log("BEERLIST", page);
-  console.log(itemsPage, "!==", beers.length, itemsPage !== beers.length);
-
-  const pageDisplay = `page : ${page}`;
-
-  //console.log(abvValue);
 
   return (
     <div className="body-wrapper">
