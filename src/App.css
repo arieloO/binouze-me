@@ -170,10 +170,24 @@ a.active-nav-route {
   flex-direction: column;
   justify-content: flex-end;
   align-items: stretch;
+  color: rgb(8 8 8);
 }
 .nav-filters ul li {
   background-color: khaki;
   flex-grow: 1;
+}
+
+.filter {
+  margin: 10px auto;
+}
+
+.filter-slider {
+  color: #bd632f;
+  height: 80px;
+}
+
+.slider-title {
+  align-self: flex-end;
 }
 
 .beer-list {

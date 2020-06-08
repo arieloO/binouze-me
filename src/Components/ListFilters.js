@@ -1,19 +1,20 @@
 import React from "react";
 
-import Slider from "react-rangeslider";
+import MultiSliderTest from "./MultiSliderTest.js";
 import "react-rangeslider/lib/index.css";
 
 const ListFilters = ({
-  beers,
-  itemsPage,
-  page,
   handleFilterChanges,
-  setItemsPage,
-  pageDisplay,
-  abvHigher,
-  abvLower,
-  handleHigherSlider,
-  handleLowerSlider,
+  abvDomain,
+  abvRange,
+  handleAbvRangeChange,
+  ibuDomain,
+  ibuRange,
+  handleIbuRangeChange,
+  // abvHigher,
+  // abvLower,
+  // handleHigherSlider,
+  // handleLowerSlider,
 }) => {
   return (
     <div className="nav-filters">
@@ -32,10 +33,10 @@ const ListFilters = ({
           <input type="checkbox" id="prout" name="prout" />
           <label htmlFor="prout">prout</label>
         </li>
-        <li>
+        {/* <li>
           <Slider
             min={1}
-            max={55}
+            max={56}
             step={1}
             value={abvHigher}
             orientation="horizontal"
@@ -45,7 +46,7 @@ const ListFilters = ({
               1: "0,5°",
               15: "15°",
               30: "30°",
-              55: "55°",
+              55: "55° !!",
             }}
             // handleLabel={abvValue}
             // format={Function}
@@ -75,8 +76,28 @@ const ListFilters = ({
             onChange={handleLowerSlider}
             onChangeComplete={handleFilterChanges}
           />
-        </li>
+        </li> */}
       </ul>
+      <div className="filter filter-slider">
+        {" "}
+        Alcohol by volume :
+        <MultiSliderTest
+          rangeDomain={abvDomain}
+          range={abvRange}
+          handleRangeChange={handleAbvRangeChange}
+          ticksNumber={8}
+        />
+      </div>
+      <div className="filter ">
+        {" "}
+        Bitterness (IBU) :
+        <MultiSliderTest
+          rangeDomain={ibuDomain}
+          range={ibuRange}
+          handleRangeChange={handleIbuRangeChange}
+          ticksNumber={6}
+        />
+      </div>
     </div>
   );
 };

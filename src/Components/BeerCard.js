@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
+import qs from "qs";
 
-const BeerCard = (props) => {
-  console.log("+_BEERCARD_-=+=", props);
+const BeerCard = ({ match }) => {
+  const queryString = qs.parse(match.params.id, {
+    ignoreQueryPrefix: true,
+  });
 
-  const beerID = props.match.params.id || "random";
+  const beerID = queryString.id || "random";
   const [beerData, setBeerData] = useState();
+
+  console.log(queryString, beerID);
 
   useEffect(() => {
     fetch(`https://api.punkapi.com/v2/beers/${beerID}`)
       .then((response) => response.json())
       .then((responseData) => {
+        console.log("responseData", responseData[0]);
         setBeerData(responseData[0]);
       })
       .catch((error) => {

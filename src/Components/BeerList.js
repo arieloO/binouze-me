@@ -10,13 +10,12 @@ const BeerList = ({ location, history }) => {
   //get Page from url
   const queryString = qs.parse(location.search, { ignoreQueryPrefix: true });
   const page = parseInt(queryString.page) || 1;
-  console.log("query String", queryString);
 
   //HeaderNav.js parameters
   const [itemsPage, setItemsPage] = useState(25);
 
   const handlePageChanges = (delta) => {
-    const path = `/binouze-me/?page=${parseInt(page) + delta}`;
+    const path = `/catalogue/?page=${parseInt(page) + delta}`;
     history.push(path);
   };
 
@@ -26,20 +25,21 @@ const BeerList = ({ location, history }) => {
   //
   //
   //ListFilters.js parameters
-  const [abvHigherThanValue, setAbvHigherThanValue] = useState(5.5);
-  const [abvLowerThanValue, setAbvLowerThanValue] = useState(50);
+  const abvDomain = [0.4, 56];
+  const [abvRange, setAbvRange] = useState([0.4, 56]);
+
+  const ibuDomain = [0, 250];
+  const [ibuRange, setIbuRange] = useState([0, 250]);
 
   const handleFilterChanges = () => {
     // console.log(history, "<history-location>", location);
   };
 
-  console.log("Type of BEERS", beers && beers, typeof beers);
-  console.log("BEERLIST", page);
-  console.log(itemsPage, "!==", beers.length, itemsPage !== beers.length);
+  console.log("beers : ", beers && beers, typeof beers);
 
   useEffect(() => {
     fetch(
-      `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}&abv_lt=${abvLowerThanValue}&abv_gt=${abvHigherThanValue}`
+      `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}`
     )
       .then((response) => response.json())
       .then((responseData) => {
@@ -48,16 +48,22 @@ const BeerList = ({ location, history }) => {
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [page, itemsPage, abvHigherThanValue, abvLowerThanValue]);
+  }, [page, itemsPage, abvRange, ibuRange]);
 
   return (
     <div className="body-wrapper">
       <ListFilters
         handleFilterChanges={handleFilterChanges}
-        abvHigher={abvHigherThanValue}
-        abvLower={abvLowerThanValue}
-        handleHigherSlider={setAbvHigherThanValue}
-        handleLowerSlider={setAbvLowerThanValue}
+        abvDomain={abvDomain}
+        abvRange={abvRange}
+        handleAbvRangeChange={setAbvRange}
+        ibuDomain={ibuDomain}
+        ibuRange={ibuRange}
+        handleIbuRangeChange={setIbuRange}
+        // abvHigher={abvHigherThanValue}
+        // abvLower={abvLowerThanValue}
+        // handleHigherSlider={setAbvHigherThanValue}
+        // handleLowerSlider={setAbvLowerThanValue}
       />
 
       <div className="wrapper">
