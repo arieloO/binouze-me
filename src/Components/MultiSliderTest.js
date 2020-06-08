@@ -1,6 +1,6 @@
 import React from "react";
 import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
-import { SliderRail, Handle, Track, Tick } from "./components"; // example render components - source below
+import { SliderRail, Handle, Track, Tick } from "./SliderComponents"; // example render components - source below
 
 const MultiSliderTest = ({
   rangeDomain,
@@ -15,10 +15,6 @@ const MultiSliderTest = ({
 
   const domain = rangeDomain;
   const defaultValues = range;
-
-  //   const onChange = (value) => {
-  //     console.log(range, "ONCHANGE : ", value);
-  //   };
 
   const onUpdate = (value) => {
     console.log("ONUpdate : ", value);
@@ -83,7 +79,6 @@ const MultiSliderTest = ({
           )}
         </Ticks>
       </Slider>
-      <div className="slider-title"> SLIDER TITLE</div>
     </div>
   );
 };

@@ -178,16 +178,12 @@ a.active-nav-route {
 }
 
 .filter {
-  margin: 10px auto;
+  margin: 100px auto;
 }
 
 .filter-slider {
   color: #bd632f;
-  height: 80px;
-}
-
-.slider-title {
-  align-self: flex-end;
+  height: 10%;
 }
 
 .beer-list {

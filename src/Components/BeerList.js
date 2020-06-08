@@ -31,16 +31,29 @@ const BeerList = ({ location, history }) => {
   const ibuDomain = [0, 250];
   const [ibuRange, setIbuRange] = useState([0, 250]);
 
-  const handleFilterChanges = () => {
-    // console.log(history, "<history-location>", location);
+  const [nameSearch, setNameSearch] = useState();
+
+  const [fetchRequestString, setFetchRequestString] = useState(
+    `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}` +
+      `&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}` +
+      `&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}` +
+      `${nameSearch ? `&beer_name=${nameSearch}` : `&beer_name=LAGER`}`
+  );
+  const handleNameSearch = (value) => {
+    console.log("search value : ", value);
+    setNameSearch(value);
+    // setFetchRequestString(
+    //   fetchRequestString.concat(`&beer_name=${nameSearch}`)
+    // );
+    console.log("new fetch : ", fetchRequestString);
   };
 
   console.log("beers : ", beers && beers, typeof beers);
+  console.log("search : ", nameSearch);
+  console.log("fetch : ", fetchRequestString);
 
   useEffect(() => {
-    fetch(
-      `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}`
-    )
+    fetch(fetchRequestString)
       .then((response) => response.json())
       .then((responseData) => {
         setBeers(responseData);
@@ -48,18 +61,18 @@ const BeerList = ({ location, history }) => {
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [page, itemsPage, abvRange, ibuRange]);
+  }, [page, itemsPage, abvRange, ibuRange, nameSearch, fetchRequestString]);
 
   return (
     <div className="body-wrapper">
       <ListFilters
-        handleFilterChanges={handleFilterChanges}
         abvDomain={abvDomain}
         abvRange={abvRange}
         handleAbvRangeChange={setAbvRange}
         ibuDomain={ibuDomain}
         ibuRange={ibuRange}
         handleIbuRangeChange={setIbuRange}
+        handleNameSearch={handleNameSearch}
         // abvHigher={abvHigherThanValue}
         // abvLower={abvLowerThanValue}
         // handleHigherSlider={setAbvHigherThanValue}

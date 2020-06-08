@@ -4,13 +4,13 @@ import MultiSliderTest from "./MultiSliderTest.js";
 import "react-rangeslider/lib/index.css";
 
 const ListFilters = ({
-  handleFilterChanges,
   abvDomain,
   abvRange,
   handleAbvRangeChange,
   ibuDomain,
   ibuRange,
   handleIbuRangeChange,
+  handleNameSearch,
   // abvHigher,
   // abvLower,
   // handleHigherSlider,
@@ -22,16 +22,23 @@ const ListFilters = ({
         <li className="filter-option">
           <input
             type="checkbox"
-            onChange={handleFilterChanges}
-            id="scales"
-            name="scales"
+            onChange={(e) =>
+              e.target.checked ? handleNameSearch("IPA") : null
+            }
+            id="IPA"
+            name="IPA"
           />
-          <label htmlFor="scales">Scales</label>
+          <label htmlFor="IPA">IPA</label>
         </li>
         <li className="filter-option">
           {" "}
-          <input type="checkbox" id="prout" name="prout" />
-          <label htmlFor="prout">prout</label>
+          <input
+            type="checkbox"
+            id="Pale Ale"
+            onChange={() => handleNameSearch("Pale Ale")}
+            name="Pale Ale"
+          />
+          <label htmlFor="Pale Ale">Pale Ale</label>
         </li>
         {/* <li>
           <Slider
@@ -52,7 +59,7 @@ const ListFilters = ({
             // format={Function}
             onChangeStart={undefined}
             onChange={handleHigherSlider}
-            onChangeComplete={handleFilterChanges}
+            onChangeComplete
           />
         </li>
         <li>
@@ -74,11 +81,11 @@ const ListFilters = ({
             // format={Function}
             onChangeStart={undefined}
             onChange={handleLowerSlider}
-            onChangeComplete={handleFilterChanges}
+            onChangeComplete
           />
         </li> */}
       </ul>
-      <div className="filter filter-slider">
+      <div className="filter ">
         {" "}
         Alcohol by volume :
         <MultiSliderTest
