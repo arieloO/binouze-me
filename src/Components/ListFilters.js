@@ -2,6 +2,7 @@ import React from "react";
 
 import MultiSliderTest from "./MultiSliderTest.js";
 import "react-rangeslider/lib/index.css";
+import BeerNamesSearches from "./BeerNamesSearches";
 
 const ListFilters = ({
   abvDomain,
@@ -18,12 +19,14 @@ const ListFilters = ({
 }) => {
   return (
     <div className="nav-filters">
+      <BeerNamesSearches handleSwitch={handleNameSearch} />
+
       <ul className="filters-list">
         <li className="filter-option">
           <input
             type="checkbox"
             onChange={(e) =>
-              e.target.checked ? handleNameSearch("IPA") : null
+              e.target.checked ? handleNameSearch("ipa") : null
             }
             id="IPA"
             name="IPA"
@@ -35,7 +38,7 @@ const ListFilters = ({
           <input
             type="checkbox"
             id="Pale Ale"
-            onChange={() => handleNameSearch("Pale Ale")}
+            onChange={() => handleNameSearch("pale_ale")}
             name="Pale Ale"
           />
           <label htmlFor="Pale Ale">Pale Ale</label>

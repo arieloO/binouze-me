@@ -50,6 +50,7 @@ const BeerList = ({ location, history }) => {
     fetch(fetchRequestString)
       .then((response) => response.json())
       .then((responseData) => {
+        console.log("USEEFFECT N°1");
         setBeers(responseData);
       })
       .catch((error) => {
@@ -65,6 +66,7 @@ const BeerList = ({ location, history }) => {
       fetch(newFetchRequestString)
         .then((response) => response.json())
         .then((responseData) => {
+          console.log("USEEFFECT N°2");
           setBeers(responseData);
         })
         .catch((error) => {
@@ -72,12 +74,6 @@ const BeerList = ({ location, history }) => {
         });
     }
   }, [nameSearch, fetchRequestString]);
-
-  // const handleNameSearch = (value) => {
-  //   console.log("search value : ", value);
-  //   setNameSearch(value);
-  //     console.log("cafcsshjcxckilbjldgjmobjxmbkdmkdfm");
-  //   console.log("new fetch : ", newFetchRequestString);
 
   return (
     <div className="body-wrapper">
@@ -92,10 +88,6 @@ const BeerList = ({ location, history }) => {
         ebcRange={ebcRange}
         handleEbcRangeChange={setEbcRange}
         handleNameSearch={setNameSearch}
-        // abvHigher={abvHigherThanValue}
-        // abvLower={abvLowerThanValue}
-        // handleHigherSlider={setAbvHigherThanValue}
-        // handleLowerSlider={setAbvLowerThanValue}
       />
 
       <div className="wrapper">

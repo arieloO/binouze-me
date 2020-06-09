@@ -172,13 +172,21 @@ a.active-nav-route {
   align-items: stretch;
   color: rgb(8 8 8);
 }
-.nav-filters ul li {
+.nav-filters ul {
   background-color: khaki;
   flex-grow: 1;
+
+  justify-content: flex-start;
 }
 
 .filter {
-  margin: 100px auto;
+  padding-left: 10%;
+  justify-content: flex-start;
+}
+
+.filter-option {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .filter-slider {
