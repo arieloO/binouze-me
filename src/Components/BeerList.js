@@ -36,20 +36,11 @@ const BeerList = ({ location, history }) => {
 
   const [nameSearch, setNameSearch] = useState();
 
-  const [fetchRequestString, setFetchRequestString] = useState(
+  const fetchRequestString =
     `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}` +
-      `&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}` +
-      `&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}` +
-      `&ebc_gt=${ebcRange[0]}&ebc_lt=${ebcRange[1]}`
-  );
-  const handleNameSearch = (value) => {
-    console.log("search value : ", value);
-    setNameSearch(value);
-    setFetchRequestString(
-      fetchRequestString.concat(`&beer_name=${nameSearch}`)
-    );
-    console.log("new fetch : ", fetchRequestString);
-  };
+    `&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}` +
+    `&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}` +
+    `&ebc_gt=${ebcRange[0]}&ebc_lt=${ebcRange[1]}`;
 
   console.log("beers : ", beers && beers, typeof beers);
   console.log("search : ", nameSearch);
@@ -64,7 +55,29 @@ const BeerList = ({ location, history }) => {
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [page, itemsPage, abvRange, ibuRange, nameSearch, fetchRequestString]);
+  }, [page, itemsPage, abvRange, ibuRange, fetchRequestString]);
+
+  useEffect(() => {
+    if (nameSearch !== undefined) {
+      const newFetchRequestString = fetchRequestString.concat(
+        `&beer_name=${nameSearch}`
+      );
+      fetch(newFetchRequestString)
+        .then((response) => response.json())
+        .then((responseData) => {
+          setBeers(responseData);
+        })
+        .catch((error) => {
+          console.log("Error fetching and parsing data", error);
+        });
+    }
+  }, [nameSearch, fetchRequestString]);
+
+  // const handleNameSearch = (value) => {
+  //   console.log("search value : ", value);
+  //   setNameSearch(value);
+  //     console.log("cafcsshjcxckilbjldgjmobjxmbkdmkdfm");
+  //   console.log("new fetch : ", newFetchRequestString);
 
   return (
     <div className="body-wrapper">
@@ -78,7 +91,7 @@ const BeerList = ({ location, history }) => {
         ebcDomain={ebcDomain}
         ebcRange={ebcRange}
         handleEbcRangeChange={setEbcRange}
-        handleNameSearch={handleNameSearch}
+        handleNameSearch={setNameSearch}
         // abvHigher={abvHigherThanValue}
         // abvLower={abvLowerThanValue}
         // handleHigherSlider={setAbvHigherThanValue}
