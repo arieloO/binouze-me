@@ -40,50 +40,6 @@ const ListFilters = ({
           />
           <label htmlFor="Pale Ale">Pale Ale</label>
         </li>
-        {/* <li>
-          <Slider
-            min={1}
-            max={56}
-            step={1}
-            value={abvHigher}
-            orientation="horizontal"
-            reverse={false}
-            tooltip={true}
-            labels={{
-              1: "0,5°",
-              15: "15°",
-              30: "30°",
-              55: "55° !!",
-            }}
-            // handleLabel={abvValue}
-            // format={Function}
-            onChangeStart={undefined}
-            onChange={handleHigherSlider}
-            onChangeComplete
-          />
-        </li>
-        <li>
-          <Slider
-            min={1}
-            max={55}
-            step={1}
-            value={abvLower}
-            orientation="horizontal"
-            reverse={false}
-            tooltip={true}
-            labels={{
-              1: "0,5°",
-              15: "15°",
-              30: "30°",
-              55: "55°",
-            }}
-            // handleLabel={abvValue}
-            // format={Function}
-            onChangeStart={undefined}
-            onChange={handleLowerSlider}
-            onChangeComplete
-          />
-        </li> */}
       </ul>
       <div className="filter ">
         {" "}

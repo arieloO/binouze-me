@@ -29,7 +29,10 @@ const BeerList = ({ location, history }) => {
   const [abvRange, setAbvRange] = useState([0.4, 56]);
 
   const ibuDomain = [0, 250];
-  const [ibuRange, setIbuRange] = useState([0, 250]);
+  const [ibuRange, setIbuRange] = useState([0, 251]);
+
+  const ebcDomain = [0, 601];
+  const [ebcRange, setEbcRange] = useState([0, 601]);
 
   const [nameSearch, setNameSearch] = useState();
 
@@ -37,14 +40,14 @@ const BeerList = ({ location, history }) => {
     `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}` +
       `&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}` +
       `&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}` +
-      `${nameSearch ? `&beer_name=${nameSearch}` : `&beer_name=LAGER`}`
+      `&ebc_gt=${ebcRange[0]}&ebc_lt=${ebcRange[1]}`
   );
   const handleNameSearch = (value) => {
     console.log("search value : ", value);
     setNameSearch(value);
-    // setFetchRequestString(
-    //   fetchRequestString.concat(`&beer_name=${nameSearch}`)
-    // );
+    setFetchRequestString(
+      fetchRequestString.concat(`&beer_name=${nameSearch}`)
+    );
     console.log("new fetch : ", fetchRequestString);
   };
 
@@ -72,6 +75,9 @@ const BeerList = ({ location, history }) => {
         ibuDomain={ibuDomain}
         ibuRange={ibuRange}
         handleIbuRangeChange={setIbuRange}
+        ebcDomain={ebcDomain}
+        ebcRange={ebcRange}
+        handleEbcRangeChange={setEbcRange}
         handleNameSearch={handleNameSearch}
         // abvHigher={abvHigherThanValue}
         // abvLower={abvLowerThanValue}
