@@ -15,6 +15,7 @@ const BeerNamesSearches = (props) => {
 
   return (
     <div className="filter">
+      <h3>type of beer :</h3>
       {beerTypes.map((beerType, index) => (
         <div className="filter-option" key={index}>
           <input

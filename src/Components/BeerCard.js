@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import StarRating from "./StarRating";
 import qs from "qs";
 
 const BeerCard = ({ match }) => {
@@ -29,11 +30,15 @@ const BeerCard = ({ match }) => {
   console.log(beerData);
   return (
     <div className="beer-card">
-      <img
-        src={beerData.image_url}
-        alt={beerData.name}
-        className="beer-card-image"
-      ></img>
+      <div beer-img-star>
+        <img
+          src={beerData.image_url}
+          alt={beerData.name}
+          className="beer-card-image"
+        ></img>
+        <StarRating />
+      </div>
+
       <div className="beer-card-info">
         <h1>
           <strong>{beerData.name}</strong>

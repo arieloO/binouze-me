@@ -24,7 +24,7 @@ const MultiSliderTest = ({
     <div
       style={{
         margin: "10%",
-        height: 120,
+        height: 20,
         width: "80%",
       }}
     >

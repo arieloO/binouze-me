@@ -107,7 +107,13 @@ const BeerList = ({ location, history }) => {
             ))}
           </ul>
         ) : (
-          <p>LOADING...</p>
+          <p
+            style={{
+              width: "80vw",
+            }}
+          >
+            LOADING...
+          </p>
         )}
       </div>
     </div>

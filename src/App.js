@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BeerList from "./Components/BeerList.js";
@@ -8,6 +8,14 @@ import NoMatch from "./Components/NoMatch";
 
 function App() {
   console.log("render app");
+
+  const [favBeers, setFavBeers] = useState();
+
+  const localState = localStorage.getItem("favBeers");
+  if (localState !== null) {
+    setFavBeers(JSON.parse(localState));
+  }
+
   return (
     <BrowserRouter basename="/binouze-me">
       <div className="App">
