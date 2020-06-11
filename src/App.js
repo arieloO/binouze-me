@@ -35,6 +35,28 @@ function App() {
           <Route component={NoMatch} />
         </Switch>
       </div>
+      <footer
+        style={{
+          display: "flex",
+          width: "100%",
+          maxHeight: "10px",
+          justifyContent: "center",
+          borderTop: "solid #000",
+        }}
+      >
+        <p
+          style={{
+            margin: "1px",
+          }}
+        >
+          Thank you for trying this little app, hope you enjoyed it, come visit
+          me on{" "}
+          <a href="https://github.com/arieloO" style={{ color: "blue" }}>
+            my git-hub page
+          </a>{" "}
+          for more info
+        </p>
+      </footer>
     </BrowserRouter>
   );
 }

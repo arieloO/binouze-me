@@ -181,8 +181,13 @@ a.active-nav-route {
 
 .filter-option {
   padding-left: 5%;
+  padding-bottom: 1%;
   display: flex;
   justify-content: flex-start;
+}
+.filter-option input {
+  margin-right: 5%;
+  display: block;
 }
 
 .filter-slider {
