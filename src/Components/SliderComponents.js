@@ -47,7 +47,15 @@ export function Handle({
   handle: { id, value, percent },
   disabled,
   getHandleProps,
+  handleButtonStyle,
 }) {
+  if (handleButtonStyle) {
+    var buttonStyle = {
+      left: `${percent}%`,
+      ...handleButtonStyle,
+    };
+  }
+
   return (
     <Fragment>
       <div
@@ -70,17 +78,19 @@ export function Handle({
         aria-valuemin={min}
         aria-valuemax={max}
         aria-valuenow={value}
-        style={{
-          left: `${percent}%`,
-          position: "absolute",
-          transform: "translate(-50%, -50%)",
-          zIndex: 2,
-          width: 24,
-          height: 24,
-          borderRadius: "50%",
-          boxShadow: "1px 1px 1px 1px rgba(0, 0, 0, 0.3)",
-          backgroundColor: disabled ? "#666" : "#ffc400",
-        }}
+        style={
+          buttonStyle || {
+            left: `${percent}%`,
+            position: "absolute",
+            transform: "translate(-50%, -50%)",
+            zIndex: 2,
+            width: 24,
+            height: 24,
+            borderRadius: "50%",
+            boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
+            backgroundColor: disabled ? "#666" : "#bd632f",
+          }
+        }
       />
     </Fragment>
   );
@@ -160,7 +170,7 @@ export function Track({ source, target, getTrackProps, disabled }) {
         height: 14,
         zIndex: 1,
 
-        backgroundColor: disabled ? "#999" : "#b28900",
+        backgroundColor: disabled ? "#999" : "#f2bb05",
         borderRadius: 7,
         cursor: "pointer",
         left: `${source.percent}%`,

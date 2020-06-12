@@ -8,12 +8,13 @@ const MultiSliderTest = ({
   handleRangeChange,
   ticksNumber,
   railBackgroundColor,
+  noTrack,
+  handleButtonStyle,
 }) => {
   const sliderStyle = {
     position: "relative",
     width: "100%",
   };
-
   const domain = rangeDomain;
   const defaultValues = range;
 
@@ -56,25 +57,28 @@ const MultiSliderTest = ({
                   handle={handle}
                   domain={domain}
                   getHandleProps={getHandleProps}
+                  handleButtonStyle={handleButtonStyle}
                 />
               ))}
             </div>
           )}
         </Handles>
-        <Tracks left={false} right={false}>
-          {({ tracks, getTrackProps }) => (
-            <div className="slider-tracks">
-              {tracks.map(({ id, source, target }) => (
-                <Track
-                  key={id}
-                  source={source}
-                  target={target}
-                  getTrackProps={getTrackProps}
-                />
-              ))}
-            </div>
-          )}
-        </Tracks>
+        {noTrack ? null : (
+          <Tracks left={false} right={false}>
+            {({ tracks, getTrackProps }) => (
+              <div className="slider-tracks">
+                {tracks.map(({ id, source, target }) => (
+                  <Track
+                    key={id}
+                    source={source}
+                    target={target}
+                    getTrackProps={getTrackProps}
+                  />
+                ))}
+              </div>
+            )}
+          </Tracks>
+        )}
         <Ticks count={ticksNumber}>
           {({ ticks }) => (
             <div className="slider-ticks">

@@ -1,9 +1,12 @@
 import React from "react";
 
 import MultiSliderTest from "./MultiSliderTest.js";
-import "react-rangeslider/lib/index.css";
 import BeerNamesSearches from "./BeerNamesSearches";
-import { SRMColorRadient } from "./SRMcolors.js";
+import {
+  SRMColorRadient,
+  SRMcolor,
+  SRMHandlerButtonStyle,
+} from "./SRMcolors.js";
 
 const ListFilters = ({
   abvDomain,
@@ -21,33 +24,12 @@ const ListFilters = ({
   // handleHigherSlider,
   // handleLowerSlider,
 }) => {
+  const hexForSrm = Math.round(srmRange[1] / 15);
+  console.log("hex for srm", hexForSrm);
   return (
     <div className="nav-filters">
       <BeerNamesSearches handleSwitch={handleNameSearch} />
 
-      <ul className="filters-list">
-        <li className="filter-option">
-          <input
-            type="checkbox"
-            onChange={(e) =>
-              e.target.checked ? handleNameSearch("ipa") : null
-            }
-            id="IPA"
-            name="IPA"
-          />
-          <label htmlFor="IPA">IPA</label>
-        </li>
-        <li className="filter-option">
-          {" "}
-          <input
-            type="checkbox"
-            id="Pale Ale"
-            onChange={() => handleNameSearch("pale_ale")}
-            name="Pale Ale"
-          />
-          <label htmlFor="Pale Ale">Pale Ale</label>
-        </li>
-      </ul>
       <div className="filter ">
         {" "}
         Alcohol by volume :
@@ -78,9 +60,10 @@ const ListFilters = ({
           handleRangeChange={handleSrmRangeChange}
           ticksNumber={6}
           railBackgroundColor={SRMColorRadient}
+          noTrack={true}
+          handleButtonStyle={SRMHandlerButtonStyle}
         />
       </div>
-      <div className="SRMColorGradient"></div>
     </div>
   );
 };

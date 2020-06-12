@@ -31,8 +31,8 @@ const BeerList = ({ location, history }) => {
   const ibuDomain = [0, 250];
   const [ibuRange, setIbuRange] = useState([0, 251]);
 
-  const ebcDomain = [0, 601];
-  const [ebcRange, setEbcRange] = useState([0, 601]);
+  const srmDomain = [0, 601];
+  const [srmRange, setSrmRange] = useState([0, 601]);
 
   const [nameSearch, setNameSearch] = useState();
 
@@ -40,7 +40,7 @@ const BeerList = ({ location, history }) => {
     `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}` +
     `&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}` +
     `&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}` +
-    `&ebc_gt=${ebcRange[0]}&ebc_lt=${ebcRange[1]}`;
+    `&ebc_gt=${parseInt(srmRange[0]) / 2}&ebc_lt=${parseInt(srmRange[1]) / 2}`;
 
   console.log("beers : ", beers && beers, typeof beers);
   console.log("search : ", nameSearch);
@@ -56,7 +56,7 @@ const BeerList = ({ location, history }) => {
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [page, itemsPage, abvRange, ibuRange, fetchRequestString]);
+  }, [page, itemsPage, abvRange, ibuRange, srmRange, fetchRequestString]);
 
   useEffect(() => {
     if (nameSearch !== undefined) {
@@ -84,9 +84,9 @@ const BeerList = ({ location, history }) => {
         ibuDomain={ibuDomain}
         ibuRange={ibuRange}
         handleIbuRangeChange={setIbuRange}
-        ebcDomain={ebcDomain}
-        ebcRange={ebcRange}
-        handleEbcRangeChange={setEbcRange}
+        srmDomain={srmDomain}
+        srmRange={srmRange}
+        handleSrmRangeChange={setSrmRange}
         handleNameSearch={setNameSearch}
       />
 

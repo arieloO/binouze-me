@@ -193,6 +193,48 @@ a.active-nav-route {
 .filter-slider {
   color: #bd632f;
   height: 10%;
+  background: linear-gradient(
+    90deg,
+    #ffe699,
+    #ffd878,
+    #ffca5a,
+    #ffbf42,
+    #fbb123,
+    #f8a600,
+    #f39c00,
+    #ea8f00,
+    #e58500,
+    #de7c00,
+    #d77200,
+    #cf6900,
+    #cb6200,
+    #c35900,
+    #bb5100,
+    #b54c00,
+    #b04500,
+    #a63e00,
+    #a13700,
+    #9b3200,
+    #952d00,
+    #8e2900,
+    #882300,
+    #821e00,
+    #7b1a00,
+    #771900,
+    #701400,
+    #6a0e00,
+    #660d00,
+    #600903,
+    #5e0b00,
+    #5a0a02,
+    #520907,
+    #470606,
+    #440607,
+    #3f0708,
+    #3b0607,
+    #3a070b,
+    #36080a
+  );
 }
 
 .beer-list {
@@ -290,6 +332,52 @@ a.active-nav-route {
 
 .beer-stars .selected .star {
   fill: #f2bb05;
+}
+.SRMColorGradient {
+  width: 200px;
+  height: 20px;
+  background: linear-gradient(
+    90deg,
+    #ffe699,
+    #ffd878,
+    #ffca5a,
+    #ffbf42,
+    #fbb123,
+    #f8a600,
+    #f39c00,
+    #ea8f00,
+    #e58500,
+    #de7c00,
+    #d77200,
+    #cf6900,
+    #cb6200,
+    #c35900,
+    #bb5100,
+    #b54c00,
+    #b04500,
+    #a63e00,
+    #a13700,
+    #9b3200,
+    #952d00,
+    #8e2900,
+    #882300,
+    #821e00,
+    #7b1a00,
+    #771900,
+    #701400,
+    #6a0e00,
+    #660d00,
+    #600903,
+    #5e0b00,
+    #5a0a02,
+    #520907,
+    #470606,
+    #440607,
+    #3f0708,
+    #3b0607,
+    #3a070b,
+    #36080a
+  );
 }
 
 #modal-root {
