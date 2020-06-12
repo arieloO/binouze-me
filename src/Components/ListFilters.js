@@ -3,6 +3,7 @@ import React from "react";
 import MultiSliderTest from "./MultiSliderTest.js";
 import "react-rangeslider/lib/index.css";
 import BeerNamesSearches from "./BeerNamesSearches";
+import { SRMColorRadient } from "./SRMcolors.js";
 
 const ListFilters = ({
   abvDomain,
@@ -11,6 +12,9 @@ const ListFilters = ({
   ibuDomain,
   ibuRange,
   handleIbuRangeChange,
+  srmDomain,
+  srmRange,
+  handleSrmRangeChange,
   handleNameSearch,
   // abvHigher,
   // abvLower,
@@ -62,8 +66,21 @@ const ListFilters = ({
           range={ibuRange}
           handleRangeChange={handleIbuRangeChange}
           ticksNumber={6}
+          // sliderBackgroundColor={}
         />
       </div>
+      <div className="filter ">
+        {" "}
+        Color (SRM) :
+        <MultiSliderTest
+          rangeDomain={srmDomain}
+          range={srmRange}
+          handleRangeChange={handleSrmRangeChange}
+          ticksNumber={6}
+          railBackgroundColor={SRMColorRadient}
+        />
+      </div>
+      <div className="SRMColorGradient"></div>
     </div>
   );
 };

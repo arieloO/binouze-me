@@ -7,6 +7,7 @@ const MultiSliderTest = ({
   range,
   handleRangeChange,
   ticksNumber,
+  railBackgroundColor,
 }) => {
   const sliderStyle = {
     position: "relative",
@@ -39,7 +40,12 @@ const MultiSliderTest = ({
         className={"filter-slider"}
       >
         <Rail>
-          {({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}
+          {({ getRailProps }) => (
+            <SliderRail
+              railBackgroundColor={railBackgroundColor}
+              getRailProps={getRailProps}
+            />
+          )}
         </Rail>
         <Handles>
           {({ handles, getHandleProps }) => (

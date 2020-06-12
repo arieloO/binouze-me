@@ -26,11 +26,11 @@ const railInnerStyle = {
   backgroundColor: "rgb(155,155,155)",
 };
 
-export function SliderRail({ getRailProps }) {
+export function SliderRail({ getRailProps, railBackgroundColor }) {
   return (
     <Fragment>
       <div style={railOuterStyle} {...getRailProps()} />
-      <div style={railInnerStyle} />
+      <div style={railBackgroundColor || railInnerStyle} />
     </Fragment>
   );
 }
@@ -159,6 +159,7 @@ export function Track({ source, target, getTrackProps, disabled }) {
         transform: "translate(0%, -50%)",
         height: 14,
         zIndex: 1,
+
         backgroundColor: disabled ? "#999" : "#b28900",
         borderRadius: 7,
         cursor: "pointer",
