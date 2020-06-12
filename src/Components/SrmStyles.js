@@ -1,5 +1,4 @@
 export const SRMcolor = [
-  "#f0f0c9",
   "#FFE699",
   "#FFD878",
   "#FFCA5A",

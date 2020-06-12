@@ -4,9 +4,9 @@ import MultiSliderTest from "./MultiSliderTest.js";
 import BeerNamesSearches from "./BeerNamesSearches";
 import {
   SRMColorRadient,
-  SRMcolor,
   SRMHandlerButtonStyle,
-} from "./SRMcolors.js";
+  SRMcolor,
+} from "./SrmStyles.js";
 
 const ListFilters = ({
   abvDomain,
@@ -19,13 +19,13 @@ const ListFilters = ({
   srmRange,
   handleSrmRangeChange,
   handleNameSearch,
-  // abvHigher,
-  // abvLower,
-  // handleHigherSlider,
-  // handleLowerSlider,
 }) => {
-  const hexForSrm = Math.round(srmRange[1] / 15);
-  console.log("hex for srm", hexForSrm);
+  const hexForSrm0 = SRMcolor[Math.round(srmRange[0] / 15)];
+  const hexForSrm1 = SRMcolor[Math.round(srmRange[1] / 15)];
+  const hexForSrmMiddle =
+    SRMcolor[Math.round((srmRange[0] / 15 + srmRange[1] / 15) / 2)];
+
+  console.log("hex for srm", hexForSrm0, hexForSrmMiddle, hexForSrm1);
   return (
     <div className="nav-filters">
       <BeerNamesSearches handleSwitch={handleNameSearch} />
@@ -63,6 +63,23 @@ const ListFilters = ({
           noTrack={true}
           handleButtonStyle={SRMHandlerButtonStyle}
         />
+        <div>
+          {/* <div
+            style={{
+              height: 30,
+              width: "50%",
+              backgroundColor: SRMcolor[hexForSrm0],
+            }}
+          ></div> */}
+          <div
+            id="brown"
+            style={{
+              height: 100,
+              width: "100%",
+              background: `linear-gradient(90deg, ${hexForSrm0}, ${hexForSrmMiddle}, ${hexForSrm1})`,
+            }}
+          ></div>
+        </div>
       </div>
     </div>
   );
