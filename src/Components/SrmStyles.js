@@ -57,37 +57,37 @@ export const SRMColorRadient = {
   background: `linear-gradient(90deg,${SRMcolor})`,
 };
 
-export const SRMHandlerButtonStyle = (a, b) => {
-  return {
-    "$$-0": {
-      position: "absolute",
-      transform: "translate(-50%, -50%)",
-      zIndex: 2,
-      width: 12,
-      height: 28,
-      borderRadius: "20%",
-      //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
-      boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",
-      backgroundColor: a,
-      //borderColor: b,
-      borderColor: "rgba(0, 0, 0, 0.3)",
-      borderStyle: "solid",
-      borderWidth: "1px",
-    },
-    "$$-1": {
-      position: "absolute",
-      transform: "translate(-50%, -50%)",
-      zIndex: 2,
-      width: 12,
-      height: 28,
-      borderRadius: "20%",
-      //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
-      boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",
-      backgroundColor: b,
-      //borderColor: a,
-      borderColor: "rgba(0, 0, 0, 0.3)",
-      borderStyle: "solid",
-      borderWidth: "1px",
-    },
-  };
-};
+// export const SRMHandlerButtonStyle = (a, b) => {
+//   return {
+//     "$$-0": {
+//       position: "absolute",
+//       transform: "translate(-50%, -50%)",
+//       zIndex: 2,
+//       width: 12,
+//       height: 28,
+//       borderRadius: "20%",
+//       //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
+//       boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",
+//       backgroundColor: a,
+//       //borderColor: b,
+//       borderColor: "rgba(0, 0, 0, 0.3)",
+//       borderStyle: "solid",
+//       borderWidth: "1px",
+//     },
+//     "$$-1": {
+//       position: "absolute",
+//       transform: "translate(-50%, -50%)",
+//       zIndex: 2,
+//       width: 12,
+//       height: 28,
+//       borderRadius: "20%",
+//       //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
+//       boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",
+//       backgroundColor: b,
+//       //borderColor: a,
+//       borderColor: "rgba(0, 0, 0, 0.3)",
+//       borderStyle: "solid",
+//       borderWidth: "1px",
+//     },
+//   };
+// };

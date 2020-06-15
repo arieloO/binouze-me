@@ -26,6 +26,31 @@ const railInnerStyle = {
   backgroundColor: "#F2BB05",
 };
 
+const customHandleGradientStyle = (value) => {
+  return {
+    width: 12,
+    height: 28,
+    borderRadius: "20%",
+    //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
+    boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",
+    backgroundColor: value,
+    //borderColor: b,
+    borderColor: "rgba(0, 0, 0, 0.3)",
+    borderStyle: "solid",
+    borderWidth: "1px",
+  };
+};
+const defaultHandleStyle = {
+  position: "absolute",
+  transform: "translate(-50%, -50%)",
+  zIndex: 2,
+  width: 2,
+  height: 18,
+  borderRadius: "20%",
+  border: "2px solid #042A2B",
+  boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
+};
+
 export function SliderRail({ getRailProps, railBackgroundColor }) {
   return (
     <Fragment>
@@ -46,19 +71,10 @@ export function Handle({
   domain: [min, max],
   handle: { id, value, percent },
   disabled,
+  customHandleColor,
+  customColorsList,
   getHandleProps,
-  handleButtonStyle,
-  styleId,
 }) {
-  if (handleButtonStyle) {
-    var customStyle = handleButtonStyle[styleId];
-    var buttonStyle = {
-      left: `${percent}%`,
-      ...customStyle,
-    };
-    console.log("newbuttonstyme", buttonStyle, customStyle);
-  }
-
   return (
     <Fragment>
       <div
@@ -81,20 +97,18 @@ export function Handle({
         aria-valuemin={min}
         aria-valuemax={max}
         aria-valuenow={value}
-        style={
-          buttonStyle || {
-            left: `${percent}%`,
-            position: "absolute",
-            transform: "translate(-50%, -50%)",
-            zIndex: 2,
-            width: 2,
-            height: 18,
-            borderRadius: "20%",
-            border: "2px solid #042A2B",
-            boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
-            backgroundColor: disabled ? "#666" : "#124e78",
-          }
-        }
+        style={{
+          left: `${percent}%`,
+          backgroundColor: disabled ? "#666" : "#124e78",
+          ...defaultHandleStyle,
+          ...(customHandleColor
+            ? {
+                ...customHandleGradientStyle(
+                  `${customColorsList[Math.round(value / 15)]}`
+                ),
+              }
+            : null),
+        }}
       />
     </Fragment>
   );

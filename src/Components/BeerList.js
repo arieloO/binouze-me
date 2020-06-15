@@ -31,6 +31,7 @@ const BeerList = ({ location, history }) => {
 
   const srmDomain = [0, 601];
   const [srmRange, setSrmRange] = useState([0, 601]);
+  // const [srmColorRange, setSrmColorRange] = useState([0, 601]);
 
   const [nameSearch, setNameSearch] = useState();
 

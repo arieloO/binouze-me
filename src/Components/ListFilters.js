@@ -2,11 +2,15 @@ import React from "react";
 
 import MultiSliderTest from "./MultiSliderTest.js";
 import BeerNamesSearches from "./BeerNamesSearches";
-import {
-  SRMColorRadient,
-  SRMHandlerButtonStyle,
-  SRMcolor,
-} from "./SrmStyles.js";
+import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
+
+const getHexForSRMs = (valuesArray) => {
+  return [
+    `${SRMcolor[Math.round(valuesArray[0] / 15)]}`,
+    `${SRMcolor[Math.round(valuesArray[1] / 15)]}`,
+    `${SRMcolor[Math.round((valuesArray[0] / 15 + valuesArray[1] / 15) / 2)]}`,
+  ];
+};
 
 const ListFilters = ({
   abvDomain,
@@ -18,14 +22,14 @@ const ListFilters = ({
   srmDomain,
   srmRange,
   handleSrmRangeChange,
+  // srmRangeUpdate,
+  // handleSrmRangeUpdate,
   handleNameSearch,
 }) => {
-  const hexForSrm0 = SRMcolor[Math.round(srmRange[0] / 15)];
-  const hexForSrm1 = SRMcolor[Math.round(srmRange[1] / 15)];
-  const hexForSrmMiddle =
-    SRMcolor[Math.round((srmRange[0] / 15 + srmRange[1] / 15) / 2)];
+  const hexForSRMs = getHexForSRMs(srmRange);
 
-  console.log("hex for srm", hexForSrm0, hexForSrmMiddle, hexForSrm1);
+  console.log("hex for srm", hexForSRMs[0], hexForSRMs[2], hexForSRMs[1]);
+
   return (
     <div className="nav-filters">
       <BeerNamesSearches handleSwitch={handleNameSearch} />
@@ -37,6 +41,7 @@ const ListFilters = ({
           rangeDomain={abvDomain}
           range={abvRange}
           handleRangeChange={handleAbvRangeChange}
+          handleRangeUpdate={handleAbvRangeChange}
           ticksNumber={6}
         />
       </div>
@@ -47,6 +52,7 @@ const ListFilters = ({
           rangeDomain={ibuDomain}
           range={ibuRange}
           handleRangeChange={handleIbuRangeChange}
+          handleRangeUpdate={handleIbuRangeChange}
           ticksNumber={6}
           // sliderBackgroundColor={}
         />
@@ -61,25 +67,16 @@ const ListFilters = ({
           ticksNumber={6}
           railBackgroundColor={SRMColorRadient}
           noTrack={true}
-          handleButtonStyle={SRMHandlerButtonStyle(
-            `${hexForSrm0}`,
-            `${hexForSrm1}`
-          )}
+          customHandleColor={true}
+          customColorsList={SRMcolor}
         />
         <div>
-          {/* <div
-            style={{
-              height: 30,
-              width: "50%",
-              backgroundColor: SRMcolor[hexForSrm0],
-            }}
-          ></div> */}
           <div
             id="brown"
             style={{
               height: 100,
               width: "100%",
-              background: `linear-gradient(90deg, ${hexForSrm0}, ${hexForSrmMiddle}, ${hexForSrm1})`,
+              background: `linear-gradient(90deg, ${hexForSRMs[0]}, ${hexForSRMs[2]}, ${hexForSRMs[1]})`,
             }}
           ></div>
         </div>

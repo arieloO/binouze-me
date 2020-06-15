@@ -1,15 +1,18 @@
 import React from "react";
 import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
+
 import { SliderRail, Handle, Track, Tick } from "./SliderComponents"; // example render components - source below
 
 const MultiSliderTest = ({
   rangeDomain,
   range,
   handleRangeChange,
+  handleRangeUpdate,
   ticksNumber,
   railBackgroundColor,
   noTrack,
-  handleButtonStyle,
+  customHandleColor,
+  customColorsList,
 }) => {
   const sliderStyle = {
     position: "relative",
@@ -17,14 +20,6 @@ const MultiSliderTest = ({
   };
   const domain = rangeDomain;
   const defaultValues = range;
-
-  const onChange = (value) => {
-    console.log("ONChange : ", value);
-  };
-
-  const onUpdate = (value) => {
-    console.log("ONUpdate : ", value);
-  };
 
   return (
     <div
@@ -39,7 +34,7 @@ const MultiSliderTest = ({
         step={1}
         domain={domain}
         rootStyle={sliderStyle}
-        onUpdate={onUpdate}
+        onUpdate={handleRangeUpdate}
         onChange={handleRangeChange}
         values={defaultValues}
         className={"filter-slider"}
@@ -64,7 +59,8 @@ const MultiSliderTest = ({
                     handle={handle}
                     domain={domain}
                     getHandleProps={getHandleProps}
-                    handleButtonStyle={handleButtonStyle}
+                    customHandleColor={customHandleColor}
+                    customColorsList={customColorsList}
                   />
                 );
               })}
