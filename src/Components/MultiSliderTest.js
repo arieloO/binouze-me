@@ -18,6 +18,10 @@ const MultiSliderTest = ({
   const domain = rangeDomain;
   const defaultValues = range;
 
+  const onChange = (value) => {
+    console.log("ONChange : ", value);
+  };
+
   const onUpdate = (value) => {
     console.log("ONUpdate : ", value);
   };
@@ -51,15 +55,19 @@ const MultiSliderTest = ({
         <Handles>
           {({ handles, getHandleProps }) => (
             <div className="slider-handles">
-              {handles.map((handle) => (
-                <Handle
-                  key={handle.id}
-                  handle={handle}
-                  domain={domain}
-                  getHandleProps={getHandleProps}
-                  handleButtonStyle={handleButtonStyle}
-                />
-              ))}
+              {handles.map((handle) => {
+                const styleId = handle.id;
+                return (
+                  <Handle
+                    key={handle.id}
+                    styleId={styleId}
+                    handle={handle}
+                    domain={domain}
+                    getHandleProps={getHandleProps}
+                    handleButtonStyle={handleButtonStyle}
+                  />
+                );
+              })}
             </div>
           )}
         </Handles>

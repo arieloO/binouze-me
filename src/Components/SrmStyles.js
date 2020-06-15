@@ -40,30 +40,54 @@ export const SRMcolor = [
   "#3A070B",
   "#36080A",
   "#36080A",
+  "#36080A",
   "#f0f0c9",
 ];
 
 export const SRMColorRadient = {
   position: "absolute",
   width: "100%",
-  height: 18,
+  height: 28,
   transform: "translate(0%, -50%)",
   borderRadius: 2,
   pointerEvents: "none",
   borderColor: `linear-gradient(180deg, ${SRMcolor})`,
-  borderTop: "2px solid ",
-  borderBottom: "2px solid ",
+  // borderTop: "3px solid ",
+  // borderBottom: "3px solid ",
   background: `linear-gradient(90deg,${SRMcolor})`,
 };
 
-export const SRMHandlerButtonStyle = {
-  position: "absolute",
-  transform: "translate(-50%, -50%)",
-  zIndex: 2,
-  width: 17,
-  height: 17,
-  borderRadius: "50%",
-  boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
-  borderColor: `linear-gradient(180deg, ${SRMcolor})`,
-  border: "2px solid ",
+export const SRMHandlerButtonStyle = (a, b) => {
+  return {
+    "$$-0": {
+      position: "absolute",
+      transform: "translate(-50%, -50%)",
+      zIndex: 2,
+      width: 12,
+      height: 28,
+      borderRadius: "20%",
+      //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
+      boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",
+      backgroundColor: a,
+      //borderColor: b,
+      borderColor: "rgba(0, 0, 0, 0.3)",
+      borderStyle: "solid",
+      borderWidth: "1px",
+    },
+    "$$-1": {
+      position: "absolute",
+      transform: "translate(-50%, -50%)",
+      zIndex: 2,
+      width: 12,
+      height: 28,
+      borderRadius: "20%",
+      //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
+      boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",
+      backgroundColor: b,
+      //borderColor: a,
+      borderColor: "rgba(0, 0, 0, 0.3)",
+      borderStyle: "solid",
+      borderWidth: "1px",
+    },
+  };
 };

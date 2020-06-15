@@ -39,9 +39,9 @@ function App() {
         style={{
           display: "flex",
           width: "100%",
-          maxHeight: "10px",
           justifyContent: "center",
-          borderTop: "solid #000",
+          // borderTop: "solid #000",
+          boxShadow: "0px 0px 2px 1px inset #124e78, 0px 0px 2px 0px #124e78",
         }}
       >
         <p

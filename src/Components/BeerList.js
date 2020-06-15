@@ -22,10 +22,8 @@ const BeerList = ({ location, history }) => {
   const pageDisplay = `page : ${page}`;
 
   //
-  //
-  //
   //ListFilters.js parameters
-  const abvDomain = [0.4, 56];
+  const abvDomain = [0, 56];
   const [abvRange, setAbvRange] = useState([0.4, 56]);
 
   const ibuDomain = [0, 250];

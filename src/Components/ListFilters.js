@@ -37,7 +37,7 @@ const ListFilters = ({
           rangeDomain={abvDomain}
           range={abvRange}
           handleRangeChange={handleAbvRangeChange}
-          ticksNumber={8}
+          ticksNumber={6}
         />
       </div>
       <div className="filter ">
@@ -61,7 +61,10 @@ const ListFilters = ({
           ticksNumber={6}
           railBackgroundColor={SRMColorRadient}
           noTrack={true}
-          handleButtonStyle={SRMHandlerButtonStyle}
+          handleButtonStyle={SRMHandlerButtonStyle(
+            `${hexForSrm0}`,
+            `${hexForSrm1}`
+          )}
         />
         <div>
           {/* <div

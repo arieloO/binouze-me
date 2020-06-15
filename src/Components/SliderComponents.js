@@ -23,7 +23,7 @@ const railInnerStyle = {
   transform: "translate(0%, -50%)",
   borderRadius: 7,
   pointerEvents: "none",
-  backgroundColor: "rgb(155,155,155)",
+  backgroundColor: "#F2BB05",
 };
 
 export function SliderRail({ getRailProps, railBackgroundColor }) {
@@ -48,12 +48,15 @@ export function Handle({
   disabled,
   getHandleProps,
   handleButtonStyle,
+  styleId,
 }) {
   if (handleButtonStyle) {
+    var customStyle = handleButtonStyle[styleId];
     var buttonStyle = {
       left: `${percent}%`,
-      ...handleButtonStyle,
+      ...customStyle,
     };
+    console.log("newbuttonstyme", buttonStyle, customStyle);
   }
 
   return (
@@ -84,11 +87,12 @@ export function Handle({
             position: "absolute",
             transform: "translate(-50%, -50%)",
             zIndex: 2,
-            width: 24,
-            height: 24,
-            borderRadius: "50%",
+            width: 2,
+            height: 18,
+            borderRadius: "20%",
+            border: "2px solid #042A2B",
             boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
-            backgroundColor: disabled ? "#666" : "#bd632f",
+            backgroundColor: disabled ? "#666" : "#124e78",
           }
         }
       />

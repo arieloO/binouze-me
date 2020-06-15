@@ -123,8 +123,8 @@ a.active-nav-route {
   padding: 4px;
   justify-content: space-between;
   background-color: #f0f0c9;
-  border-bottom: solid 1px #124e78;
-  box-shadow: #124e78 1px 1px 3px 0px;
+  /* border-bottom: solid 1px #124e78; */
+  box-shadow: 0px 0px 2px 1px inset #124e78, 0px 0px 2px 0px #124e78;
 }
 
 .nav-options select {
@@ -133,7 +133,7 @@ a.active-nav-route {
   color: #bd632f;
   background-color: inherit;
   border-style: none;
-  box-shadow: 0px 0px 2px 1px #124e78;
+  box-shadow: 0px 0px 2px 1px inset #124e78;
 }
 
 .nav-page {
