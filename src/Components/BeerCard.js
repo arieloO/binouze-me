@@ -40,14 +40,19 @@ const BeerCard = ({ match }) => {
       </div>
 
       <div className="beer-card-info">
-        <h1>
-          <strong>{beerData.name}</strong>
+        <h1 className="beer-card-title">
+          <strong>{beerData.name.toUpperCase()}</strong>
         </h1>
-        <p>{beerData.tagline}</p>
+        <p style={{ marginTop: 5, fontStyle: "italic" }}>{beerData.tagline}</p>
         <h2>BREWERS TIPS</h2>
         <p>{beerData.brewers_tips}</p>
         <h2>FOOD PAIRING</h2>
-        <p>{beerData.food_pairing}</p>
+
+        <ul style={{ listStyle: "symbols(cyclic '❁''❁')" }}>
+          {beerData.food_pairing.map((dishes) => (
+            <li>{dishes}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

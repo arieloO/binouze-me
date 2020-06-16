@@ -1,14 +1,16 @@
 import React from "react";
 
-import MultiSliderTest from "./MultiSliderTest.js";
+import MultiSliderTest from "./Slider.js";
 import BeerNamesSearches from "./BeerNamesSearches";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
+import { findByLabelText } from "@testing-library/react";
 
 const getHexForSRMs = (valuesArray) => {
   return [
     `${SRMcolor[Math.round(valuesArray[0] / 15)]}`,
     `${SRMcolor[Math.round(valuesArray[1] / 15)]}`,
     `${SRMcolor[Math.round((valuesArray[0] / 15 + valuesArray[1] / 15) / 2)]}`,
+    `${SRMcolor[Math.round((valuesArray[0] * 2 + valuesArray[1]) / 15 / 3)]}`,
   ];
 };
 
@@ -22,13 +24,9 @@ const ListFilters = ({
   srmDomain,
   srmRange,
   handleSrmRangeChange,
-  // srmRangeUpdate,
-  // handleSrmRangeUpdate,
   handleNameSearch,
 }) => {
   const hexForSRMs = getHexForSRMs(srmRange);
-
-  console.log("hex for srm", hexForSRMs[0], hexForSRMs[2], hexForSRMs[1]);
 
   return (
     <div className="nav-filters">
@@ -71,14 +69,14 @@ const ListFilters = ({
           customColorsList={SRMcolor}
         />
         <div>
-          <div
+          {/* <div
             id="brown"
             style={{
               height: 100,
               width: "100%",
-              background: `linear-gradient(90deg, ${hexForSRMs[0]}, ${hexForSRMs[2]}, ${hexForSRMs[1]})`,
+              background: `linear-gradient(100deg, ${hexForSRMs[0]},${hexForSRMs[3]}, ${hexForSRMs[2]}, ${hexForSRMs[1]})`,
             }}
-          ></div>
+          ></div> */}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import qs from "qs";
 import BeerPic from "./BeerItem.js";
 import NavOptions from "./NavOptions.js";
-import ListFilters from "./ListFilters.js";
+import ListFilters from "./Filters.js";
 
 const BeerList = ({ location, history }) => {
   const [beers, setBeers] = useState([]);

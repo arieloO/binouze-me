@@ -1,7 +1,11 @@
 import React from "react";
 import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
 
-import { SliderRail, Handle, Track, Tick } from "./SliderComponents"; // example render components - source below
+import SliderRail from "./SliderComponents/SliderRail";
+import Track from "./SliderComponents/Track";
+import Handle from "./SliderComponents/Handle";
+import Tick from "./SliderComponents/Tick";
+// example render components - source below
 
 const MultiSliderTest = ({
   rangeDomain,

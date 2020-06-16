@@ -281,6 +281,13 @@ a.active-nav-route {
   height: 50vh;
 }
 
+.beer-card-title {
+  padding-left: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 .beer-card-info {
   margin: 2vh;
   padding: 2vh;
@@ -288,6 +295,19 @@ a.active-nav-route {
   flex-direction: column;
   align-items: flex-start;
   flex-grow: 1;
+  text-align: start;
+}
+
+.beer-card-info p {
+  padding-left: 10px;
+}
+
+.beer-card-info li:before {
+  display: inline-block;
+  content: "⦿";
+  font-weight: bolder;
+  color: #bd632f27;
+  margin-right: 10px;
 }
 
 .beer-img-star {
@@ -332,6 +352,16 @@ a.active-nav-route {
 
 .beer-stars .selected .star {
   fill: #f2bb05;
+  animation: grow 0.3s ease-in-out;
+}
+
+@keyframes grow {
+  35% {
+    transform: scale(1.1) rotate(+4deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(-4deg);
+  }
 }
 .SRMColorGradient {
   width: 200px;

@@ -40,7 +40,6 @@ function App() {
           display: "flex",
           width: "100%",
           justifyContent: "center",
-          // borderTop: "solid #000",
           boxShadow: "0px 0px 2px 1px inset #124e78, 0px 0px 2px 0px #124e78",
         }}
       >

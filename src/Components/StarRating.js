@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Star from "./Star";
+import BeerStar from "./BeerStar";
 
-const StarRating = () => {
-  const [rating, setRating] = useState(0);
+const StarRating = ({ beerRating = 0 }) => {
+  const [rating, setRating] = useState(beerRating);
   // Initialize a 'rating' state
 
   const rate = (id) => {
@@ -13,10 +14,25 @@ const StarRating = () => {
     }
   };
 
-  const starList = () => {
+  // const starList = () => {
+  //   let list = [];
+  //   for (let i = 0; i < 5; i++) {
+  //     list.push(<Star id={i + 1} key={i} rate={rate} checked={i < rating} />);
+  //   }
+  //   return list;
+  // };
+  const beerStarList = () => {
     let list = [];
     for (let i = 0; i < 5; i++) {
-      list.push(<Star id={i + 1} key={i} rate={rate} checked={i < rating} />);
+      list.push(
+        <BeerStar
+          id={i + 1}
+          key={i}
+          rate={rate}
+          checked={i < rating}
+          size={36}
+        />
+      );
     }
     return list;
   };
@@ -25,12 +41,11 @@ const StarRating = () => {
     console.log("RE-RENDER !!");
   }, [rating]);
 
-  // Write a function that returns 5 Star components
-
-  // Write an event handler that updates the rating state.
-  // Pass the function to a Star component via props
-
-  return <ul className="beer-stars">{starList()}</ul>;
+  return (
+    <div>
+      <ul className="beer-stars">{beerStarList()}</ul>
+    </div>
+  );
 };
 
 export default StarRating;

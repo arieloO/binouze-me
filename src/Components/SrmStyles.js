@@ -28,9 +28,9 @@ export const SRMcolor = [
   "#701400",
   "#6A0E00",
   "#660D00",
+  "#620903",
   "#5E0B00",
   "#5A0A02",
-  "#600903",
   "#520907",
   "#4C0505",
   "#470606",
@@ -41,7 +41,6 @@ export const SRMcolor = [
   "#36080A",
   "#36080A",
   "#36080A",
-  "#f0f0c9",
 ];
 
 export const SRMColorRadient = {
@@ -51,43 +50,5 @@ export const SRMColorRadient = {
   transform: "translate(0%, -50%)",
   borderRadius: 2,
   pointerEvents: "none",
-  borderColor: `linear-gradient(180deg, ${SRMcolor})`,
-  // borderTop: "3px solid ",
-  // borderBottom: "3px solid ",
   background: `linear-gradient(90deg,${SRMcolor})`,
 };
-
-// export const SRMHandlerButtonStyle = (a, b) => {
-//   return {
-//     "$$-0": {
-//       position: "absolute",
-//       transform: "translate(-50%, -50%)",
-//       zIndex: 2,
-//       width: 12,
-//       height: 28,
-//       borderRadius: "20%",
-//       //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
-//       boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",
-//       backgroundColor: a,
-//       //borderColor: b,
-//       borderColor: "rgba(0, 0, 0, 0.3)",
-//       borderStyle: "solid",
-//       borderWidth: "1px",
-//     },
-//     "$$-1": {
-//       position: "absolute",
-//       transform: "translate(-50%, -50%)",
-//       zIndex: 2,
-//       width: 12,
-//       height: 28,
-//       borderRadius: "20%",
-//       //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
-//       boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",
-//       backgroundColor: b,
-//       //borderColor: a,
-//       borderColor: "rgba(0, 0, 0, 0.3)",
-//       borderStyle: "solid",
-//       borderWidth: "1px",
-//     },
-//   };
-// };
