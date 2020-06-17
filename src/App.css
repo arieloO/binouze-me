@@ -306,7 +306,7 @@ a.active-nav-route {
   display: inline-block;
   content: "⦿";
   font-weight: bolder;
-  color: #bd632f27;
+  color: #bd632f54;
   margin-right: 10px;
 }
 
@@ -352,15 +352,18 @@ a.active-nav-route {
 
 .beer-stars .selected .star {
   fill: #f2bb05;
-  animation: grow 0.3s ease-in-out;
+  animation: grow 0.28s ease-in-out;
 }
 
 @keyframes grow {
-  35% {
-    transform: scale(1.1) rotate(+4deg);
+  0% {
+    transform: scale(1.1) rotate(+5deg);
   }
-  75% {
-    transform: scale(1.1) rotate(-4deg);
+  30% {
+    transform: scale(1.15) rotate(-2deg);
+  }
+  70% {
+    transform: scale(1.05) rotate(+3deg);
   }
 }
 .SRMColorGradient {

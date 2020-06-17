@@ -3,16 +3,16 @@ import React from "react";
 import MultiSliderTest from "./Slider.js";
 import BeerNamesSearches from "./BeerNamesSearches";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
-import { findByLabelText } from "@testing-library/react";
 
-const getHexForSRMs = (valuesArray) => {
-  return [
-    `${SRMcolor[Math.round(valuesArray[0] / 15)]}`,
-    `${SRMcolor[Math.round(valuesArray[1] / 15)]}`,
-    `${SRMcolor[Math.round((valuesArray[0] / 15 + valuesArray[1] / 15) / 2)]}`,
-    `${SRMcolor[Math.round((valuesArray[0] * 2 + valuesArray[1]) / 15 / 3)]}`,
-  ];
-};
+// const getHexForSRMs = (valuesArray) => {
+//   return [
+//     `${SRMcolor[Math.round(valuesArray[0] / 15)]}`,
+//     `${SRMcolor[Math.round(valuesArray[1] / 15)]}`,
+//     `${SRMcolor[Math.round((valuesArray[0] / 15 + valuesArray[1] / 15) / 2)]}`,
+//     `${SRMcolor[Math.round((valuesArray[0] * 2 + valuesArray[1]) / 15 / 3)]}`,
+//   ];
+// };
+// const hexForSRMs = getHexForSRMs(srmRange);
 
 const ListFilters = ({
   abvDomain,
@@ -26,8 +26,6 @@ const ListFilters = ({
   handleSrmRangeChange,
   handleNameSearch,
 }) => {
-  const hexForSRMs = getHexForSRMs(srmRange);
-
   return (
     <div className="nav-filters">
       <BeerNamesSearches handleSwitch={handleNameSearch} />

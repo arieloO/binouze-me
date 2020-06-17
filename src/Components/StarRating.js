@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Star from "./Star";
+import React from "react";
+// import Star from "./Star";
 import BeerStar from "./BeerStar";
 
-const StarRating = ({ beerRating = 0 }) => {
-  const [rating, setRating] = useState(beerRating);
+const StarRating = ({ beerRating = 0, setBeerRating }) => {
   // Initialize a 'rating' state
 
   const rate = (id) => {
-    if (id !== rating) {
-      setRating(id);
+    if (id !== beerRating) {
+      setBeerRating(id);
     } else {
-      setRating(0);
+      setBeerRating(0);
     }
   };
 
@@ -29,17 +28,13 @@ const StarRating = ({ beerRating = 0 }) => {
           id={i + 1}
           key={i}
           rate={rate}
-          checked={i < rating}
+          checked={i < beerRating}
           size={36}
         />
       );
     }
     return list;
   };
-
-  useEffect(() => {
-    console.log("RE-RENDER !!");
-  }, [rating]);
 
   return (
     <div>

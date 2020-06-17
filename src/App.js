@@ -1,20 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BeerList from "./Components/BeerList.js";
 import HeaderNav from "./Components/HeaderNav.js";
 import BeerCard from "./Components/BeerCard";
+import TopBeers from "./Components/TopBeers";
 import NoMatch from "./Components/NoMatch";
 
 function App() {
   console.log("render app");
 
-  const [favBeers, setFavBeers] = useState();
+  console.log(JSON.parse(localStorage.getItem("favBeers")));
 
-  const localState = localStorage.getItem("favBeers");
-  if (localState !== null) {
-    setFavBeers(JSON.parse(localState));
-  }
+  const localState = JSON.parse(localStorage.getItem("favBeers"));
+  console.log("Local State mf : ", localState);
+
+  const [favBeers, setFavBeers] = useState(localState || false);
+
+  // if (localState !== null) {
+  //   setFavBeers(JSON.parse(localState));
+  //   console.log("fav from localStorage : ", favBeers);
+  // }
+
+  useEffect(() => {
+    console.log("useEffect / favBeers", favBeers);
+    console.log(
+      "after SetItem : ",
+      JSON.parse(localStorage.getItem("favBeers"))
+    );
+    localStorage.setItem("favBeers", JSON.stringify(favBeers));
+    console.log(
+      "after SetItem : ",
+      JSON.parse(localStorage.getItem("favBeers"))
+    );
+  }, [favBeers]);
 
   return (
     <BrowserRouter basename="/binouze-me">
@@ -28,8 +47,17 @@ function App() {
           <Route exact path="/" component={BeerList} />
           <Route path="/catalogue" component={BeerList} />
           <Route path="search/" component={BeerCard} />
-          <Route path="/top/" component={BeerCard} />
-          <Route path="/beers/:id" component={BeerCard} />
+          <Route path="/top/" render={() => <TopBeers favBeers={favBeers} />} />
+          <Route
+            path="/beers/:id"
+            render={({ match }) => (
+              <BeerCard
+                favBeers={favBeers}
+                setFavBeers={setFavBeers}
+                match={match}
+              />
+            )}
+          />
 
           <Route exact path="/beers" component={BeerCard} />
           <Route component={NoMatch} />

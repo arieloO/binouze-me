@@ -41,10 +41,6 @@ const BeerList = ({ location, history }) => {
     `&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}` +
     `&ebc_gt=${parseInt(srmRange[0]) / 2}&ebc_lt=${parseInt(srmRange[1]) / 2}`;
 
-  console.log("beers : ", beers && beers, typeof beers);
-  console.log("search : ", nameSearch);
-  console.log("fetch : ", fetchRequestString);
-
   useEffect(() => {
     fetch(fetchRequestString)
       .then((response) => response.json())
@@ -73,6 +69,8 @@ const BeerList = ({ location, history }) => {
         });
     }
   }, [nameSearch, fetchRequestString]);
+
+  // console.log("beers : ", beers && beers);
 
   return (
     <div className="body-wrapper">
