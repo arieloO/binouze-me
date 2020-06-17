@@ -6,7 +6,7 @@ const MiniBeerCard = ({ id }) => {
   const beerData = fetch(`https://api.punkapi.com/v2/beers/${id || "random"}`)
     .then((response) => response.json())
     .then((responseData) => {
-      console.log("responseData", responseData);
+      console.log("responseData", responseData[0]);
       console.log(requestStatus);
       console.log(loadingStatus);
       setRequestStatus(true);
