@@ -3,47 +3,43 @@ const MiniBeerCard = ({ id }) => {
   const [requestStatus, setRequestStatus] = useState(false);
   const [loadingStatus, setLoadingStatus] = useState(false);
 
-  const beerData = fetch(`https://api.punkapi.com/v2/beers/${id || "random"}`)
-    .then((response) => response.json())
-    .then((responseData) => {
-      console.log("responseData", responseData[0]);
-      console.log(requestStatus);
-      console.log(loadingStatus);
-      setRequestStatus(true);
-      return responseData[0];
-    })
-    .catch((error) => {
-      console.log("Error fetching and parsing data", error);
-    });
-  console.log("test beer Data : ", beerData);
+  const beerId = id;
+  const [beerData, setBeerData] = useState();
 
   useEffect(() => {
-    setLoadingStatus(true);
-  }, [requestStatus]);
+    fetch(`https://api.punkapi.com/v2/beers/${beerId || "random"}`)
+      .then((response) => response.json())
+      .then((data) => data[0])
+      .then((responseData) => {
+        console.log("name :", responseData.name);
+        setBeerData(responseData);
+        setLoadingStatus(true);
+        setRequestStatus(true);
+      })
+      .catch((error) => {
+        setRequestStatus(false);
+        console.log("Error fetching and parsing data", error);
+      });
+  }, [beerId]);
 
-  if (!requestStatus) {
+  console.log("test beer Data : ", beerData);
+
+  if (!requestStatus && !loadingStatus) {
     console.log("test beer Data  FALSE: ", beerData);
     return null;
   } else {
-    console.log("test beer Data  TRUE: ", beerData);
+    console.log("test beer Data  TRUE: ", typeof beerData, beerData);
+
     return (
-      <div
-        className="mini-beer-card"
-        style={{
-          height: "300px",
-          width: "300px",
-          backgroundColor: "pink",
-          margin: "10px",
-        }}
-      >
-        <div /*className="beer-img-star"*/>
+      <div className="mini-beer-card">
+        <div className="beer-img-star">
           <img
             src={beerData.image_url}
             alt={beerData.name}
             className="beer-card-image"
           ></img>
         </div>
-        {/* 
+
         <div className="beer-card-info">
           <h1 className="beer-card-title">
             <strong>{beerData.name}</strong>
@@ -55,12 +51,12 @@ const MiniBeerCard = ({ id }) => {
           <p>{beerData.brewers_tips}</p>
           <h2>FOOD PAIRING</h2>
 
-          <ul style={{ listStyle: "symbols(cyclic '❁''❁')" }}>
+          <ul>
             {beerData.food_pairing.map((dishes, id) => (
               <li key={id}>{dishes}</li>
             ))}
           </ul>
-        </div> */}
+        </div>
       </div>
     );
   }

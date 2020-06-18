@@ -16,7 +16,6 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
   console.log("queryString:", queryString);
   console.log("beerID : ", beerID);
   console.log("prevState : ", prevRate);
-
   console.log("favBeers : ", favBeers);
 
   useEffect(() => {
@@ -63,7 +62,7 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
         <p>{beerData.brewers_tips}</p>
         <h2>FOOD PAIRING</h2>
 
-        <ul style={{ listStyle: "symbols(cyclic '❁''❁')" }}>
+        <ul>
           {beerData.food_pairing.map((dishes, id) => (
             <li key={id}>{dishes}</li>
           ))}
