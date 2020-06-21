@@ -1,6 +1,8 @@
 .App {
   text-align: center;
   font-family: Courier;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .App-header {
@@ -318,31 +320,35 @@ a.active-nav-route {
 }
 
 .beer-stars {
+  margin: 0;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+
+  object-fit: contain;
 }
 
 .beer-stars li {
-  float: left;
+  object-fit: contain;
   list-style: none;
   text-align: center;
-  padding: 5px;
+  padding-right: 6px;
+  padding-bottom: 24px;
   box-sizing: border-box;
 }
 
-.beer-stars li:first-child {
+/* .beer-stars li:first-child {
   margin-left: -2px auto;
-}
+} */
 
 .beer-stars li:hover {
   cursor: pointer;
 }
 
 .beer-stars .star {
-  width: 5vh;
   height: auto;
   fill: #bd632f36;
+  object-fit: contain;
   transition: all 200ms ease-in-out;
 }
 
@@ -353,6 +359,78 @@ a.active-nav-route {
 .beer-stars .selected .star {
   fill: #f2bb05;
   animation: grow 0.28s ease-in-out;
+}
+
+.top-beers-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: start;
+  align-items: flex-end;
+}
+.mini-beer-empty-fill {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-grow: 1;
+  flex-basis: 240px;
+  max-width: 360px;
+  height: 0px;
+  margin: 0 5px 0 5px;
+  padding: 0 5px 0 5px;
+}
+.mini-beer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 240px;
+  max-width: 360px;
+  height: 200px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 1px 0px #cfa48ca1, inset -1px -1px 1px 0px #cfa48ca1;
+  border: solid 1px #cfa48ca1;
+}
+.mini-beer-card a {
+  padding: 0;
+  margin: 0;
+}
+.mini-beer-card img {
+  padding: 0px;
+  object-fit: contain;
+}
+
+.mini-card-info {
+  margin: 0vh;
+  padding: 0vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  flex-grow: 1;
+  text-align: start;
+  overflow-wrap: break-word;
+  line-break: loose;
+  word-break: break-word;
+  text-overflow: ellipsis;
+}
+
+.mini-beer-card p {
+  overflow-wrap: break-word;
+  line-break: loose;
+  word-break: break-word;
+  text-overflow: ellipsis;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+}
+
+.mini-beer-card .mini-card-title {
+  font-weight: 500;
+  font-size: 1em;
 }
 
 @keyframes grow {

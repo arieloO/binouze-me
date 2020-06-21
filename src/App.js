@@ -10,29 +10,12 @@ import NoMatch from "./Components/NoMatch";
 function App() {
   console.log("render app");
 
-  console.log(JSON.parse(localStorage.getItem("favBeers")));
-
   const localState = JSON.parse(localStorage.getItem("favBeers"));
-  console.log("Local State mf : ", localState);
 
   const [favBeers, setFavBeers] = useState(localState || false);
 
-  // if (localState !== null) {
-  //   setFavBeers(JSON.parse(localState));
-  //   console.log("fav from localStorage : ", favBeers);
-  // }
-
   useEffect(() => {
-    console.log("useEffect / favBeers", favBeers);
-    console.log(
-      "after SetItem : ",
-      JSON.parse(localStorage.getItem("favBeers"))
-    );
     localStorage.setItem("favBeers", JSON.stringify(favBeers));
-    console.log(
-      "after SetItem : ",
-      JSON.parse(localStorage.getItem("favBeers"))
-    );
   }, [favBeers]);
 
   return (
@@ -47,7 +30,12 @@ function App() {
           <Route exact path="/" component={BeerList} />
           <Route path="/catalogue" component={BeerList} />
           <Route path="search/" component={BeerCard} />
-          <Route path="/top/" render={() => <TopBeers favBeers={favBeers} />} />
+          <Route
+            path="/top/"
+            render={() => (
+              <TopBeers favBeers={favBeers} setFavBeers={setFavBeers} />
+            )}
+          />
           <Route
             path="/beers/:id"
             render={({ match }) => (
@@ -59,7 +47,7 @@ function App() {
             )}
           />
 
-          <Route exact path="/beers" component={BeerCard} />
+          {/* <Route exact path="/beers" component={BeerCard} /> */}
           <Route component={NoMatch} />
         </Switch>
       </div>

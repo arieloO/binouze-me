@@ -46,7 +46,7 @@ export const SRMcolor = [
 export const SRMColorRadient = {
   position: "absolute",
   width: "100%",
-  height: 28,
+  height: 24,
   transform: "translate(0%, -50%)",
   borderRadius: 2,
   pointerEvents: "none",

@@ -14,21 +14,21 @@
 //   }
 
 // JSON.stringify JSON.parse
-saveToLocal = () => {
-  localStorage.setItem("studioAppState", JSON.stringify(this.state));
-};
+// saveToLocal = () => {
+//   localStorage.setItem("studioAppState", JSON.stringify(this.state));
+// };
 
-setStateAndSaveToLocal = (neoState) => {
-  console.log(neoState, "SET AND SAVE");
-  this.setState(neoState, this.saveToLocal);
-};
+// setStateAndSaveToLocal = (neoState) => {
+//   console.log(neoState, "SET AND SAVE");
+//   this.setState(neoState, this.saveToLocal);
+// };
 
-getStateFromLocalStorage = () => {
-  console.log("GETTING PREVIOUS STATE FROM LOCAL STORAGE");
-  const localState = JSON.parse(localStorage.getItem("studioAppState"));
-  if (this.state === localState) {
-    console.log("STOP IT ");
-  } else {
-    console.log(this.state, localState, "KEEP GOING");
-  }
-};
+// getStateFromLocalStorage = () => {
+//   console.log("GETTING PREVIOUS STATE FROM LOCAL STORAGE");
+//   const localState = JSON.parse(localStorage.getItem("studioAppState"));
+//   if (this.state === localState) {
+//     console.log("STOP IT ");
+//   } else {
+//     console.log(this.state, localState, "KEEP GOING");
+//   }
+// };

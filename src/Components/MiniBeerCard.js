@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from "react";
-const MiniBeerCard = ({ id }) => {
+import StarRating from "./StarRating";
+import { NavLink } from "react-router-dom";
+
+const MiniBeerCard = ({ id, beerRating, setFavBeers }) => {
   const [requestStatus, setRequestStatus] = useState(false);
   const [loadingStatus, setLoadingStatus] = useState(false);
 
   const beerId = id;
   const [beerData, setBeerData] = useState();
 
+  const changeFavBeers = (note) => {
+    setFavBeers((favBeers) => {
+      const newFavBeers = { ...favBeers };
+      newFavBeers[beerId] = note;
+      return newFavBeers;
+    });
+  };
+
   useEffect(() => {
     fetch(`https://api.punkapi.com/v2/beers/${beerId || "random"}`)
       .then((response) => response.json())
       .then((data) => data[0])
       .then((responseData) => {
-        console.log("name :", responseData.name);
         setBeerData(responseData);
         setLoadingStatus(true);
         setRequestStatus(true);
@@ -22,40 +32,36 @@ const MiniBeerCard = ({ id }) => {
       });
   }, [beerId]);
 
-  console.log("test beer Data : ", beerData);
-
   if (!requestStatus && !loadingStatus) {
-    console.log("test beer Data  FALSE: ", beerData);
     return null;
   } else {
-    console.log("test beer Data  TRUE: ", typeof beerData, beerData);
-
     return (
-      <div className="mini-beer-card">
-        <div className="beer-img-star">
-          <img
-            src={beerData.image_url}
-            alt={beerData.name}
-            className="beer-card-image"
-          ></img>
+      <div style={{ display: "flex", flexDirection: "row", height: "100%" }}>
+        <div style={{ alignSelf: "center" }}>
+          <NavLink to={`/beers/id=${beerData.id}`}>
+            <img
+              src={beerData.image_url}
+              alt={beerData.name}
+              className="beer-image"
+            ></img>
+          </NavLink>
         </div>
 
-        <div className="beer-card-info">
-          <h1 className="beer-card-title">
-            <strong>{beerData.name}</strong>
-          </h1>
-          <p style={{ marginTop: 5, fontStyle: "italic" }}>
-            {beerData.tagline}
-          </p>
-          <h2>BREWERS TIPS</h2>
-          <p>{beerData.brewers_tips}</p>
-          <h2>FOOD PAIRING</h2>
+        <div className="mini-card-info">
+          <NavLink to={`/beers/id=${beerData.id}`}>
+            <p className="mini-card-title">
+              <strong>{beerData.name}</strong>
+            </p>
+          </NavLink>
 
-          <ul>
-            {beerData.food_pairing.map((dishes, id) => (
-              <li key={id}>{dishes}</li>
-            ))}
-          </ul>
+          <p style={{ fontStyle: "italic" }}>{beerData.tagline}</p>
+          <div style={{ flexGrow: "3" }}></div>
+          <StarRating
+            beerRating={beerRating}
+            onChange={changeFavBeers}
+            size={20}
+          />
+          {/* <div style={{ flexGrow: "2" }}></div> */}
         </div>
       </div>
     );

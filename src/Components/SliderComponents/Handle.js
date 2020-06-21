@@ -7,8 +7,8 @@ import PropTypes from "prop-types";
 
 const customHandleGradientStyle = (value) => {
   return {
-    width: 12,
-    height: 28,
+    width: 14,
+    height: 34,
     borderRadius: "20%",
     //boxShadow: "0px 1px 2px 1px rgba(0, 0, 0, 0.3)",
     boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.6)",

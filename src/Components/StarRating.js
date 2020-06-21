@@ -2,14 +2,14 @@ import React from "react";
 // import Star from "./Star";
 import BeerStar from "./BeerStar";
 
-const StarRating = ({ beerRating = 0, setBeerRating }) => {
+const StarRating = ({ onChange, beerRating, size }) => {
   // Initialize a 'rating' state
 
   const rate = (id) => {
     if (id !== beerRating) {
-      setBeerRating(id);
+      onChange(id);
     } else {
-      setBeerRating(0);
+      onChange(0);
     }
   };
 
@@ -29,7 +29,7 @@ const StarRating = ({ beerRating = 0, setBeerRating }) => {
           key={i}
           rate={rate}
           checked={i < beerRating}
-          size={36}
+          size={size}
         />
       );
     }

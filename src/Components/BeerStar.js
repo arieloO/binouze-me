@@ -7,10 +7,10 @@ const BeerStar = ({ rate, id, checked, size = 20 }) => (
   // 2. Give the <li> the class 'selected' if it's one of the selected stars
   <li onClick={() => rate(id)} className={checked ? "selected" : null}>
     <svg
+      preserveAspectRatio="xMidYMid meet"
       width={size}
       height={size * ratio}
       viewBox="0 0 73 86"
-      xmlns="http://www.w3.org/2000/svg"
       className="star"
     >
       <path

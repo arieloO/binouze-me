@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import StarRating from "./StarRating";
 import qs from "qs";
 
@@ -7,39 +7,32 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
     ignoreQueryPrefix: true,
   });
 
-  const beerID = queryString.id;
+  const beerId = queryString.id
+    ? queryString.id
+    : Math.floor(Math.random() * 325);
+
   const [beerData, setBeerData] = useState();
 
-  const prevRate = favBeers[beerID] ? favBeers[beerID] : 0;
-  const [beerRating, setBeerRating] = useState(prevRate);
-
-  console.log("queryString:", queryString);
-  console.log("beerID : ", beerID);
-  console.log("prevState : ", prevRate);
-  console.log("favBeers : ", favBeers);
-
   useEffect(() => {
-    var newFavBeers = { ...favBeers };
-    newFavBeers[beerID] = beerRating;
-    setFavBeers(newFavBeers);
-    console.log(["newFavObj : ", newFavBeers], ["rate : ", beerRating]);
-  }, [beerRating]);
-
-  useEffect(() => {
-    fetch(`https://api.punkapi.com/v2/beers/${beerID || "random"}`)
+    fetch(`https://api.punkapi.com/v2/beers/${beerId}`)
       .then((response) => response.json())
       .then((responseData) => {
-        console.log("responseData", responseData[0]);
         setBeerData(responseData[0]);
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [beerID]);
+  }, [beerId]);
 
-  console.log("test beer Data : ", beerData);
+  const changeFavBeers = (note) => {
+    setFavBeers((favBeers) => {
+      const newFavBeers = { ...favBeers };
+      newFavBeers[beerId] = note;
+      return newFavBeers;
+    });
+  };
+
   if (!beerData) {
-    console.log("test beer Data  FALSE: ", beerData);
     return null;
   }
   return (
@@ -50,7 +43,11 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
           alt={beerData.name}
           className="beer-card-image"
         ></img>
-        <StarRating beerRating={beerRating} setBeerRating={setBeerRating} />
+        <StarRating
+          beerRating={favBeers ? favBeers[beerId] : 0}
+          onChange={changeFavBeers}
+          size={36}
+        />
       </div>
 
       <div className="beer-card-info">
