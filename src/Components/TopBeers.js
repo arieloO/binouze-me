@@ -7,7 +7,9 @@ const TopBeers = ({ favBeers, setFavBeers }) => {
   const fills = (a) => {
     let divs = [];
     for (let i = a; i > 0; i--) {
-      divs.push(<div className="mini-beer-empty-fill"></div>);
+      divs.push(
+        <div key={toString(a - i)} className="mini-beer-empty-fill"></div>
+      );
     }
     return divs;
   };

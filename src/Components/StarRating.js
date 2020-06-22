@@ -2,7 +2,7 @@ import React from "react";
 // import Star from "./Star";
 import BeerStar from "./BeerStar";
 
-const StarRating = ({ onChange, beerRating, size }) => {
+const StarRating = ({ onChange, beerRating, size, customClass }) => {
   // Initialize a 'rating' state
 
   const rate = (id) => {
@@ -38,7 +38,7 @@ const StarRating = ({ onChange, beerRating, size }) => {
 
   return (
     <div>
-      <ul className="beer-stars">{beerStarList()}</ul>
+      <ul className={`beer-stars ${customClass}`}>{beerStarList()}</ul>
     </div>
   );
 };

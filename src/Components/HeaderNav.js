@@ -20,7 +20,7 @@ const HeaderNav = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/beers" activeClassName="active-nav-route">
+        <NavLink to="/random" activeClassName="active-nav-route">
           random
         </NavLink>
       </li>

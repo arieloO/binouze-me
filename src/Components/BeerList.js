@@ -9,13 +9,21 @@ const BeerList = ({ location, history }) => {
 
   //get Page from url
   const queryString = qs.parse(location.search, { ignoreQueryPrefix: true });
-  const page = parseInt(queryString.page) || 1;
+  const [page, setPage] = useState(parseInt(parseInt(queryString.page)) || 1);
 
   //HeaderNav.js parameters
-  const [itemsPage, setItemsPage] = useState(25);
+  const [itemsPage, setItemsPage] = useState(
+    parseInt(parseInt(queryString.items)) || 25
+  );
+
+  console.log(queryString, page, itemsPage);
 
   const handlePageChanges = (delta) => {
-    const path = `/catalogue/?page=${parseInt(page) + delta}`;
+    setPage(page + delta);
+  };
+
+  const handlePathChange = () => {
+    const path = `/catalogue/?page=${page}&items=${itemsPage}`;
     history.push(path);
   };
 
@@ -47,11 +55,16 @@ const BeerList = ({ location, history }) => {
       .then((responseData) => {
         console.log("USEEFFECT N°1");
         setBeers(responseData);
+        handlePathChange();
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
   }, [page, itemsPage, abvRange, ibuRange, srmRange, fetchRequestString]);
+
+  // useEffect(() => {
+  //   handlePathChange();
+  // }, [fetchRequestString]);
 
   useEffect(() => {
     if (nameSearch !== undefined) {

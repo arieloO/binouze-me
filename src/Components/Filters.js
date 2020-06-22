@@ -28,8 +28,6 @@ const ListFilters = ({
 }) => {
   return (
     <div className="nav-filters">
-      <BeerNamesSearches handleSwitch={handleNameSearch} />
-
       <div className="filter ">
         {" "}
         Alcohol by volume :
@@ -66,8 +64,10 @@ const ListFilters = ({
           customHandleColor={true}
           customColorsList={SRMcolor}
         />
-        <div>
-          {/* <div
+      </div>
+      <div className="filter">
+        <BeerNamesSearches handleSwitch={handleNameSearch} />
+        {/* <div
             id="brown"
             style={{
               height: 100,
@@ -75,7 +75,6 @@ const ListFilters = ({
               background: `linear-gradient(100deg, ${hexForSRMs[0]},${hexForSRMs[3]}, ${hexForSRMs[2]}, ${hexForSRMs[1]})`,
             }}
           ></div> */}
-        </div>
       </div>
     </div>
   );

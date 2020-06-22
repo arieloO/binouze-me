@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import StarRating from "./StarRating";
 import qs from "qs";
 
@@ -37,7 +37,7 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
   }
   return (
     <div className="beer-card">
-      <div /*className="beer-img-star"*/>
+      <div className="beer-img-star">
         <img
           src={beerData.image_url}
           alt={beerData.name}
@@ -47,6 +47,7 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
           beerRating={favBeers ? favBeers[beerId] : 0}
           onChange={changeFavBeers}
           size={36}
+          customClass={"beer-stars"}
         />
       </div>
 
@@ -54,7 +55,9 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
         <h1 className="beer-card-title">
           <strong>{beerData.name.toUpperCase()}</strong>
         </h1>
-        <p style={{ marginTop: 5, fontStyle: "italic" }}>{beerData.tagline}</p>
+        <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
+          {beerData.tagline}
+        </p>
         <h2>BREWERS TIPS</h2>
         <p>{beerData.brewers_tips}</p>
         <h2>FOOD PAIRING</h2>

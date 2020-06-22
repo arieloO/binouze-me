@@ -60,6 +60,7 @@ const MiniBeerCard = ({ id, beerRating, setFavBeers }) => {
             beerRating={beerRating}
             onChange={changeFavBeers}
             size={20}
+            customClass={"mini-beer-stars"}
           />
           {/* <div style={{ flexGrow: "2" }}></div> */}
         </div>

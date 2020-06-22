@@ -22,28 +22,28 @@ function App() {
     <BrowserRouter basename="/binouze-me">
       <div className="App">
         <header className="App-header">
-          <h1>binouze-me</h1>
+          <h2>binouze-me</h2>
           <h3>bienvenue chez Brewdog</h3>
           <HeaderNav />
         </header>
         <Switch>
           <Route exact path="/" component={BeerList} />
-          <Route path="/catalogue" component={BeerList} />
-          <Route path="search/" component={BeerCard} />
           <Route
-            path="/top/"
-            render={() => (
-              <TopBeers favBeers={favBeers} setFavBeers={setFavBeers} />
-            )}
-          />
-          <Route
-            path="/beers/:id"
+            path="/catalogue/beers/:id"
             render={({ match }) => (
               <BeerCard
                 favBeers={favBeers}
                 setFavBeers={setFavBeers}
                 match={match}
               />
+            )}
+          />
+          <Route path="/catalogue" component={BeerList} />
+          <Route path="search/" component={BeerCard} />
+          <Route
+            path="/top/"
+            render={() => (
+              <TopBeers favBeers={favBeers} setFavBeers={setFavBeers} />
             )}
           />
 
@@ -56,7 +56,7 @@ function App() {
           display: "flex",
           width: "100%",
           justifyContent: "center",
-          boxShadow: "0px 0px 2px 1px inset #124e78, 0px 0px 2px 0px #124e78",
+          boxShadow: "0px 0px 2px 1px inset #124e78",
         }}
       >
         <p
