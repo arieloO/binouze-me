@@ -7,39 +7,60 @@ import ListFilters from "./Filters.js";
 const BeerList = ({ location, history }) => {
   const [beers, setBeers] = useState([]);
 
-  //get Page from url
+  //get Page & itemsPage from query params
   const queryString = qs.parse(location.search, { ignoreQueryPrefix: true });
-  const [page, setPage] = useState(parseInt(parseInt(queryString.page)) || 1);
 
-  //HeaderNav.js parameters
-  const [itemsPage, setItemsPage] = useState(
-    parseInt(parseInt(queryString.items)) || 25
-  );
+  const page = parseInt(parseInt(queryString.page)) || 1;
+
+  const itemsPage = parseInt(parseInt(queryString.items)) || 25;
 
   console.log(queryString, page, itemsPage);
 
-  const handlePageChanges = (delta) => {
-    setPage(page + delta);
+  const pageDisplay = `page : ${page}`;
+
+  const getRangeFromQueryParams = (param) => {
+    if (queryString[param]) {
+      const paramQuery = queryString[param].split("-");
+      console.log(paramQuery);
+      const paramRange = [parseInt(paramQuery[0]), parseInt(paramQuery[1])];
+      console.log(paramRange);
+      return paramRange;
+    } else {
+      return undefined;
+    }
   };
 
-  const handlePathChange = () => {
-    const path = `/catalogue/?page=${page}&items=${itemsPage}`;
+  console.log(
+    "getRangeFrom Query",
+    getRangeFromQueryParams("srm"),
+    getRangeFromQueryParams("abv")
+  );
+  //
+  //ListFilters.js fetch parameters
+  const abvDomain = [0, 56];
+  const abvRange = getRangeFromQueryParams("abv") || abvDomain;
+
+  const ibuDomain = [0, 250];
+
+  const ibuRange = getRangeFromQueryParams("ibu") || ibuDomain;
+
+  const srmDomain = [0, 601];
+  const srmQuery = queryString.srm ? queryString.srm.split("-") : ["0", "401"]; // SHIT
+  const srmRange = [parseInt(srmQuery[0]), parseInt(srmQuery[1])] || [0, 601]; // almost there LOOK CONSOLE LOG PARSEINT that SHIT
+  // YEAH RIGHT HERE
+
+  //handle params changes
+  const handlePathChange = (page, itemsPage) => {
+    const path = `/catalogue/?page=${page}&items=${itemsPage}&abv=${abvRange}&ibu=${ibuRange}&srm=${srmRange}`;
+    history.push(path);
+  };
+  const handlePathChangeFilters = (abv, ibu, srm) => {
+    console.log("consoleLog SRM", srm); //this is a mess
+    const path = `/catalogue/?page=${page}&items=${itemsPage}&abv=${abv[0]}-${abv[1]}&ibu=${ibu[0]}-${ibu[1]}&srm=${srm[0]}-${srm[1]}`;
     history.push(path);
   };
 
-  const pageDisplay = `page : ${page}`;
-
-  //
-  //ListFilters.js parameters
-  const abvDomain = [0, 56];
-  const [abvRange, setAbvRange] = useState([0.4, 56]);
-
-  const ibuDomain = [0, 250];
-  const [ibuRange, setIbuRange] = useState([0, 251]);
-
-  const srmDomain = [0, 601];
-  const [srmRange, setSrmRange] = useState([0, 601]);
-  // const [srmColorRange, setSrmColorRange] = useState([0, 601]);
+  // can't find where is the loop from
 
   const [nameSearch, setNameSearch] = useState();
 
@@ -53,18 +74,13 @@ const BeerList = ({ location, history }) => {
     fetch(fetchRequestString)
       .then((response) => response.json())
       .then((responseData) => {
-        console.log("USEEFFECT N°1");
+        console.log("USEEFFECT N°1", fetchRequestString);
         setBeers(responseData);
-        handlePathChange();
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [page, itemsPage, abvRange, ibuRange, srmRange, fetchRequestString]);
-
-  // useEffect(() => {
-  //   handlePathChange();
-  // }, [fetchRequestString]);
+  }, [fetchRequestString]);
 
   useEffect(() => {
     if (nameSearch !== undefined) {
@@ -90,13 +106,11 @@ const BeerList = ({ location, history }) => {
       <ListFilters
         abvDomain={abvDomain}
         abvRange={abvRange}
-        handleAbvRangeChange={setAbvRange}
         ibuDomain={ibuDomain}
         ibuRange={ibuRange}
-        handleIbuRangeChange={setIbuRange}
         srmDomain={srmDomain}
         srmRange={srmRange}
-        handleSrmRangeChange={setSrmRange}
+        onChange={handlePathChangeFilters}
         handleNameSearch={setNameSearch}
       />
 
@@ -105,9 +119,8 @@ const BeerList = ({ location, history }) => {
           beers={beers}
           itemsPage={itemsPage}
           page={page}
-          handlePageChanges={handlePageChanges}
-          setItemsPage={setItemsPage}
           pageDisplay={pageDisplay}
+          onChange={handlePathChange}
         />
 
         {beers.length > 0 ? (
@@ -117,13 +130,21 @@ const BeerList = ({ location, history }) => {
             ))}
           </ul>
         ) : (
-          <p
+          <div
             style={{
+              flexGrow: 2,
+              height: "100vh",
               width: "80vw",
+              margin: "20px 0",
             }}
           >
-            LOADING...
-          </p>
+            <p>
+              Oh, this is so sad... Seems like the beer of your dreams doesn't
+              exist...
+            </p>
+            <p>I'm starting to think... that you have bad taste.</p>
+            <p>Sorry.</p>
+          </div>
         )}
       </div>
     </div>

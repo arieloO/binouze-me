@@ -4,26 +4,14 @@ import MultiSliderTest from "./Slider.js";
 import BeerNamesSearches from "./BeerNamesSearches";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
 
-// const getHexForSRMs = (valuesArray) => {
-//   return [
-//     `${SRMcolor[Math.round(valuesArray[0] / 15)]}`,
-//     `${SRMcolor[Math.round(valuesArray[1] / 15)]}`,
-//     `${SRMcolor[Math.round((valuesArray[0] / 15 + valuesArray[1] / 15) / 2)]}`,
-//     `${SRMcolor[Math.round((valuesArray[0] * 2 + valuesArray[1]) / 15 / 3)]}`,
-//   ];
-// };
-// const hexForSRMs = getHexForSRMs(srmRange);
-
 const ListFilters = ({
   abvDomain,
   abvRange,
-  handleAbvRangeChange,
   ibuDomain,
   ibuRange,
-  handleIbuRangeChange,
   srmDomain,
   srmRange,
-  handleSrmRangeChange,
+  onChange,
   handleNameSearch,
 }) => {
   return (
@@ -34,8 +22,9 @@ const ListFilters = ({
         <MultiSliderTest
           rangeDomain={abvDomain}
           range={abvRange}
-          handleRangeChange={handleAbvRangeChange}
-          handleRangeUpdate={handleAbvRangeChange}
+          handleRangeChange={(abv) => {
+            onChange(abv, ibuRange, srmRange);
+          }}
           ticksNumber={6}
         />
       </div>
@@ -45,8 +34,9 @@ const ListFilters = ({
         <MultiSliderTest
           rangeDomain={ibuDomain}
           range={ibuRange}
-          handleRangeChange={handleIbuRangeChange}
-          handleRangeUpdate={handleIbuRangeChange}
+          handleRangeChange={(ibu) => {
+            onChange(abvRange, ibu, srmRange);
+          }}
           ticksNumber={6}
           // sliderBackgroundColor={}
         />
@@ -57,7 +47,9 @@ const ListFilters = ({
         <MultiSliderTest
           rangeDomain={srmDomain}
           range={srmRange}
-          handleRangeChange={handleSrmRangeChange}
+          handleRangeChange={(srm) => {
+            onChange(abvRange, ibuRange, srm);
+          }}
           ticksNumber={6}
           railBackgroundColor={SRMColorRadient}
           noTrack={true}

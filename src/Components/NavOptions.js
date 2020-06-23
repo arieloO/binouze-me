@@ -4,14 +4,14 @@ const NavOptions = ({
   beers,
   itemsPage,
   page,
-  handlePageChanges,
   setItemsPage,
   pageDisplay,
+  onChange,
 }) => {
   return (
     <div className="nav-options">
       <button
-        onClick={() => handlePageChanges(-1)}
+        onClick={() => onChange(page - 1, itemsPage)}
         className="page-nav"
         disabled={page === 1 ? true : false}
       >
@@ -22,7 +22,7 @@ const NavOptions = ({
         <label>Bières par page :</label>
         <select
           value={itemsPage}
-          onChange={(e) => setItemsPage(parseInt(e.target.value))}
+          onChange={(e) => onChange(page, parseInt(e.target.value))}
         >
           <option value={25}>25</option>
           <option value={50}>50</option>
@@ -31,7 +31,7 @@ const NavOptions = ({
       </div>
 
       <button
-        onClick={() => handlePageChanges(1)}
+        onClick={() => onChange(page + 1, itemsPage)}
         className="page-nav"
         disabled={beers.length !== itemsPage ? true : false}
       >
