@@ -51,7 +51,7 @@ const MiniBeerCard = ({ id, beerRating, setFavBeers }) => {
     return (
       <div style={{ display: "flex", flexDirection: "row", height: "100%" }}>
         <div style={{ alignSelf: "center" }}>
-          <NavLink to={`/beers/id=${beerData.id}`}>
+          <NavLink to={`/catalogue/beers/id=${beerData.id}`}>
             <img
               src={beerData.image_url}
               alt={beerData.name}
