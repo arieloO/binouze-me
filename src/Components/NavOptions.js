@@ -15,7 +15,7 @@ const NavOptions = ({ beers, itemsPage, page, pageDisplay, onChange }) => {
         <label>Bières par page :</label>
         <select
           value={itemsPage}
-          onChange={(e) => onChange(page, parseInt(e.target.value))}
+          onChange={(e) => onChange(1, parseInt(e.target.value))}
         >
           <option value={25}>25</option>
           <option value={50}>50</option>

@@ -37,9 +37,10 @@ const BeerList = ({ location, history }) => {
   const srmDomain = [0, 601];
   const srmRange = getRangeFromQueryParams("srm") || srmDomain;
 
+  console.log(abvRange, ibuRange, srmRange);
   //handle params changes
   const handlePathChange = (page, itemsPage) => {
-    const path = `/catalogue/?page=${page}&items=${itemsPage}&abv=${abvRange}&ibu=${ibuRange}&srm=${srmRange}`;
+    const path = `/catalogue/?page=${page}&items=${itemsPage}&abv=${abvRange[0]}-${abvRange[1]}&ibu=${ibuRange[0]}-${ibuRange[1]}&srm=${srmRange[0]}-${srmRange[1]}`;
     history.push(path);
   };
   const handlePathChangeFilters = (abv, ibu, srm) => {

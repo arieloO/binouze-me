@@ -65,6 +65,7 @@ select {
   background-color: inherit;
   color: inherit;
   border: 0;
+  padding: 2px;
 }
 
 /* ----------- MAIN NAV STYLE ----------- */
