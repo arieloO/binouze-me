@@ -1,13 +1,6 @@
 import React from "react";
 
-const NavOptions = ({
-  beers,
-  itemsPage,
-  page,
-  setItemsPage,
-  pageDisplay,
-  onChange,
-}) => {
+const NavOptions = ({ beers, itemsPage, page, pageDisplay, onChange }) => {
   return (
     <div className="nav-options">
       <button

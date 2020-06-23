@@ -21,33 +21,21 @@ const BeerList = ({ location, history }) => {
   const getRangeFromQueryParams = (param) => {
     if (queryString[param]) {
       const paramQuery = queryString[param].split("-");
-      console.log(paramQuery);
       const paramRange = [parseInt(paramQuery[0]), parseInt(paramQuery[1])];
-      console.log(paramRange);
       return paramRange;
-    } else {
-      return undefined;
     }
   };
 
-  console.log(
-    "getRangeFrom Query",
-    getRangeFromQueryParams("srm"),
-    getRangeFromQueryParams("abv")
-  );
   //
   //ListFilters.js fetch parameters
   const abvDomain = [0, 56];
   const abvRange = getRangeFromQueryParams("abv") || abvDomain;
 
   const ibuDomain = [0, 250];
-
   const ibuRange = getRangeFromQueryParams("ibu") || ibuDomain;
 
   const srmDomain = [0, 601];
-  const srmQuery = queryString.srm ? queryString.srm.split("-") : ["0", "401"]; // SHIT
-  const srmRange = [parseInt(srmQuery[0]), parseInt(srmQuery[1])] || [0, 601]; // almost there LOOK CONSOLE LOG PARSEINT that SHIT
-  // YEAH RIGHT HERE
+  const srmRange = getRangeFromQueryParams("srm") || srmDomain;
 
   //handle params changes
   const handlePathChange = (page, itemsPage) => {

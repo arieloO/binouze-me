@@ -34,6 +34,19 @@ const MiniBeerCard = ({ id, beerRating, setFavBeers }) => {
 
   if (!requestStatus && !loadingStatus) {
     return null;
+  } else if (!beerData) {
+    return (
+      <div
+        style={{
+          flexGrow: 2,
+          height: "100vh",
+          width: "80vw",
+          margin: "20px 0",
+        }}
+      >
+        <p>You haven't rated any beer yet !</p>
+      </div>
+    );
   } else {
     return (
       <div style={{ display: "flex", flexDirection: "row", height: "100%" }}>
@@ -62,7 +75,6 @@ const MiniBeerCard = ({ id, beerRating, setFavBeers }) => {
             size={20}
             customClass={"mini-beer-stars"}
           />
-          {/* <div style={{ flexGrow: "2" }}></div> */}
         </div>
       </div>
     );

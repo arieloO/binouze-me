@@ -17,9 +17,9 @@
 }
 
 .error404 {
-  font-weight: 900;
+  font-weight: 700;
   font-size: 10vh;
-  margin: 0 auto;
+  height: 70vh;
 }
 
 @keyframes App-logo-spin {
@@ -57,6 +57,14 @@ button {
   background-color: inherit;
   border: none;
   cursor: pointer;
+}
+
+select {
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
+  background-color: inherit;
+  color: inherit;
+  border: 0;
 }
 
 /* ----------- MAIN NAV STYLE ----------- */
@@ -152,7 +160,7 @@ a.active-nav-route {
   color: #bd632f;
   background-color: inherit;
   border-style: none;
-  box-shadow: 0px 0px 2px 1px inset #124e78;
+  box-shadow: 0px 0px 2px 0px inset #124e78;
 }
 
 .nav-page {

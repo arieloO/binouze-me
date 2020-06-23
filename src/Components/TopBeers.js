@@ -18,7 +18,7 @@ const TopBeers = ({ favBeers, setFavBeers }) => {
     const beerList = Object.entries(favBeers);
     console.log(beerList);
     return (
-      <div className="top-beers-list">
+      <div className="top-beers-list wrapper">
         {beerList.map(([beerId, beerRank]) => {
           return (
             <div key={beerId} className="mini-beer-card">
