@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import qs from "qs";
-import BeerPic from "./BeerItem.js";
+import BeerItem from "./BeerItem.js";
 import NavOptions from "./NavOptions.js";
 import ListFilters from "./Filters.js";
 
@@ -115,15 +115,14 @@ const BeerList = ({ location, history }) => {
         {beers.length > 0 ? (
           <ul className="beer-list">
             {beers.map((beer) => (
-              <BeerPic key={beer.id} beer={beer} />
+              <BeerItem key={beer.id} beer={beer} />
             ))}
           </ul>
         ) : (
           <div
             style={{
-              flexGrow: 2,
-              height: "100vh",
-              width: "80vw",
+              flexGrow: 3,
+              width: "100%",
               margin: "20px 0",
             }}
           >
@@ -135,6 +134,10 @@ const BeerList = ({ location, history }) => {
             <p>Sorry.</p>
           </div>
         )}
+        <div
+          id="empty-div-wrapper"
+          style={{ width: "100%", flexGrow: 3 }}
+        ></div>
       </div>
     </div>
   );

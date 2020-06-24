@@ -3,6 +3,7 @@
   font-family: Courier;
   margin: 0 auto;
   justify-content: center;
+  min-height: 100vh;
 }
 
 .App-header {
@@ -147,10 +148,10 @@ a.active-nav-route {
   position: sticky;
   top: 0px;
   display: flex;
+  height: 25px;
   padding: 6px;
   margin: 2px 8px 0 8px;
   justify-content: space-between;
-  border-radius: 0 8px 0 8px;
   background-color: #f0f0c9fa;
   box-shadow: 0px 4px 1px -3px #114a74;
 }
@@ -181,12 +182,11 @@ a.active-nav-route {
   top: 0px;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
-  flex-grow: 0;
+  justify-content: flex-start;
+  min-height: 60vh;
   min-width: 256px;
   margin: 2px;
   padding: 6px 0 0 0;
-  border-radius: 8px;
   box-shadow: 4px -2px 1px -3px #124e78;
 }
 
@@ -202,11 +202,12 @@ a.active-nav-route {
   align-items: stretch;
   color: rgb(8 8 8);
 }
-.nav-filters ul {
-  background-color: khaki;
+/* .nav-filters ul {
+  background-color: inherit;
   flex-grow: 1;
   justify-content: flex-start;
-}
+  will-change: display; 
+}*/
 
 .filter {
   margin: 5px;
@@ -217,17 +218,39 @@ a.active-nav-route {
   text-align: start;
 }
 
-.filter-option {
-  padding-left: 5%;
-  padding-bottom: 1%;
+.filter ul {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 }
-.filter-option input {
-  margin-right: 5%;
-  display: block;
+
+.filter-option {
+  display: flex;
+  justify-content: flex-start;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px;
+  border-style: solid;
+  border-color: #bd632f;
+  margin-bottom: -1px;
+  box-shadow: 0px 2px 4px -4px #bd632f;
+}
+.filter-option:first-child {
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid #bd632f;
 }
 
+.filter-option input,
+.filter-option label {
+  margin: 6px;
+}
+.filter-option label {
+  flex-grow: 1;
+  text-align: start;
+}
 .filter-slider {
   color: #bd632f;
   height: 10%;

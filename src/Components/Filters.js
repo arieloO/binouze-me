@@ -29,7 +29,6 @@ const ListFilters = ({
         />
       </div>
       <div className="filter ">
-        {" "}
         Bitterness (IBU) :
         <MultiSliderTest
           rangeDomain={ibuDomain}
@@ -42,7 +41,6 @@ const ListFilters = ({
         />
       </div>
       <div className="filter ">
-        {" "}
         Color (SRM) :
         <MultiSliderTest
           rangeDomain={srmDomain}
@@ -57,6 +55,7 @@ const ListFilters = ({
           customColorsList={SRMcolor}
         />
       </div>
+
       <div className="filter">
         <BeerNamesSearches handleSwitch={handleNameSearch} />
         {/* <div

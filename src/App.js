@@ -6,6 +6,7 @@ import HeaderNav from "./Components/HeaderNav.js";
 import BeerCard from "./Components/BeerCard";
 import TopBeers from "./Components/TopBeers";
 import NoMatch from "./Components/NoMatch";
+import ComingSoon from "./Components/ComingSoon";
 
 function App() {
   console.log("render app");
@@ -39,7 +40,7 @@ function App() {
             )}
           />
           <Route path="/catalogue" component={BeerList} />
-          <Route path="search/" component={BeerCard} />
+          <Route path="/search" component={ComingSoon} />
           <Route
             path="/top/"
             render={() => (
@@ -51,12 +52,14 @@ function App() {
           <Route component={NoMatch} />
         </Switch>
       </div>
+
       <footer
         style={{
           display: "flex",
           width: "100%",
+          padding: "2px",
           justifyContent: "center",
-          boxShadow: "0px 0px 2px 1px inset #124e78",
+          boxShadow: "0px 1px 2px -1px inset #124e78",
         }}
       >
         <p

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const BeerNamesSearches = (props) => {
   const beerTypes = [
     "ipa",
     "lager",
-    "pilsen",
+    "pils",
     "stout",
     "blonde",
     "citra",
@@ -13,21 +13,39 @@ const BeerNamesSearches = (props) => {
     "tripel",
   ];
 
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="filter">
-      <h3>type of beer :</h3>
-      {beerTypes.map((beerType, index) => (
-        <div className="filter-option" key={index}>
-          <input
-            type="radio"
-            id={beerType}
-            name="beerType"
-            value={beerType}
-            onChange={(e) => props.handleSwitch(e.target.value)}
-          ></input>
-          <label htmlFor={beerType}>{beerType}</label>
-        </div>
-      ))}
+      <ul>
+        <li
+          className="filter-option"
+          onClick={() => {
+            setOpen(!open);
+            console.log(open);
+          }}
+        >
+          <h3>type of beer :</h3>
+        </li>
+        {beerTypes.map((beerType, index) => (
+          <li
+            className="filter-option"
+            style={{
+              display: open ? "inherit" : "none",
+            }}
+            key={index}
+          >
+            <input
+              type="radio"
+              id={beerType}
+              name="beerType"
+              value={beerType}
+              onChange={(e) => props.handleSwitch(e.target.value)}
+            ></input>
+            <label htmlFor={beerType}>{beerType}</label>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
