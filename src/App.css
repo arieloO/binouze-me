@@ -224,22 +224,58 @@ a.active-nav-route {
   justify-content: flex-start;
 }
 
-.filter-option {
-  display: flex;
+.option-title h3::before {
+  content: "";
+  display: inline-block;
+  margin: 0;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #1d1d1b;
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 2px;
+}
+
+.option-title {
+  position: relative;
+  cursor: pointer;
+  font: 700 14px/50px Arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: -1px;
+  white-space: nowrap;
+  border: 1px solid #f2f2f2;
+  border-width: 1px 0;
+}
+
+.hiden .filter-option-list {
+  display: none;
   justify-content: flex-start;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 1px;
+  border-width: 0 0 1px 0;
   border-style: solid;
   border-color: #bd632f;
   margin-bottom: -1px;
   box-shadow: 0px 2px 4px -4px #bd632f;
+  transition: display 800ms ease-in;
 }
-.filter-option:first-child {
+
+.open .filter-option-list {
+  display: flex;
+  height: 0px;
+  transition: display 800ms ease-in;
+  animation: scale(1.1);
+}
+
+.filter-option {
   padding: 5px;
   display: flex;
   justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #bd632f;
+  margin-bottom: -1px;
   border: 1px solid #bd632f;
 }
 
