@@ -85,7 +85,6 @@ select {
   flex-wrap: wrap;
   align-content: flex-start;
   font-weight: 900;
-  box-shadow: 1px lemonchiffon;
   border-radius: 5px;
   background-color: #124e78;
 }
@@ -137,7 +136,6 @@ a.active-nav-route {
   justify-content: center;
   align-items: stretch;
   margin: 0 auto;
-  padding: 0 auto;
 }
 
 /* ----------- NAV OPTIONS ----------- */
@@ -248,7 +246,7 @@ a.active-nav-route {
   border-width: 1px 0;
 }
 
-.hiden .filter-option-list {
+.hidden .filter-option-list {
   display: none;
   justify-content: flex-start;
   border-width: 0 0 1px 0;
@@ -263,7 +261,6 @@ a.active-nav-route {
   display: flex;
   height: 0px;
   transition: display 800ms ease-in;
-  animation: scale(1.1);
 }
 
 .filter-option {
@@ -395,7 +392,7 @@ a.active-nav-route {
 .beer-item {
   display: flex;
   flex-direction: column;
-  flex-basis: baseline;
+  /* flex-basis: baseline; */
   border: dashed 1px #124e78;
   border-radius: 5px;
   margin: 5px;
@@ -416,6 +413,13 @@ a.active-nav-route {
   overflow: hidden;
   overflow-wrap: break-word;
   color: #042a2b;
+}
+
+.beer-list-empty-fill {
+  display: flex;
+  margin: 5px;
+  width: 100px;
+  height: 0px;
 }
 
 /* ----------- SINGLE BEER CARD ----------- */
@@ -538,7 +542,7 @@ a.active-nav-route {
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 auto;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-end;
 }
 .mini-beer-empty-fill {

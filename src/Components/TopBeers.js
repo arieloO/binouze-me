@@ -8,7 +8,7 @@ const TopBeers = ({ favBeers, setFavBeers }) => {
     let divs = [];
     for (let i = a; i > 0; i--) {
       divs.push(
-        <div key={toString(a - i)} className="mini-beer-empty-fill"></div>
+        <div key={i.toString()} className="mini-beer-empty-fill"></div>
       );
     }
     return divs;
@@ -20,10 +20,12 @@ const TopBeers = ({ favBeers, setFavBeers }) => {
     return (
       <div className="top-beers-list wrapper">
         {beerList.map(([beerId, beerRank]) => {
+          console.log(beerId.toString());
           return (
             <div key={beerId} className="mini-beer-card">
               <MiniBeerCard
                 id={parseInt(beerId)}
+                key={beerId.toString()}
                 beerRating={beerRank}
                 favBeers={favBeers}
                 setFavBeers={setFavBeers}

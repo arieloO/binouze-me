@@ -18,8 +18,7 @@ const BeerNamesSearches = (props) => {
   return (
     <div className="filter">
       <div
-        className={open ? "filter-option open" : "filter-option hiden"}
-        key={index}
+        className={open ? "filter-option open" : "filter-option hidden"}
         onClick={() => {
           setOpen(!open);
           console.log(open);

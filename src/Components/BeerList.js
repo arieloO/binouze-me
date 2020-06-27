@@ -90,6 +90,16 @@ const BeerList = ({ location, history }) => {
 
   // console.log("beers : ", beers && beers);
 
+  const fills = (a) => {
+    let divs = [];
+    for (let i = a; i > 0; i--) {
+      divs.push(
+        <div key={i.toString()} className="beer-list-empty-fill"></div>
+      );
+    }
+    return divs;
+  };
+
   return (
     <div className="body-wrapper">
       <ListFilters
@@ -117,6 +127,7 @@ const BeerList = ({ location, history }) => {
             {beers.map((beer) => (
               <BeerItem key={beer.id} beer={beer} />
             ))}
+            {fills(18)}
           </ul>
         ) : (
           <div
