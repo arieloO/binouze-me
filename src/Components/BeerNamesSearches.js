@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const BeerNamesSearches = (props) => {
   const beerTypes = [
@@ -13,22 +13,28 @@ const BeerNamesSearches = (props) => {
     "tripel",
   ];
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
+  useEffect(() => {
+    console.log(open);
+  }, [open]);
+
+  console.log(open);
   return (
     <div className="filter">
       <div
-        className={open ? "filter-option open" : "filter-option hidden"}
+        className={open ? "option-title opened" : "option-title"}
         onClick={() => {
+          console.log(open);
           setOpen(!open);
           console.log(open);
         }}
       >
-        <h3 className="option-title"> type of beer :</h3>
+        <h3> type of beer :</h3>
       </div>
-      <ul>
+      <ul className={open ? "filter-option-list" : "filter-option-list hidden"}>
         {beerTypes.map((beerType, index) => (
-          <li className="filter-option-list" key={index}>
+          <li className="filter-option">
             <input
               type="radio"
               id={beerType}

@@ -222,9 +222,19 @@ a.active-nav-route {
   justify-content: flex-start;
 }
 
+.option-title {
+  position: relative;
+  cursor: pointer;
+  font: 700 14px/50px Arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: -1px;
+  white-space: nowrap;
+  border: 1px solid #bd632f;
+  border-width: 1px 0;
+}
+
 .option-title h3::before {
   content: "";
-  display: inline-block;
   margin: 0;
   width: 8px;
   height: 8px;
@@ -233,34 +243,23 @@ a.active-nav-route {
   transform: rotate(45deg);
   position: absolute;
   right: 2px;
+  box-sizing: border-box;
+}
+.option-title h3::before .opened {
+  transform: rotate(180deg);
 }
 
-.option-title {
-  position: relative;
-  cursor: pointer;
-  font: 700 14px/50px Arial, sans-serif;
-  text-transform: uppercase;
-  margin-top: -1px;
-  white-space: nowrap;
-  border: 1px solid #f2f2f2;
-  border-width: 1px 0;
-}
-
-.hidden .filter-option-list {
-  display: none;
+.filter-option-list {
+  display: flex;
   justify-content: flex-start;
   border-width: 0 0 1px 0;
   border-style: solid;
   border-color: #bd632f;
-  margin-bottom: -1px;
-  box-shadow: 0px 2px 4px -4px #bd632f;
-  transition: display 800ms ease-in;
 }
 
-.open .filter-option-list {
-  display: flex;
+.hidden li {
+  display: none;
   height: 0px;
-  transition: display 800ms ease-in;
 }
 
 .filter-option {
