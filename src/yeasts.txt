@@ -1,0 +1,58 @@
+yeasts
+
+[Log] all yeasts : (main.chunk.js, line 645)
+Array (25)
+0 "Wyeast 1056 - American Ale™"
+1 "Wyeast 2007 - Pilsen Lager™"
+2 "Wyeast 3711 - French Saison™"
+3 "Wyeast 3522 - Belgian Ardennes™"
+4 "Saflager S189"
+5 "Wyeast 1272 - American Ale II™"
+6 "Wyeast 3333 - German Wheat™"
+7 "Wyeast 3638 - Bavarian Wheat™"
+8 "WLP500 - Monastery Ale"
+9 "Wyeast 1010 - American Wheat™"
+10 "WLP099 - Super High Gravity Ale"
+11 "Wyeast 3787 - Trappist High Gravity™"
+12 "Safale US-05"
+13 "WLP351 - Bavarian Weizen"
+14 "Champagne"
+15 "Wyeast 1056 - American Ale™ & Wyeast 1272 - American Ale II™"
+16 "Wyeast 3944 - Belgian Witbier™"
+17 "Wyeast 3724 - Belgian Saison™"
+18 "Westvleteren 12 (recovered from a bottle)"
+19 "Wyeast 1388 - Belgian Strong Ale™"
+20 "Wyeast 2124 - Bohemian Lager™"
+21 "WLP4000 - Vermont Ale"
+22 "Wyeast 2126 - Bohemian Lager™"
+23 "WLP013 - London Ale"
+24 "Saflager W-34/70"
+
+Prototype Array
+const yeastTypes = [
+    "Wyeast 1056 - American Ale™",
+    "Wyeast 2007 - Pilsen Lager™",
+    "Wyeast 3711 - French Saison™",
+    "Wyeast 3522 - Belgian Ardennes™",
+    "Saflager S189",
+    "Wyeast 1272 - American Ale II™",
+    "Wyeast 3333 - German Wheat™",
+    "Wyeast 3638 - Bavarian Wheat™",
+    "WLP500 - Monastery Ale",
+    "Wyeast 1010 - American Wheat™",
+    "WLP099 - Super High Gravity Ale",
+    "Wyeast 3787 - Trappist High Gravity™",
+    "Safale US-05",
+    "WLP351 - Bavarian Weizen",
+    "Champagne",
+    "Wyeast 1056 - American Ale™ & Wyeast 1272 - American Ale II™",
+    "Wyeast 3944 - Belgian Witbier™",
+    "Wyeast 3724 - Belgian Saison™",
+    "Westvleteren 12 (recovered from a bottle)",
+    "Wyeast 1388 - Belgian Strong Ale™",
+    "Wyeast 2124 - Bohemian Lager™",
+    "WLP4000 - Vermont Ale",
+    "Wyeast 2126 - Bohemian Lager™",
+    "WLP013 - London Ale",
+    "Saflager W-34/70"
+ ]

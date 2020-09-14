@@ -74,7 +74,7 @@ const BeerList = ({ location, history }) => {
   useEffect(() => {
     if (nameSearch !== undefined) {
       const newFetchRequestString = fetchRequestString.concat(
-        `&beer_name=${nameSearch}`
+        `&yeast=${nameSearch}`
       );
       fetch(newFetchRequestString)
         .then((response) => response.json())
@@ -88,7 +88,7 @@ const BeerList = ({ location, history }) => {
     }
   }, [nameSearch, fetchRequestString]);
 
-  // console.log("beers : ", beers && beers);
+  console.log("beers : ", beers && beers);
 
   const fills = (a) => {
     let divs = [];
@@ -100,6 +100,27 @@ const BeerList = ({ location, history }) => {
     return divs;
   };
 
+  const [allYeasts, setAllYeasts] = useState([]);
+
+  useEffect(() => {
+    const getYeasts = beers.reduce((all, beer) => {
+      console.log(
+        "all ",
+        all,
+        " includes ",
+        beer.ingredients.yeast,
+        " : ",
+        all.includes(beer.ingredients.yeast)
+      );
+      return all.includes(beer.ingredients.yeast)
+        ? all
+        : [...all, beer.ingredients.yeast];
+    }, [...allYeasts] || []);
+    console.log("get yeasts :", getYeasts);
+    setAllYeasts([...getYeasts]);
+  }, [beers]);
+
+  console.log("all yeasts :", allYeasts);
   return (
     <div className="body-wrapper">
       <ListFilters

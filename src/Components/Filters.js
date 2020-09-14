@@ -3,6 +3,7 @@ import React from "react";
 import MultiSliderTest from "./Slider.js";
 import BeerNamesSearches from "./BeerNamesSearches";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
+import { yeastTypes, beerTypes } from "./FilterCategories";
 
 const ListFilters = ({
   abvDomain,
@@ -57,7 +58,16 @@ const ListFilters = ({
       </div>
 
       <div className="filter">
-        <BeerNamesSearches handleSwitch={handleNameSearch} />
+        <BeerNamesSearches
+          key="1"
+          handleSwitch={handleNameSearch}
+          typesArray={beerTypes}
+        />
+        <BeerNamesSearches
+          key="2"
+          handleSwitch={handleNameSearch}
+          typesArray={yeastTypes}
+        />
         {/* <div
             id="brown"
             style={{

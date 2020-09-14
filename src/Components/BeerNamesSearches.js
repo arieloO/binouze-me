@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-const BeerNamesSearches = (props) => {
-  const beerTypes = [
-    "ipa",
-    "lager",
-    "pils",
-    "stout",
-    "blonde",
-    "citra",
-    "india",
-    "double",
-    "tripel",
-  ];
-
-  const [open, setOpen] = useState(true);
+const BeerNamesSearches = ({ handleSwitch, typesArray }) => {
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     console.log(open);
@@ -30,17 +18,17 @@ const BeerNamesSearches = (props) => {
           console.log(open);
         }}
       >
-        <h3> type of beer :</h3>
+        <h3> type of beer</h3>
       </div>
       <ul className={open ? "filter-option-list" : "filter-option-list hidden"}>
-        {beerTypes.map((beerType, index) => (
-          <li className="filter-option">
+        {typesArray.map((beerType, index) => (
+          <li className="filter-option" key={index.toString()}>
             <input
               type="radio"
               id={beerType}
               name="beerType"
               value={beerType}
-              onChange={(e) => props.handleSwitch(e.target.value)}
+              onChange={(e) => handleSwitch(e.target.value)}
             ></input>
             <label htmlFor={beerType}>{beerType}</label>
           </li>

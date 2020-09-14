@@ -212,10 +212,6 @@ a.active-nav-route {
   justify-content: flex-start;
 }
 
-.filter h3 {
-  text-align: start;
-}
-
 .filter ul {
   display: flex;
   flex-direction: column;
@@ -225,54 +221,63 @@ a.active-nav-route {
 .option-title {
   position: relative;
   cursor: pointer;
-  font: 700 14px/50px Arial, sans-serif;
-  text-transform: uppercase;
-  margin-top: -1px;
-  white-space: nowrap;
   border: 1px solid #bd632f;
-  border-width: 1px 0;
+  border-width: 0 0 1px 0;
+}
+.option-title h3 {
+  text-align: start;
+  font: 700 14px/50px;
+  text-transform: uppercase;
 }
 
 .option-title h3::before {
   content: "";
-  margin: 0;
   width: 8px;
   height: 8px;
   border: 2px solid #1d1d1b;
   border-width: 0 1px 1px 0;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   position: absolute;
-  right: 2px;
+  margin: 5px auto;
+  right: 10%;
   box-sizing: border-box;
+  transition: all 150ms ease-in-out;
 }
-.option-title h3::before .opened {
-  transform: rotate(180deg);
+.opened h3::before {
+  transform: rotate(45deg);
 }
 
 .filter-option-list {
   display: flex;
   justify-content: flex-start;
-  border-width: 0 0 1px 0;
+  margin: 0 auto;
+  border-width: 0 0 0 0;
   border-style: solid;
   border-color: #bd632f;
 }
 
-.hidden li {
-  display: none;
-  height: 0px;
+.filter-option-list::first-child {
+  border-width: 1px 0 1px 0;
 }
 
 .filter-option {
   padding: 5px;
-  display: flex;
+  display: block;
   justify-content: flex-start;
   display: flex;
   justify-content: flex-start;
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-color: #bd632f;
+  border-color: #bd632f94;
   margin-bottom: -1px;
-  border: 1px solid #bd632f;
+  transition: all 4s ease-in;
+}
+
+.hidden .filter-option {
+  height: 0px;
+  line-height: 0px;
+  display: none;
+  opacity: 0;
 }
 
 .filter-option input,
@@ -416,7 +421,7 @@ a.active-nav-route {
 
 .beer-list-empty-fill {
   display: flex;
-  margin: 5px;
+  margin: 6px;
   width: 100px;
   height: 0px;
 }
