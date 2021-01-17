@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import qs from "qs";
 import BeerItem from "./BeerItem.js";
 import NavOptions from "./NavOptions.js";
@@ -26,7 +26,6 @@ const BeerList = ({ location, history }) => {
     }
   };
 
-  //
   //ListFilters.js fetch parameters
   const abvDomain = [0, 56];
   const abvRange = getRangeFromQueryParams("abv") || abvDomain;
@@ -100,9 +99,13 @@ const BeerList = ({ location, history }) => {
     return divs;
   };
 
+  // Get all Yeasts array
+
   const [allYeasts, setAllYeasts] = useState([]);
 
-  useEffect(() => {
+  const getAllYeast = useRef(() => {});
+
+  getAllYeast.current = () => {
     const getYeasts = beers.reduce((all, beer) => {
       console.log(
         "all ",
@@ -116,11 +119,17 @@ const BeerList = ({ location, history }) => {
         ? all
         : [...all, beer.ingredients.yeast];
     }, [...allYeasts] || []);
-    console.log("get yeasts :", getYeasts);
+    // console.log("get yeasts :", getYeasts);
     setAllYeasts([...getYeasts]);
+  };
+
+  useEffect(() => {
+    // had to get the fuction out of useEffect to comply with linter alert, to useRef getAllYeast.current
+    getAllYeast.current();
   }, [beers]);
 
   console.log("all yeasts :", allYeasts);
+
   return (
     <div className="body-wrapper">
       <ListFilters

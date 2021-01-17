@@ -16,7 +16,7 @@ const HeaderNav = () => {
       </li>
       <li>
         <NavLink to="/top" activeClassName="active-nav-route">
-          top beers
+          my beers
         </NavLink>
       </li>
       <li>

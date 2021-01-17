@@ -47,6 +47,7 @@ function App() {
               <TopBeers favBeers={favBeers} setFavBeers={setFavBeers} />
             )}
           />
+          <Route path="/random" component={ComingSoon} />
 
           {/* <Route exact path="/beers" component={BeerCard} /> */}
           <Route component={NoMatch} />
