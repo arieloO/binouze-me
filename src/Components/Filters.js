@@ -1,7 +1,7 @@
 import React from "react";
 
 import MultiSliderTest from "./Slider.js";
-import BeerNamesSearches from "./BeerNamesSearches";
+import BeerTypeFilter from "./BeerTypeFilter";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
 import { yeastTypes, beerTypes } from "./FilterCategories";
 
@@ -58,13 +58,13 @@ const ListFilters = ({
       </div>
 
       <div className="filter">
-        <BeerNamesSearches
+        <BeerTypeFilter
           key="1"
           handleSwitch={handleNameSearch}
           category="Beer"
           typesArray={beerTypes}
         />
-        <BeerNamesSearches
+        <BeerTypeFilter
           key="2"
           handleSwitch={handleNameSearch}
           category="Yeast"
