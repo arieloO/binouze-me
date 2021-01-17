@@ -20,9 +20,14 @@ const BeerNamesSearches = ({ handleSwitch, typesArray, category }) => {
       >
         <h3> {`type of ${category}`}</h3>
       </div>
-      <ul className={open ? "filter-option-list" : "filter-option-list hidden"}>
+      <ul className="filter-option-list">
         {typesArray.map((beerType, index) => (
-          <li className="filter-option" key={index.toString()}>
+          <li
+            className={
+              open ? "filter-option" : "filter-option filter-option-hidden"
+            }
+            key={index.toString()}
+          >
             <input
               type="radio"
               id={beerType}
