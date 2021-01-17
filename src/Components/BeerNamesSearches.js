@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const BeerNamesSearches = ({ handleSwitch, typesArray }) => {
+const BeerNamesSearches = ({ handleSwitch, typesArray, category }) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const BeerNamesSearches = ({ handleSwitch, typesArray }) => {
           console.log(open);
         }}
       >
-        <h3> type of beer</h3>
+        <h3> {`type of ${category}`}</h3>
       </div>
       <ul className={open ? "filter-option-list" : "filter-option-list hidden"}>
         {typesArray.map((beerType, index) => (

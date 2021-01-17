@@ -61,11 +61,13 @@ const ListFilters = ({
         <BeerNamesSearches
           key="1"
           handleSwitch={handleNameSearch}
+          category="Beer"
           typesArray={beerTypes}
         />
         <BeerNamesSearches
           key="2"
           handleSwitch={handleNameSearch}
+          category="Yeast"
           typesArray={yeastTypes}
         />
         {/* <div
