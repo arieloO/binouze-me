@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/binouze-me/static/css/main.4911fe5e.chunk.css",
-    "main.js": "/binouze-me/static/js/main.05c667a2.chunk.js",
-    "main.js.map": "/binouze-me/static/js/main.05c667a2.chunk.js.map",
+    "main.js": "/binouze-me/static/js/main.77a80cb2.chunk.js",
+    "main.js.map": "/binouze-me/static/js/main.77a80cb2.chunk.js.map",
     "runtime-main.js": "/binouze-me/static/js/runtime-main.59c9af3a.js",
     "runtime-main.js.map": "/binouze-me/static/js/runtime-main.59c9af3a.js.map",
-    "static/js/2.4266b066.chunk.js": "/binouze-me/static/js/2.4266b066.chunk.js",
-    "static/js/2.4266b066.chunk.js.map": "/binouze-me/static/js/2.4266b066.chunk.js.map",
+    "static/js/2.d9e868eb.chunk.js": "/binouze-me/static/js/2.d9e868eb.chunk.js",
+    "static/js/2.d9e868eb.chunk.js.map": "/binouze-me/static/js/2.d9e868eb.chunk.js.map",
     "index.html": "/binouze-me/index.html",
-    "precache-manifest.17bd277cdcfdeba871aabc9cc831c478.js": "/binouze-me/precache-manifest.17bd277cdcfdeba871aabc9cc831c478.js",
+    "precache-manifest.13d5cc794249ac7d74ac82e3a6341d12.js": "/binouze-me/precache-manifest.13d5cc794249ac7d74ac82e3a6341d12.js",
     "service-worker.js": "/binouze-me/service-worker.js",
     "static/css/main.4911fe5e.chunk.css.map": "/binouze-me/static/css/main.4911fe5e.chunk.css.map",
-    "static/js/2.4266b066.chunk.js.LICENSE.txt": "/binouze-me/static/js/2.4266b066.chunk.js.LICENSE.txt"
+    "static/js/2.d9e868eb.chunk.js.LICENSE.txt": "/binouze-me/static/js/2.d9e868eb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.59c9af3a.js",
-    "static/js/2.4266b066.chunk.js",
+    "static/js/2.d9e868eb.chunk.js",
     "static/css/main.4911fe5e.chunk.css",
-    "static/js/main.05c667a2.chunk.js"
+    "static/js/main.77a80cb2.chunk.js"
   ]
 }
