@@ -19,12 +19,9 @@ const ListFilters = ({
 
   return (
     <div className={hidden ? "nav-filters-hidden" : "nav-filters"}>
-      <div className="nav-filter-title">
+      <div className="nav-filter-title" onClick={() => setHidden(!hidden)}>
         <h3 hidden={hidden}>Filters :</h3>
-        <FilterIcon
-          id={hidden ? "filter-icon-hidden" : "filter-icon"}
-          onClick={() => setHidden(!hidden)}
-        />
+        <FilterIcon id={hidden ? "filter-icon-hidden" : "filter-icon"} />
       </div>
       <div className={hidden ? "filter-hidden" : "filter"}>
         {" "}
