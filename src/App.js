@@ -22,9 +22,11 @@ function App() {
   return (
     <BrowserRouter basename="/binouze-me">
       <div className="App">
-        <header className="App-header">
-          <h2>binouze-me</h2>
-          <h3>bienvenue chez Brewdog</h3>
+        <header className="app-header">
+          <div className="site-title">
+            <h2>binouze-me</h2>
+            <h5>welcome to Brewdog</h5>
+          </div>
           <HeaderNav />
         </header>
         <Switch>
@@ -39,6 +41,16 @@ function App() {
               />
             )}
           />
+          <Route
+            path="/catalogue/beers/:id"
+            render={() => (
+              <BeerCard
+                favBeers={favBeers}
+                setFavBeers={setFavBeers}
+                match="random"
+              />
+            )}
+          />
           <Route path="/catalogue" component={BeerList} />
           <Route path="/search" component={ComingSoon} />
           <Route
@@ -47,7 +59,6 @@ function App() {
               <TopBeers favBeers={favBeers} setFavBeers={setFavBeers} />
             )}
           />
-          <Route path="/random" component={ComingSoon} />
 
           {/* <Route exact path="/beers" component={BeerCard} /> */}
           <Route component={NoMatch} />
