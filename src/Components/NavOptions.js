@@ -12,7 +12,7 @@ const NavOptions = ({ beers, itemsPage, page, pageDisplay, onChange }) => {
       </button>
       <span>{pageDisplay}</span>
       <div>
-        <label>Bières par page :</label>
+        <label>items per page :</label>
         <select
           value={itemsPage}
           onChange={(e) => onChange(1, parseInt(e.target.value))}

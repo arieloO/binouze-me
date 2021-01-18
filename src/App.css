@@ -157,10 +157,11 @@ a.active-nav-route {
   position: sticky;
   top: 0px;
   display: flex;
-  height: 25px;
-  padding: 6px;
-  margin: 2px 8px 0 8px;
+  height: 50px;
+  /* padding: 6px;
+  margin: 2px 8px 2px 8px; */
   justify-content: space-between;
+  align-items: center;
   background-color: #f0f0c9fa;
   box-shadow: 0px 4px 1px -3px #114a74;
 }
@@ -187,15 +188,27 @@ a.active-nav-route {
 
 .nav-filter-title {
   border-bottom: 1px solid #bd632f;
-  padding: 16px;
-  margin: 5px;
+  /* padding: 4px;
+  margin: 0px; */
+  height: 50px;
+  min-width: 50px;
+  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 #filter-icon {
   width: 30px;
   height: 30px;
+  margin: 10px;
+  margin-right: 10px;
+}
+
+#filter-icon-hidden {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
 }
 
 .nav-filters {
@@ -205,14 +218,30 @@ a.active-nav-route {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 60vh;
+  height: 96vh;
   min-width: 256px;
-  margin: 2px;
-  padding: 6px 0 0 0;
+  margin: 0 2px 0 0;
+  padding: 0 2px;
   box-shadow: 4px -2px 1px -3px #124e78;
+  transition: width 2s ease-in;
 }
 
-.filters-list {
+.nav-filters-hidden {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 96vh;
+  width: 50px;
+  margin: 0 2px;
+  padding: 0 2px;
+  box-shadow: 4px -2px 1px -3px #124e78;
+  transition: width 2s ease-in-out;
+}
+
+/* .filters-list {
   position: -webkit-sticky;
   position: sticky;
   top: 30px;
@@ -223,7 +252,7 @@ a.active-nav-route {
   justify-content: flex-end;
   align-items: stretch;
   color: rgb(8 8 8);
-}
+} */
 /* .nav-filters ul {
   background-color: inherit;
   flex-grow: 1;
@@ -234,6 +263,13 @@ a.active-nav-route {
 .filter {
   margin: 5px;
   justify-content: flex-start;
+  transition: opacity 2s ease-in-out;
+}
+
+.filter-hidden {
+  display: none;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
 }
 
 .filter ul {
@@ -680,6 +716,8 @@ a.active-nav-route {
   }
 
   .nav-filters {
-    display: none;
+    position: relative;
+    left: 0;
+    z-index: 100;
   }
 }

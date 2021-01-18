@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ReactComponent as FilterIcon } from "../media/filter-icon.svg";
 import MultiSliderTest from "./Slider.js";
 import BeerTypeFilter from "./BeerTypeFilter";
@@ -15,13 +15,18 @@ const ListFilters = ({
   onChange,
   handleNameSearch,
 }) => {
+  const [hidden, setHidden] = useState(false);
+
   return (
-    <div className="nav-filters">
+    <div className={hidden ? "nav-filters-hidden" : "nav-filters"}>
       <div className="nav-filter-title">
-        <h3>Filters :</h3>
-        <FilterIcon />
+        <h3 hidden={hidden}>Filters :</h3>
+        <FilterIcon
+          id={hidden ? "filter-icon-hidden" : "filter-icon"}
+          onClick={() => setHidden(!hidden)}
+        />
       </div>
-      <div className="filter ">
+      <div className={hidden ? "filter-hidden" : "filter"}>
         {" "}
         Alcohol by volume :
         <MultiSliderTest
@@ -33,7 +38,7 @@ const ListFilters = ({
           ticksNumber={6}
         />
       </div>
-      <div className="filter ">
+      <div className={hidden ? "filter-hidden" : "filter"}>
         Bitterness (IBU) :
         <MultiSliderTest
           rangeDomain={ibuDomain}
@@ -45,7 +50,7 @@ const ListFilters = ({
           // sliderBackgroundColor={}
         />
       </div>
-      <div className="filter ">
+      <div className={hidden ? "filter-hidden" : "filter"}>
         Color (SRM) :
         <MultiSliderTest
           rangeDomain={srmDomain}
@@ -61,7 +66,7 @@ const ListFilters = ({
         />
       </div>
 
-      <div className="filter">
+      <div className={hidden ? "filter-hidden" : "filter"}>
         <BeerTypeFilter
           key="1"
           handleSwitch={handleNameSearch}
