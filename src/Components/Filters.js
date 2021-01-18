@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ReactComponent as FilterIcon } from "../media/filter-icon.svg";
 import MultiSliderTest from "./Slider.js";
 import BeerTypeFilter from "./BeerTypeFilter";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
@@ -17,6 +17,10 @@ const ListFilters = ({
 }) => {
   return (
     <div className="nav-filters">
+      <div className="nav-filter-title">
+        <h3>Filters :</h3>
+        <FilterIcon />
+      </div>
       <div className="filter ">
         {" "}
         Alcohol by volume :

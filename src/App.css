@@ -6,15 +6,26 @@
   min-height: 100vh;
 }
 
-.App-header {
+.app-header {
   background-color: #042a2b;
   min-height: 5vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: #f0f0c9;
+}
+
+.site-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title h2,
+.site-title h5 {
+  line-height: 1em;
+  margin: 0 auto;
 }
 
 .error404 {
@@ -173,6 +184,19 @@ a.active-nav-route {
 
 /* ----------- FILTERS & SLIDERS ----------- */
 /* -------------------------------------------------------- */
+
+.nav-filter-title {
+  border-bottom: 1px solid #bd632f;
+  padding: 16px;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#filter-icon {
+  width: 30px;
+  height: 30px;
+}
 
 .nav-filters {
   position: -webkit-sticky;
@@ -648,4 +672,14 @@ a.active-nav-route {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 640px) {
+  .app-header {
+    flex-direction: column;
+  }
+
+  .nav-filters {
+    display: none;
+  }
 }
