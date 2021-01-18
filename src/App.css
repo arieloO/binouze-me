@@ -187,6 +187,27 @@ a.active-nav-route {
   transition: all 200ms ease-in-out;
 }
 
+.items-size-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+  margin: 0 15px;
+}
+
+.grid-icon {
+  margin: 3px;
+  fill: #124e78;
+  padding: 3px;
+  border-radius: 2px;
+  border: solid 2px #124e7800;
+}
+
+.grid-icon-selected {
+  border: solid 2px #124e78;
+  box-shadow: #124e78 inset 0 0 1px;
+}
+
 /* ----------- FILTERS & SLIDERS ----------- */
 /* -------------------------------------------------------- */
 
