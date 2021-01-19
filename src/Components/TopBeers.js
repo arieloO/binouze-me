@@ -22,15 +22,13 @@ const TopBeers = ({ favBeers, setFavBeers }) => {
         {beerList.map(([beerId, beerRank]) => {
           console.log(beerId.toString());
           return (
-            <div key={beerId} className="mini-beer-card">
-              <MiniBeerCard
-                id={parseInt(beerId)}
-                key={beerId.toString()}
-                beerRating={beerRank}
-                favBeers={favBeers}
-                setFavBeers={setFavBeers}
-              />
-            </div>
+            <MiniBeerCard
+              id={parseInt(beerId)}
+              key={beerId.toString()}
+              beerRating={beerRank}
+              favBeers={favBeers}
+              setFavBeers={setFavBeers}
+            />
           );
         })}
         {fills(8)}
@@ -38,7 +36,7 @@ const TopBeers = ({ favBeers, setFavBeers }) => {
     );
   } else {
     return (
-      <div>{favBeers ? null : <p>Your haven't rated any beer yet !</p>}</div>
+      <div>{favBeers ? null : <h1>Your haven't rated any beer yet !</h1>}</div>
     );
   }
 };

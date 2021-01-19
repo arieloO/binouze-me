@@ -714,7 +714,6 @@ a.active-nav-route {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-
   flex-grow: 1;
   text-align: start;
   overflow-wrap: break-word;
@@ -728,8 +727,7 @@ a.active-nav-route {
   line-break: loose;
   word-break: break-word;
   text-overflow: ellipsis;
-  margin: 0 auto;
-  padding: 20px 0 0 0;
+  padding: 18px 6px;
 }
 
 .mini-beer-card .mini-card-title {

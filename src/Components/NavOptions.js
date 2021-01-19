@@ -3,9 +3,15 @@ import { useState, useEffect, useRef } from "react";
 import { ReactComponent as SmallItemsIcon } from "../media/small-items-icon.svg";
 import { ReactComponent as LargeItemsIcon } from "../media/large-items-icon.svg";
 
-const NavOptions = ({ beers, itemsPage, page, pageDisplay, onChange }) => {
-  const [largeGrid, setLargeGrid] = useState(false);
-
+const NavOptions = ({
+  beers,
+  itemsPage,
+  page,
+  pageDisplay,
+  onChange,
+  largeGrid,
+  switchGrid,
+}) => {
   return (
     <div className="nav-options">
       <button
@@ -28,15 +34,12 @@ const NavOptions = ({ beers, itemsPage, page, pageDisplay, onChange }) => {
         </select>
       </div>
       {/* <button > */}
-      <div
-        className="items-size-button"
-        onClick={() => setLargeGrid(!largeGrid)}
-      >
+      <div className="items-size-button" onClick={() => switchGrid(largeGrid)}>
         <SmallItemsIcon
-          class={largeGrid ? "grid-icon-selected grid-icon" : "grid-icon"}
+          className={!largeGrid ? "grid-icon-selected grid-icon" : "grid-icon"}
         />
         <LargeItemsIcon
-          class={largeGrid ? "grid-icon" : "grid-icon-selected grid-icon"}
+          className={largeGrid ? "grid-icon-selected grid-icon" : "grid-icon"}
         />
       </div>
       {/* </button> */}

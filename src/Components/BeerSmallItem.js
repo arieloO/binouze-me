@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const BeerItem = ({ beer }) => {
+const BeerSmallItem = ({ beer }) => {
   // href={beer.image_url} target="_blank" rel="noopener noreferrer"
   return (
     <NavLink to={`/catalogue/beers/id=${beer.id}`}>
@@ -13,4 +13,4 @@ const BeerItem = ({ beer }) => {
   );
 };
 
-export default BeerItem;
+export default BeerSmallItem;

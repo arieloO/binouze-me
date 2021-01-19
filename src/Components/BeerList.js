@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import qs from "qs";
-import BeerItem from "./BeerItem.js";
+import BeerSmallItem from "./BeerSmallItem.js";
+import BeerLargeItem from "./BeerLargeItem.js";
 import NavOptions from "./NavOptions.js";
 import ListFilters from "./Filters.js";
+import NoResult from "./NoResult";
+// import { yeastTypes } from "../lib/yeastTypes.js";
 
 const BeerList = ({ location, history }) => {
   const [beers, setBeers] = useState([]);
@@ -99,36 +102,23 @@ const BeerList = ({ location, history }) => {
     return divs;
   };
 
-  // Get all Yeasts array
+  // GRID LARGE OR SMALL ITEMS
 
-  const [allYeasts, setAllYeasts] = useState([]);
+  const [largeGrid, setLargeGrid] = useState(false);
 
-  const getAllYeast = useRef(() => {});
-
-  getAllYeast.current = () => {
-    const getYeasts = beers.reduce((all, beer) => {
-      console.log(
-        "all ",
-        all,
-        " includes ",
-        beer.ingredients.yeast,
-        " : ",
-        all.includes(beer.ingredients.yeast)
-      );
-      return all.includes(beer.ingredients.yeast)
-        ? all
-        : [...all, beer.ingredients.yeast];
-    }, [...allYeasts] || []);
-    // console.log("get yeasts :", getYeasts);
-    setAllYeasts([...getYeasts]);
+  const switchGrid = (grid) => {
+    return setLargeGrid(!grid);
   };
 
-  useEffect(() => {
-    // had to get the fuction out of useEffect to comply with linter alert, to useRef getAllYeast.current
-    getAllYeast.current();
-  }, [beers]);
+  const beerItem = (beer) => {
+    if (largeGrid === true) {
+      return <BeerLargeItem key={beer.id} beer={beer} />;
+    } else {
+      return <BeerSmallItem key={beer.id} beer={beer} />;
+    }
+  };
 
-  console.log("all yeasts :", allYeasts);
+  console.log("GRID STATE LARGE", largeGrid);
 
   return (
     <div className="body-wrapper">
@@ -150,30 +140,17 @@ const BeerList = ({ location, history }) => {
           page={page}
           pageDisplay={pageDisplay}
           onChange={handlePathChange}
+          largeGrid={largeGrid}
+          switchGrid={switchGrid}
         />
 
         {beers.length > 0 ? (
-          <ul className="beer-list">
-            {beers.map((beer) => (
-              <BeerItem key={beer.id} beer={beer} />
-            ))}
+          <div className="beer-list">
+            {beers.map((beer) => beerItem(beer))}
             {fills(18)}
-          </ul>
-        ) : (
-          <div
-            style={{
-              flexGrow: 3,
-              width: "100%",
-              margin: "20px 0",
-            }}
-          >
-            <p>
-              Oh, this is so sad... Seems like the beer of your dreams doesn't
-              exist...
-            </p>
-            <p>I'm starting to think... that you have bad taste.</p>
-            <p>Sorry.</p>
           </div>
+        ) : (
+          <NoResult />
         )}
         <div
           id="empty-div-wrapper"
