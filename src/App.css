@@ -155,6 +155,7 @@ a.active-nav-route {
 .nav-options {
   position: -webkit-sticky;
   position: sticky;
+  z-index: 2;
   top: 0px;
   display: flex;
   height: 50px;
@@ -511,13 +512,19 @@ a.active-nav-route {
 /* -------------------------------------------------------- */
 
 .beer-list {
-  display: flex;
+  z-index: 1;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+
+  /* display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 6px;
+  justify-content: center; */
+  margin: 8px;
 }
 
 .beer-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -527,7 +534,7 @@ a.active-nav-route {
   /* border: solid 1px #cfa48ca1; */
   overflow: hidden;
   border-radius: 0 5px 5px 5px;
-  margin: 4px;
+  margin: 6px;
   height: 264px;
   transition: border-radius 300ms ease-in-out;
   transition: transform 300ms ease-in-out;
@@ -540,29 +547,33 @@ a.active-nav-route {
 }
 
 .beer-image {
-  height: 150px;
+  height: 200px;
   width: 76px;
-  margin: 10px auto;
+  margin: auto;
+  margin-top: 8px;
   object-fit: contain;
 }
 
 .pic-name {
-  margin: 0 auto;
-  padding: 2px;
+  margin: 8px auto;
   width: 110px;
   max-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  text-justify: distribute;
   flex-grow: 2;
-  overflow: hidden;
-  overflow-wrap: break-word;
   color: #042a2b;
 }
 
 .pic-name p {
-  margin: 8px 0;
+  margin: 0;
+  padding: 4px;
+  max-height: 2em;
+  display: inline-block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 .small-item-id {
@@ -582,8 +593,8 @@ a.active-nav-route {
 
 .beer-list-empty-fill {
   display: flex;
-  margin: 4px;
-  width: 111px;
+  margin: 0;
+  width: 122px;
   height: 0px;
 }
 

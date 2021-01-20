@@ -73,6 +73,8 @@ const BeerList = ({ location, history }) => {
       });
   }, [fetchRequestString]);
 
+  //https://images.punkapi.com/v2/keg.png
+
   useEffect(() => {
     if (nameSearch !== undefined) {
       const newFetchRequestString = fetchRequestString.concat(
@@ -110,6 +112,16 @@ const BeerList = ({ location, history }) => {
     return setLargeGrid(!grid);
   };
 
+  const gridStyle = () => {
+    return largeGrid
+      ? {
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+        }
+      : {
+          gridTemplateColumns: "repeat(auto-fill, minmax(118px, 1fr))",
+        };
+  };
+
   const beerItem = (beer) => {
     if (largeGrid === true) {
       return <BeerLargeItem key={beer.id} beer={beer} />;
@@ -145,7 +157,7 @@ const BeerList = ({ location, history }) => {
         />
 
         {beers.length > 0 ? (
-          <div className="beer-list">
+          <div className="beer-list" style={gridStyle()}>
             {beers.map((beer) => beerItem(beer))}
             {fills(20)}
           </div>
