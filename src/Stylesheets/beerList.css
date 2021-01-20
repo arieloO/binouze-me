@@ -1,0 +1,90 @@
+/* ----------- MAIN BEER LIST ----------- */
+/* -------------------------------------------------------- */
+/* -------------------------------------------------------- */
+
+.beer-list {
+  z-index: 1;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: center; */
+  margin: 8px;
+}
+
+.beer-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 1px 1px 5px #00000038;
+  background-color: #ffffff34;
+  /* border: solid 1px #124e78; */
+  /* border: solid 1px #cfa48ca1; */
+  overflow: hidden;
+  border-radius: 0 5px 5px 5px;
+  margin: 6px;
+  height: 264px;
+  transition: border-radius 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+}
+
+.beer-item:hover {
+  border-radius: 5px 5px 12px 12px;
+
+  transform: scale(1.02);
+}
+
+.beer-image {
+  height: 200px;
+  width: 76px;
+  margin: auto;
+  margin-top: 8px;
+  object-fit: contain;
+}
+
+.pic-name {
+  margin: 8px auto;
+  width: 110px;
+  max-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 2;
+  color: #042a2b;
+}
+
+.pic-name p {
+  margin: 0;
+  padding: 4px;
+  max-height: 2em;
+  display: inline-block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.small-item-id {
+  background-color: #124e78;
+  color: #f2bb05;
+  font-weight: 700;
+  border-radius: 0;
+}
+
+.colorChip {
+  position: absolute;
+  margin: 0;
+  width: 0;
+  height: 0;
+  border-right: 25px solid transparent;
+}
+
+.beer-list-empty-fill {
+  display: flex;
+  margin: 0;
+  width: 122px;
+  height: 0px;
+}

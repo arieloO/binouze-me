@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./Stylesheets/App.css";
+import "./Stylesheets/filters.css";
+import "./Stylesheets/beerList.css";
+import "./Stylesheets/beer.css";
+import "./Stylesheets/topBeers.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BeerList from "./Components/BeerList.js";
 import HeaderNav from "./Components/HeaderNav.js";
