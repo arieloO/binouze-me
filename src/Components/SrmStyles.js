@@ -1,5 +1,6 @@
 export const SRMcolor = [
   "#FFE699",
+  "#FFE699",
   "#FFD878",
   "#FFCA5A",
   "#FFBF42",
@@ -51,4 +52,8 @@ export const SRMColorRadient = {
   borderRadius: 2,
   pointerEvents: "none",
   background: `linear-gradient(90deg,${SRMcolor})`,
+};
+
+export const getBeerColor = (ebc) => {
+  return SRMcolor[Math.round(ebc / 7.5)];
 };

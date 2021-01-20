@@ -520,11 +520,23 @@ a.active-nav-route {
 .beer-item {
   display: flex;
   flex-direction: column;
-  /* flex-basis: baseline; */
-  border: dashed 1px #124e78;
-  border-radius: 5px;
-  margin: 5px;
-  height: 244px;
+  align-items: stretch;
+  box-shadow: 1px 1px 5px #00000038;
+  background-color: #ffffff34;
+  /* border: solid 1px #124e78; */
+  /* border: solid 1px #cfa48ca1; */
+  overflow: hidden;
+  border-radius: 0 5px 5px 5px;
+  margin: 4px;
+  height: 264px;
+  transition: border-radius 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+}
+
+.beer-item:hover {
+  border-radius: 5px 5px 12px 12px;
+
+  transform: scale(1.02);
 }
 
 .beer-image {
@@ -536,17 +548,42 @@ a.active-nav-route {
 
 .pic-name {
   margin: 0 auto;
-  width: 100px;
-  max-height: 54px;
+  padding: 2px;
+  width: 110px;
+  max-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-justify: distribute;
+  flex-grow: 2;
   overflow: hidden;
   overflow-wrap: break-word;
   color: #042a2b;
 }
 
+.pic-name p {
+  margin: 8px 0;
+}
+
+.small-item-id {
+  background-color: #124e78;
+  color: #f2bb05;
+  font-weight: 700;
+  border-radius: 0;
+}
+
+.colorChip {
+  position: absolute;
+  margin: 0;
+  width: 0;
+  height: 0;
+  border-right: 25px solid transparent;
+}
+
 .beer-list-empty-fill {
   display: flex;
-  margin: 6px;
-  width: 100px;
+  margin: 4px;
+  width: 111px;
   height: 0px;
 }
 
@@ -696,23 +733,23 @@ a.active-nav-route {
   margin: 5px;
   padding: 5px;
   border-radius: 10px;
-  box-shadow: inset 1px 1px 1px 0px #cfa48ca1, inset -1px -1px 1px 0px #cfa48ca1;
-  border: solid 1px #cfa48ca1;
+  box-shadow: inset 2px 2px 0px 0px #cfa48ca1, 2px 2px 0px 0px #cfa48ca1;
+  /* border: solid 1px #cfa48ca1; */
 }
 .mini-beer-card a {
   padding: 0;
   margin: 0;
 }
 .mini-beer-card img {
-  padding: 0px;
+  padding: 4px;
   object-fit: contain;
 }
 
 .mini-card-info {
-  margin: 0vh;
-  padding: 0vh;
+  padding: 4px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: stretch;
   flex-grow: 1;
   text-align: start;
@@ -720,6 +757,7 @@ a.active-nav-route {
   line-break: loose;
   word-break: break-word;
   text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .mini-beer-card p {
@@ -727,7 +765,8 @@ a.active-nav-route {
   line-break: loose;
   word-break: break-word;
   text-overflow: ellipsis;
-  padding: 18px 6px;
+  padding: 4px;
+  margin: 0;
 }
 
 .mini-beer-card .mini-card-title {
@@ -736,11 +775,13 @@ a.active-nav-route {
 }
 
 .mini-beer-stars {
-  margin: 0;
+  padding: 4px;
+  margin: 12px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
   object-fit: contain;
+  align-self: flex-end;
 }
 
 #modal-root {

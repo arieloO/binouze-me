@@ -147,7 +147,7 @@ const BeerList = ({ location, history }) => {
         {beers.length > 0 ? (
           <div className="beer-list">
             {beers.map((beer) => beerItem(beer))}
-            {fills(18)}
+            {fills(20)}
           </div>
         ) : (
           <NoResult />
