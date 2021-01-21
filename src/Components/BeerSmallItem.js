@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import ColorCorner from "./ColorCorner.js";
 import { getBeerColor } from "./SrmStyles.js";
 
 const BeerSmallItem = ({ beer }) => {
@@ -11,12 +12,7 @@ const BeerSmallItem = ({ beer }) => {
   return (
     <NavLink to={`/catalogue/beers/id=${beer.id}`}>
       <div className="beer-item">
-        <div
-          className="colorChip"
-          style={{
-            borderTop: `25px solid ${beerColor} `,
-          }}
-        ></div>
+        <ColorCorner ebc={beer.ebc} size={25} />
         <img src={beer.image_url} alt={beer.name} className="beer-image"></img>
         <div className="pic-name">
           <p>{beer.name}</p>
