@@ -2,9 +2,15 @@
 /* -------------------------------------------------------- */
 
 .beer-card {
+  position: relative;
   display: flex;
-  margin: 0 auto;
-  padding: 10px;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+  box-shadow: -2px -2px 6px #00000038, 0px 3px 2px #00000038;
+  background-color: #ffffff34;
+  margin: 20px;
+  border-radius: 12px;
 }
 
 .beer-img-star {
@@ -15,20 +21,19 @@
 }
 
 .beer-card-image {
-  margin: 20px;
-  padding: 1vh;
+  margin: 30px;
   object-fit: contain;
-  height: 50vh;
+  height: 53vh;
 }
 
 .beer-card-info {
-  margin: 2vh;
-  padding: 2vh;
-  display: flex;
   margin: 30px;
+  width: 375px;
+  overflow: hidden;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   text-align: start;
 }
 
@@ -54,7 +59,6 @@
 /* -------------------------------------------------------- */
 
 .beer-stars {
-  padding-bottom: 24px;
   display: flex;
   flex-direction: row;
   justify-content: center;

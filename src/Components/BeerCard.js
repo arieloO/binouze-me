@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import StarRating from "./StarRating";
 import qs from "qs";
+import ColorCorner from "./ColorCorner.js";
 
 const BeerCard = ({ match, favBeers, setFavBeers }) => {
   const queryString = qs.parse(match.params.id, {
@@ -37,6 +38,7 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
   }
   return (
     <div className="beer-card">
+      <ColorCorner ebc={beerData.ebc} size={100} />
       <div className="beer-img-star">
         <img
           src={beerData.image_url}

@@ -44,6 +44,7 @@
 }
 body {
   background-color: #f0f0c9;
+  overflow-x: hidden;
 }
 h1 {
   margin: 15px;
