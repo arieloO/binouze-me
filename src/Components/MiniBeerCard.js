@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import StarRating from "./StarRating";
 import { NavLink } from "react-router-dom";
+import ColorCorner from "./ColorCorner.js";
 
 const MiniBeerCard = ({ id, beerRating, setFavBeers }) => {
   const [requestStatus, setRequestStatus] = useState(false);
@@ -50,34 +51,35 @@ const MiniBeerCard = ({ id, beerRating, setFavBeers }) => {
   } else {
     return (
       <div className="mini-beer-card">
-        <div style={{ display: "flex", flexDirection: "row", height: "100%" }}>
-          <div style={{ alignSelf: "center" }}>
-            <NavLink to={`/catalogue/beers/id=${beerData.id}`}>
-              <img
-                src={beerData.image_url}
-                alt={beerData.name}
-                className="beer-image"
-              ></img>
-            </NavLink>
-          </div>
-
-          <div className="mini-card-info">
-            <NavLink to={`/beers/id=${beerData.id}`}>
-              <p className="mini-card-title">
-                <strong>{beerData.name}</strong>
-              </p>
-            </NavLink>
-
-            <p style={{ fontStyle: "italic" }}>{beerData.tagline}</p>
-            <div style={{ flexGrow: "3" }}></div>
-            <StarRating
-              beerRating={beerRating}
-              onChange={changeFavBeers}
-              size={20}
-              customClass={"mini-beer-stars"}
-            />
-          </div>
+        <ColorCorner ebc={beerData.ebc} size={30} />
+        {/* <div style={{ display: "flex", flexDirection: "row", height: "100%" }}> */}
+        <div style={{ alignSelf: "center" }}>
+          <NavLink to={`/catalogue/beers/id=${beerData.id}`}>
+            <img
+              src={beerData.image_url}
+              alt={beerData.name}
+              className="beer-image"
+            ></img>
+          </NavLink>
         </div>
+
+        <div className="mini-card-info">
+          <NavLink to={`/beers/id=${beerData.id}`}>
+            <p className="mini-card-title">
+              <strong>{beerData.name}</strong>
+            </p>
+          </NavLink>
+          <div style={{ flexGrow: "3" }}></div>
+
+          <p style={{ fontStyle: "italic" }}>{beerData.tagline}</p>
+          <StarRating
+            beerRating={beerRating}
+            onChange={changeFavBeers}
+            size={28}
+            customClass={"mini-beer-stars"}
+          />
+        </div>
+        {/* </div> */}
       </div>
     );
   }

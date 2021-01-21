@@ -1,13 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import ColorCorner from "./ColorCorner.js";
-import { getBeerColor } from "./SrmStyles.js";
 
 const BeerSmallItem = ({ beer }) => {
   // href={beer.image_url} target="_blank" rel="noopener noreferrer"
-
-  const beerColor = getBeerColor(beer.ebc);
-  console.log("BEER COLOR / ", beerColor);
 
   return (
     <NavLink to={`/catalogue/beers/id=${beer.id}`}>

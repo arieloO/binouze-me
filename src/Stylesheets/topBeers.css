@@ -12,14 +12,14 @@
 .mini-beer-card {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: stretch;
-  box-shadow: 1px 1px 5px #00000038;
+  box-shadow: -1px -1px 5px #00000038, 0px 3px 2px #00000038;
   background-color: #ffffff34;
   height: 200px;
   margin: 6px;
-  padding: 6px;
-  border-radius: 8px;
+  border-radius: 3px 8px 8px 8px;
+  overflow: hidden;
   transition: border-radius 300ms ease-in-out;
 }
 
@@ -30,12 +30,12 @@
 .mini-beer-card a {
   padding: 0;
   margin: 0;
+  object-fit: contain;
 }
 .mini-beer-card img {
-  padding: 6px;
-  margin: 6px;
-  height: 182px;
-  object-fit: contain;
+  padding: 12px;
+  margin: 0;
+  height: 160px;
 }
 
 .mini-card-info {
@@ -58,7 +58,7 @@
   line-break: loose;
   word-break: break-word;
   text-overflow: ellipsis;
-  padding: 4px;
+  padding: 12px 4px;
   margin: 0;
 }
 
@@ -68,8 +68,8 @@
 }
 
 .mini-beer-stars {
-  padding: 4px;
-  margin: 12px;
+  padding: 12px;
+  margin: 0px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
