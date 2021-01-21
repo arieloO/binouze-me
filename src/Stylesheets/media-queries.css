@@ -1,0 +1,13 @@
+/* MEDIA QUERIES */
+
+@media (max-width: 640px) {
+  .app-header {
+    flex-direction: column;
+  }
+
+  .nav-filters {
+    position: relative;
+    left: 0;
+    z-index: 100;
+  }
+}

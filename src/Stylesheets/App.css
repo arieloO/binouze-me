@@ -220,17 +220,3 @@ a.active-nav-route {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
 }
-
-/* MEDIA QUERIES */
-
-@media (max-width: 640px) {
-  .app-header {
-    flex-direction: column;
-  }
-
-  .nav-filters {
-    position: relative;
-    left: 0;
-    z-index: 100;
-  }
-}
