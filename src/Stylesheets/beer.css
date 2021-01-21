@@ -5,6 +5,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: stretch;
   overflow: hidden;
   box-shadow: -2px -2px 6px #00000038, 0px 3px 2px #00000038;
@@ -53,6 +54,19 @@
   font-weight: bolder;
   color: #bd632f54;
   margin: 6px 10px 0 0;
+}
+
+/* ----------- SINGLE BEER SIDE INFO ----------- */
+/* -------------------------------------------------------- */
+.side-card {
+  position: relative;
+  justify-content: start;
+  text-align: start;
+  border: solid 3px #bd632f36;
+  background-color: #bd632f54;
+  margin: 30px;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 /* ----------- SINGLE BEER STAR RATING ----------- */

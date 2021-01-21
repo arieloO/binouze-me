@@ -33,6 +33,17 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
     });
   };
 
+  const listIngredients = (type) => {
+    let array = [];
+    beerData.ingredients[type].map((ingredient, id) => {
+      if (!array.includes(ingredient.name)) {
+        return (array = [...array, ingredient.name]);
+      }
+      return array;
+    });
+    return array;
+  };
+
   if (!beerData) {
     return null;
   }
@@ -69,6 +80,27 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
             <li key={id}>{dishes}</li>
           ))}
         </ul>
+      </div>
+      <div>
+        <div className="side-card">
+          {/* <h2>More details</h2> */}
+          <div>
+            <h3>malts</h3>
+            <ul>
+              {listIngredients("malt").map((hop, id) => (
+                <li key={id}>{hop}</li>
+              ))}
+            </ul>
+            <h3>hops</h3>
+            <ul>
+              {listIngredients("hops").map((hop, id) => (
+                <li key={id}>{hop}</li>
+              ))}
+            </ul>
+            <h3>yeast</h3>
+            <p>{beerData.ingredients.yeast}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
