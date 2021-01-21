@@ -7,10 +7,6 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
-
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: center; */
   margin: 8px;
 }
 
@@ -24,16 +20,14 @@
   /* border: solid 1px #124e78; */
   /* border: solid 1px #cfa48ca1; */
   overflow: hidden;
-  border-radius: 0 5px 5px 5px;
+  border-radius: 3px 5px 5px 5px;
   margin: 6px;
   height: 264px;
   transition: border-radius 300ms ease-in-out;
-  transition: transform 300ms ease-in-out;
 }
 
 .beer-item:hover {
-  border-radius: 5px 5px 12px 12px;
-
+  border-radius: 8px;
   transform: scale(1.02);
 }
 

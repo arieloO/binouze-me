@@ -2,45 +2,39 @@
 /* -------------------------------------------------------- */
 
 .top-beers-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  justify-content: flex-start;
-  align-items: flex-end;
+  z-index: 1;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin: 8px;
 }
-.mini-beer-empty-fill {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  flex-grow: 1;
-  flex-basis: 240px;
-  max-width: 360px;
-  height: 0px;
-  margin: 0 5px 0 5px;
-  padding: 0 5px 0 5px;
-}
+
 .mini-beer-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 240px;
-  max-width: 360px;
+  box-shadow: 1px 1px 5px #00000038;
+  background-color: #ffffff34;
   height: 200px;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: inset 2px 2px 0px 0px #cfa48ca1, 2px 2px 0px 0px #cfa48ca1;
-  /* border: solid 1px #cfa48ca1; */
+  margin: 6px;
+  padding: 6px;
+  border-radius: 8px;
+  transition: border-radius 300ms ease-in-out;
+}
+
+.mini-beer-card:hover {
+  border-radius: 8px;
+  transform: scale(1.02);
 }
 .mini-beer-card a {
   padding: 0;
   margin: 0;
 }
 .mini-beer-card img {
-  padding: 4px;
+  padding: 6px;
+  margin: 6px;
+  height: 182px;
   object-fit: contain;
 }
 

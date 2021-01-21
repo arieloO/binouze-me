@@ -4,16 +4,6 @@ import MiniBeerCard from "./MiniBeerCard";
 const TopBeers = ({ favBeers, setFavBeers }) => {
   console.log(favBeers);
 
-  const fills = (a) => {
-    let divs = [];
-    for (let i = a; i > 0; i--) {
-      divs.push(
-        <div key={i.toString()} className="mini-beer-empty-fill"></div>
-      );
-    }
-    return divs;
-  };
-
   if (favBeers) {
     const beerList = Object.entries(favBeers);
     console.log(beerList);
@@ -31,7 +21,6 @@ const TopBeers = ({ favBeers, setFavBeers }) => {
             />
           );
         })}
-        {fills(8)}
       </div>
     );
   } else {
