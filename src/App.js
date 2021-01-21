@@ -84,12 +84,16 @@ function App() {
             margin: "1px",
           }}
         >
-          Thank you for trying this little app, hope you enjoyed it, come visit
-          me on{" "}
+          Thank you for trying this little app, hope you enjoyed it, it was made
+          using{" "}
+          <a href="https://punkapi.com/" style={{ color: "blue" }}>
+            punkapi.com
+          </a>
+          , come visit me on{" "}
           <a href="https://github.com/arieloO" style={{ color: "blue" }}>
             my git-hub page
           </a>{" "}
-          for more info
+          for more - icons by <a href="https://icons8.com">Icons8</a>
         </p>
       </footer>
     </BrowserRouter>
