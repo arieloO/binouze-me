@@ -50,7 +50,7 @@ const NavOptions = ({
           activeClassName="active-nav-route"
         >
           <img
-            src="https://img.icons8.com/fluent-systems-regular/24/000000/dice.png"
+            src="https://img.icons8.com/fluent-systems-regular/40/000000/dice.png"
             alt="dice roll"
             className="diceroll"
           />

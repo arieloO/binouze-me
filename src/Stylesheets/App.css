@@ -211,11 +211,11 @@ a.active-nav-route {
 }
 
 .diceroll {
-  transition: transform 5s ease-in-out;
+  transition: transform 2.5s ease-in-out;
 }
 .diceroll:hover {
-  transform: scale(1.1);
-  transform: rotate(1080deg);
+  transform: rotate(720deg);
+  transition: transform 4s ease-in;
 }
 
 /* MODAL ROOT */
