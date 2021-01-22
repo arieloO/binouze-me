@@ -210,6 +210,14 @@ a.active-nav-route {
   box-shadow: #124e78 inset 0 0 1px;
 }
 
+.diceroll {
+  transition: transform 5s ease-in-out;
+}
+.diceroll:hover {
+  transform: scale(1.1);
+  transform: rotate(1080deg);
+}
+
 /* MODAL ROOT */
 
 #modal-root {

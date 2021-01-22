@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import { ReactComponent as SmallItemsIcon } from "../media/small-items-icon.svg";
 import { ReactComponent as LargeItemsIcon } from "../media/large-items-icon.svg";
 
@@ -43,6 +44,18 @@ const NavOptions = ({
         />
       </div>
       {/* </button> */}
+      <div>
+        <NavLink
+          to="/catalogue/beers/id=random"
+          activeClassName="active-nav-route"
+        >
+          <img
+            src="https://img.icons8.com/fluent-systems-regular/24/000000/dice.png"
+            alt="dice roll"
+            className="diceroll"
+          />
+        </NavLink>
+      </div>
       <button
         onClick={() => onChange(page + 1, itemsPage)}
         className="page-nav"
