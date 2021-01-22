@@ -43,7 +43,8 @@
   max-height: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   flex-grow: 2;
   color: #042a2b;
 }
@@ -51,12 +52,13 @@
 .pic-name p {
   margin: 0;
   padding: 4px;
-  max-height: 2em;
-  display: inline-block; /* or inline-block */
-  text-overflow: ellipsis;
+  height: 40px;
+  display: inline-block;
   word-wrap: break-word;
   overflow: hidden;
   overflow-wrap: break-word;
+  white-space: wrap;
+  text-overflow: ellipsis;
 }
 
 .small-item-id {

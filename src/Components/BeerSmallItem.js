@@ -11,7 +11,7 @@ const BeerSmallItem = ({ beer }) => {
         <ColorCorner ebc={beer.ebc} size={25} />
         <img src={beer.image_url} alt={beer.name} className="beer-image"></img>
         <div className="pic-name">
-          <p>{beer.name}</p>
+          <p>{beer.name.split("–")[0].split("(")[0].substring(0, 15)}</p>
         </div>
 
         {/* <div className="small-item-id">{beer.id}</div> */}
