@@ -9,11 +9,11 @@ const HeaderNav = () => {
           catalogue
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/search" activeClassName="active-nav-route">
           search
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink to="/top" activeClassName="active-nav-route">
           my beers
