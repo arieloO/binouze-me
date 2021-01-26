@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ReactComponent as FilterIcon } from "../media/filter-icon.svg";
 import MultiSliderTest from "./Slider.js";
 import BeerTypeFilter from "./BeerTypeFilter";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
 import { yeastTypes, beerTypes } from "./FilterCategories";
+// import DeviceContext from "../App.js";
 
 const ListFilters = ({
   abvDomain,
@@ -15,7 +16,15 @@ const ListFilters = ({
   onChange,
   handleNameSearch,
 }) => {
-  const [hidden, setHidden] = useState(false);
+  // const width = useContext(DeviceContext);
+  // console.log(DeviceContext, DeviceContext.Cosumer, DeviceContext);
+  // const mobileTrueFalse = width.device.width < 640;
+  // console.log("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
+
+  const mobileTrueFalse = window.innerWidth < 640;
+  console.log(window.innerWidth, "< 640 = ", mobileTrueFalse);
+
+  const [hidden, setHidden] = useState(mobileTrueFalse);
 
   return (
     <div className={hidden ? "nav-filters-hidden" : "nav-filters"}>

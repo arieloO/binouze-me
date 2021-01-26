@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import "./Stylesheets/App.css";
 import "./Stylesheets/filters.css";
 import "./Stylesheets/beerList.css";
@@ -14,7 +14,13 @@ import NoMatch from "./Components/NoMatch";
 import ComingSoon from "./Components/ComingSoon";
 
 function App() {
-  console.log("render app");
+  console.log("render app", "device width :", window.innerWidth);
+
+  // const device = {
+  //   width: window.innerWidth,
+  //   isMobile: window.innerWidth < 640,
+  // };
+  // const DeviceContext = createContext();
 
   const localState = JSON.parse(localStorage.getItem("favBeers"));
 
@@ -25,6 +31,7 @@ function App() {
   }, [favBeers]);
 
   return (
+    // <DeviceContext.Provider value={}>
     <BrowserRouter basename="/binouze-me">
       <div className="App">
         <header className="app-header">
@@ -97,6 +104,7 @@ function App() {
         </p>
       </footer>
     </BrowserRouter>
+    // </DeviceContext.Provider>
   );
 }
 
