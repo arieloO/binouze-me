@@ -19,7 +19,7 @@ const BeerList = ({ location, history }) => {
 
   console.log(queryString, page, itemsPage);
 
-  const pageDisplay = `page : ${page}`;
+  const pageDisplay = `page ${page}`;
 
   const getRangeFromQueryParams = (param) => {
     if (queryString[param]) {

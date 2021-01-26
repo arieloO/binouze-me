@@ -24,8 +24,8 @@ const NavOptions = ({
       </button>
       <span>{pageDisplay}</span>
       <div>
-        <label>items per page :</label>
         <select
+          id="itemsPerPage"
           value={itemsPage}
           onChange={(e) => onChange(1, parseInt(e.target.value))}
         >
@@ -33,6 +33,7 @@ const NavOptions = ({
           <option value={50}>50</option>
           <option value={75}>75</option>
         </select>
+        <label htmlFor="itemsPerPage">items</label>
       </div>
       {/* <button > */}
       <div className="items-size-button" onClick={() => switchGrid(largeGrid)}>
