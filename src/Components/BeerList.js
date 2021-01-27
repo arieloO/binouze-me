@@ -159,7 +159,6 @@ const BeerList = ({ location, history }) => {
         {beers.length > 0 ? (
           <div className="beer-list" style={gridStyle()}>
             {beers.map((beer) => beerItem(beer))}
-            {fills(20)}
           </div>
         ) : (
           <NoResult />
