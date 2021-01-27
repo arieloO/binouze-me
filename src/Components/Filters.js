@@ -4,6 +4,7 @@ import MultiSliderTest from "./Slider.js";
 import BeerTypeFilter from "./BeerTypeFilter";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
 import { yeastTypes, beerTypes } from "./FilterCategories";
+import { useWindowWidth } from "../Hooks/LayoutHooks.js";
 // import DeviceContext from "../App.js";
 
 const ListFilters = ({
@@ -16,15 +17,13 @@ const ListFilters = ({
   onChange,
   handleNameSearch,
 }) => {
-  // const width = useContext(DeviceContext);
-  // console.log(DeviceContext, DeviceContext.Cosumer, DeviceContext);
-  // const mobileTrueFalse = width.device.width < 640;
-  // console.log("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_");
+  const windowWidth = useWindowWidth();
 
-  const mobileTrueFalse = window.innerWidth < 640;
-  console.log(window.innerWidth, "< 640 = ", mobileTrueFalse);
+  const [hidden, setHidden] = useState(windowWidth < 640);
 
-  const [hidden, setHidden] = useState(mobileTrueFalse);
+  useEffect(() => {
+    setHidden(windowWidth < 640);
+  }, [windowWidth]);
 
   return (
     <div className={hidden ? "nav-filters-hidden" : "nav-filters"}>
