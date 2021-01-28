@@ -16,25 +16,18 @@ const ListFilters = ({
   srmRange,
   onChange,
   handleNameSearch,
+  hidden,
+  isMobile,
 }) => {
-  const windowWidth = useWindowWidth();
-
-  const [hidden, setHidden] = useState(windowWidth < 640);
-
-  useEffect(() => {
-    setHidden(windowWidth < 640);
-  }, [windowWidth]);
-
   return (
-    <div className={hidden ? "nav-filters-hidden" : "nav-filters"}>
-      <div className="nav-filter-title" onClick={() => setHidden(!hidden)}>
-        <h3 hidden={hidden}>Filters :</h3>
-        <FilterIcon id={hidden ? "filter-icon-hidden" : "filter-icon"} />
+    <div className={hidden ? "nav-filters nav-filters-hidden" : "nav-filters"}>
+      <div className="nav-filter-title">
+        <h3 hidden={isMobile}>filters</h3>
       </div>
       <div id="filters-container">
         <div className={hidden ? "filter-hidden" : "filter"}>
           {" "}
-          Alcohol by volume :
+          alcohol by volume
           <MultiSliderTest
             rangeDomain={abvDomain}
             range={abvRange}
@@ -45,7 +38,7 @@ const ListFilters = ({
           />
         </div>
         <div className={hidden ? "filter-hidden" : "filter"}>
-          Bitterness (IBU) :
+          bitterness - IBU
           <MultiSliderTest
             rangeDomain={ibuDomain}
             range={ibuRange}
@@ -57,7 +50,7 @@ const ListFilters = ({
           />
         </div>
         <div className={hidden ? "filter-hidden" : "filter"}>
-          Color (SRM) :
+          color -SRM
           <MultiSliderTest
             rangeDomain={srmDomain}
             range={srmRange}
@@ -95,6 +88,13 @@ const ListFilters = ({
           ></div> */}
         </div>
       </div>
+      <div
+        style={{
+          flexGrow: 3,
+          height: "600px",
+          margin: "auto",
+        }}
+      ></div>
     </div>
   );
 };

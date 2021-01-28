@@ -5,6 +5,8 @@ import BeerLargeItem from "./BeerLargeItem.js";
 import NavOptions from "./NavOptions.js";
 import ListFilters from "./Filters.js";
 import NoResult from "./NoResult";
+import { useWindowWidth } from "../Hooks/LayoutHooks.js";
+
 // import { yeastTypes } from "../lib/yeastTypes.js";
 
 const BeerList = ({ location, history }) => {
@@ -30,6 +32,7 @@ const BeerList = ({ location, history }) => {
   };
 
   //ListFilters.js fetch parameters
+
   const abvDomain = [0, 56];
   const abvRange = getRangeFromQueryParams("abv") || abvDomain;
 
@@ -73,7 +76,7 @@ const BeerList = ({ location, history }) => {
       });
   }, [fetchRequestString]);
 
-  //https://images.punkapi.com/v2/keg.png
+  // might exclude or create filter for https://images.punkapi.com/v2/keg.png
 
   useEffect(() => {
     if (nameSearch !== undefined) {
@@ -93,16 +96,6 @@ const BeerList = ({ location, history }) => {
   }, [nameSearch, fetchRequestString]);
 
   console.log("beers : ", beers && beers);
-
-  // const fills = (a) => {
-  //   let divs = [];
-  //   for (let i = a; i > 0; i--) {
-  //     divs.push(
-  //       <div key={i.toString()} className="beer-list-empty-fill"></div>
-  //     );
-  //   }
-  //   return divs;
-  // };
 
   // GRID LARGE OR SMALL ITEMS
 
@@ -130,43 +123,57 @@ const BeerList = ({ location, history }) => {
     }
   };
 
-  console.log("GRID STATE LARGE", largeGrid);
+  // HIDE OR SHOW FILTERS
+
+  const windowWidth = useWindowWidth();
+  const isMobile = windowWidth < 640;
+  const [hiddenFilters, setHiddenFilters] = useState(isMobile);
+
+  useEffect(() => {
+    setHiddenFilters(windowWidth < 640);
+  }, [windowWidth]);
 
   return (
-    <div className="body-wrapper">
-      <ListFilters
-        abvDomain={abvDomain}
-        abvRange={abvRange}
-        ibuDomain={ibuDomain}
-        ibuRange={ibuRange}
-        srmDomain={srmDomain}
-        srmRange={srmRange}
-        onChange={handlePathChangeFilters}
-        handleNameSearch={setNameSearch}
-      />
-
-      <div className="wrapper">
-        <NavOptions
-          beers={beers}
-          itemsPage={itemsPage}
-          page={page}
-          pageDisplay={pageDisplay}
-          onChange={handlePathChange}
-          largeGrid={largeGrid}
-          switchGrid={switchGrid}
+    <div>
+      <div className="body-wrapper">
+        <ListFilters
+          abvDomain={abvDomain}
+          abvRange={abvRange}
+          ibuDomain={ibuDomain}
+          ibuRange={ibuRange}
+          srmDomain={srmDomain}
+          srmRange={srmRange}
+          onChange={handlePathChangeFilters}
+          handleNameSearch={setNameSearch}
+          hidden={hiddenFilters}
+          isMobile={isMobile}
         />
+        <div className="wrapper">
+          <NavOptions
+            beers={beers}
+            itemsPage={itemsPage}
+            page={page}
+            pageDisplay={pageDisplay}
+            onChange={handlePathChange}
+            largeGrid={largeGrid}
+            switchGrid={switchGrid}
+            hiddenFilters={hiddenFilters}
+            handleHiddenFilters={setHiddenFilters}
+            isMobile={isMobile}
+          ></NavOptions>
 
-        {beers.length > 0 ? (
-          <div className="beer-list" style={gridStyle()}>
-            {beers.map((beer) => beerItem(beer))}
-          </div>
-        ) : (
-          <NoResult />
-        )}
-        <div
-          id="empty-div-wrapper"
-          style={{ width: "100%", flexGrow: 3 }}
-        ></div>
+          {beers.length > 0 ? (
+            <div className="beer-list" style={gridStyle()}>
+              {beers.map((beer) => beerItem(beer))}
+            </div>
+          ) : (
+            <NoResult />
+          )}
+          <div
+            id="empty-div-wrapper"
+            style={{ width: "100%", flexGrow: 3 }}
+          ></div>
+        </div>
       </div>
     </div>
   );

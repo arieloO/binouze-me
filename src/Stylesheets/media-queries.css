@@ -6,8 +6,24 @@
   }
 
   .nav-filters {
-    position: relative;
+    position: absolute;
     left: 0;
-    z-index: 100;
+    top: 13vh;
+    z-index: 10;
+    margin: 50px 0;
+    border-radius: 0px 5px 5px 0px;
+    box-shadow: 5px 0px 10px 1px #f0f0c9;
+    border: solid 1px #114a74;
+    background-color: #f0f0c9;
+  }
+
+  .nav-filters-hidden {
+    transition: left 0.1s ease-in-out;
+    position: absolute;
+    left: -200px;
+    top: 12vh;
+    z-index: 10;
+    margin: 50px 0;
+    background-color: #f0f0c9d7;
   }
 }
