@@ -54,6 +54,18 @@ const BeerList = ({ location, history }) => {
     history.push(path);
   };
 
+  // FILTER KEG & CASK
+
+  const filterBeerContainer = (beersArray) => {
+    return beersArray.filter(
+      (beer) =>
+        beer.image_url !== "https://images.punkapi.com/v2/keg.png" &&
+        beer.image_url !== "https://images.punkapi.com/v2/cask.png"
+    );
+  };
+
+  console.log("FILTER BOTTLES ONLY", filterBeerContainer(beers));
+
   // can't find where is the loop from
 
   const [nameSearch, setNameSearch] = useState();
@@ -69,7 +81,7 @@ const BeerList = ({ location, history }) => {
       .then((response) => response.json())
       .then((responseData) => {
         console.log("USEEFFECT N°1", fetchRequestString);
-        setBeers(responseData);
+        setBeers(filterBeerContainer(responseData));
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
