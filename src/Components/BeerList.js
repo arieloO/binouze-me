@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import qs from "qs";
 import BeerSmallItem from "./BeerSmallItem.js";
 import BeerLargeItem from "./BeerLargeItem.js";
@@ -19,7 +19,7 @@ const BeerList = ({ location, history }) => {
 
   const itemsPage = parseInt(parseInt(queryString.items)) || 25;
 
-  console.log(queryString, page, itemsPage);
+  console.log("queryString : ", queryString, page, itemsPage);
 
   const pageDisplay = `page ${page}`;
 
@@ -42,7 +42,7 @@ const BeerList = ({ location, history }) => {
   const srmDomain = [0, 601];
   const srmRange = getRangeFromQueryParams("srm") || srmDomain;
 
-  console.log(abvRange, ibuRange, srmRange);
+  console.log("filter ranges :", abvRange, ibuRange, srmRange);
   //handle params changes
   const handlePathChange = (page, itemsPage) => {
     const path = `/catalogue/?page=${page}&items=${itemsPage}&abv=${abvRange[0]}-${abvRange[1]}&ibu=${ibuRange[0]}-${ibuRange[1]}&srm=${srmRange[0]}-${srmRange[1]}`;
@@ -64,7 +64,7 @@ const BeerList = ({ location, history }) => {
     );
   };
 
-  console.log("FILTER BOTTLES ONLY", filterBeerContainer(beers));
+  // console.log("FILTER BOTTLES ONLY", filterBeerContainer(beers));
 
   // can't find where is the loop from
 

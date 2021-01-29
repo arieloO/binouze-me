@@ -1,8 +1,6 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as FilterIcon } from "../media/filter-icon.svg";
-
 import { ReactComponent as SmallItemsIcon } from "../media/small-items-icon.svg";
 import { ReactComponent as LargeItemsIcon } from "../media/large-items-icon.svg";
 
@@ -18,7 +16,7 @@ const NavOptions = ({
   handleHiddenFilters,
   isMobile,
 }) => {
-  console.log("hidden filters :::: ", hiddenFilters);
+  // console.log("hidden filters :::: ", hiddenFilters);
 
   return (
     <div className="nav-options">

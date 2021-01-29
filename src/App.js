@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./Stylesheets/App.css";
 import "./Stylesheets/filters.css";
 import "./Stylesheets/beerList.css";
@@ -14,7 +14,7 @@ import NoMatch from "./Components/NoMatch";
 import ComingSoon from "./Components/ComingSoon";
 
 function App() {
-  console.log("render app", "device width :", window.innerWidth);
+  console.log("render app");
 
   // const device = {
   //   width: window.innerWidth,

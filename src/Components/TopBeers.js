@@ -2,15 +2,15 @@ import React from "react";
 import MiniBeerCard from "./MiniBeerCard";
 
 const TopBeers = ({ favBeers, setFavBeers }) => {
-  console.log(favBeers);
+  console.log("favBeers : ", favBeers);
 
   if (favBeers) {
     const beerList = Object.entries(favBeers);
-    console.log(beerList);
+    console.log("top beer list : ", beerList);
     return (
       <div className="top-beers-list wrapper">
         {beerList.map(([beerId, beerRank]) => {
-          console.log(beerId.toString());
+          // console.log("top beer ID", beerId.toString());
           return (
             <MiniBeerCard
               id={parseInt(beerId)}

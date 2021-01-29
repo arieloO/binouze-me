@@ -4,18 +4,17 @@ const BeerNamesSearches = ({ handleSwitch, typesArray, category }) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    console.log(open);
+    // console.log(open);
   }, [open]);
 
-  console.log(open);
+  // console.log(open);
   return (
     <div className="filter">
       <div
         className={open ? "option-title opened" : "option-title"}
         onClick={() => {
-          console.log(open);
           setOpen(!open);
-          console.log(open);
+          console.log("BeerTypeFilter : ", open);
         }}
       >
         <h3> {`type of ${category}`}</h3>

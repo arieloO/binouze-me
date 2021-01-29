@@ -9,9 +9,8 @@ export const useWindowWidth = () => {
   };
 
   useEffect(() => {
-    console.log("UseEffect window width", windowWidth);
+    // console.log("UseEffect window width", windowWidth);
     window.addEventListener("resize", handleResize);
-    console.log("UseEffect window width");
     return () => {
       window.removeEventListener("resize", handleResize);
     };

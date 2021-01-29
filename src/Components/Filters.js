@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
-import { ReactComponent as FilterIcon } from "../media/filter-icon.svg";
+import React from "react";
 import MultiSliderTest from "./Slider.js";
 import BeerTypeFilter from "./BeerTypeFilter";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
 import { yeastTypes, beerTypes } from "./FilterCategories";
-import { useWindowWidth } from "../Hooks/LayoutHooks.js";
-// import DeviceContext from "../App.js";
 
 const ListFilters = ({
   abvDomain,

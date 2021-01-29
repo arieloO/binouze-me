@@ -3,7 +3,7 @@ import { getBeerColor } from "./SrmStyles.js";
 
 const ColorCorner = ({ ebc, size }) => {
   const beerColor = getBeerColor(ebc);
-  console.log("BEER COLOR / ", beerColor);
+  // console.log("BEER COLOR / ", beerColor);
 
   return (
     <div
