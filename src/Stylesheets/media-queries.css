@@ -2,7 +2,7 @@
 
 @media (max-width: 640px) {
   .app-header {
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   .nav-filters {
