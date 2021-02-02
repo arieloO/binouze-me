@@ -20,13 +20,13 @@ const NavOptions = ({
 
   return (
     <div className="nav-options">
-      <button
+      {/* <button
         onClick={() => onChange(page - 1, itemsPage)}
         className="page-nav"
         disabled={page === 1 ? true : false}
       >
         ⇦
-      </button>
+      </button> */}
       <div
         className="nav-filter-title"
         hidden={!isMobile}
@@ -69,13 +69,13 @@ const NavOptions = ({
           />
         </NavLink>
       </div>
-      <button
+      {/* <button
         onClick={() => onChange(page + 1, itemsPage)}
         className="page-nav"
         disabled={beers.length !== itemsPage ? true : false}
       >
         ⇨
-      </button>
+      </button> */}
     </div>
   );
 };
