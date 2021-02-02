@@ -20,7 +20,7 @@ const ListFilters = ({
     <div
       className="nav-filter-wrapper"
       style={{
-        background: `${hidden ? "transparent" : "#aaaa9825"}`,
+        background: `${hidden && isMobile ? "transparent" : "#aaaa9825"}`,
       }}
     >
       <div

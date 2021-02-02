@@ -30,7 +30,7 @@
   justify-content: flex-start;
 
   scrollbar-width: thin;
-  height: 90vh;
+  height: 100vh;
 }
 
 .nav-filter-wrapper {
@@ -38,7 +38,7 @@
   position: sticky;
   top: 0px;
   height: 100vh;
-  /* background-color: #f0f0c94d; */
+  background-color: transparent;
 }
 
 .nav-filters {
@@ -49,7 +49,7 @@
   flex-direction: column;
   justify-content: flex-start;
   overflow: scroll;
-  height: 90vh;
+  height: 100vh;
   width: 256px;
   padding: 0 2px;
   border-right: solid 1px #114a74;
