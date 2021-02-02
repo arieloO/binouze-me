@@ -5,7 +5,8 @@
 .beer-list {
   z-index: 1;
   position: relative;
-  /* width: 90%; */
+  /* overflow: scroll; */
+  min-height: calc(100vh -130px);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
   margin: 8px;

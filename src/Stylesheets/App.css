@@ -5,8 +5,9 @@
   text-align: center;
   font-family: Courier;
   margin: 0 auto;
-  min-height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  /* overflow: hidden; */
 }
 
 .app-header {
@@ -49,18 +50,13 @@
 
 html,
 body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-html {
   width: 100vw;
+  max-width: 100%;
+  /* overflow-x: hidden; */
 }
 
 body {
   background-color: #f0f0c9;
-  /* overflow-x: hidden; */
-  width: 100vw;
 }
 h1 {
   margin: 15px;

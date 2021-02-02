@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./Stylesheets/normalize.css";
 import "./Stylesheets/App.css";
 import "./Stylesheets/filters.css";
 import "./Stylesheets/beerList.css";
