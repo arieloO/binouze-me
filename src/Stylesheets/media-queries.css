@@ -23,7 +23,7 @@
   .nav-options {
     height: 50px;
     width: 96vw;
-    font-size: 0.1em;
+    font-size: 0.8em;
     overflow: hidden;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +34,8 @@
     overflow: visible;
     position: absolute;
     left: 0;
-    top: 16vh;
+    top: 130px;
+    height: 100%;
     z-index: 10;
     width: 100vw;
     background-color: #aaaa9854;
@@ -43,7 +44,7 @@
     position: -webkit-sticky;
     position: sticky;
     z-index: 10;
-    margin: 50px 0;
+    top: 0;
     border-radius: 0px 5px 5px 0px;
     box-shadow: -1px -1px 5px #00000038, 0px 3px 2px #00000038,
       6px -6px 8px 3px #f0f0c9b2;
@@ -55,7 +56,6 @@
     transition: left 0.1s ease-in-out;
     position: absolute;
     left: -200px;
-    top: 12vh;
     z-index: 10;
     margin: 50px 0;
     background-color: #f0f0c9d7;
