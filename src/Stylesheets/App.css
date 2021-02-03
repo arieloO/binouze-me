@@ -71,6 +71,11 @@ ul {
   list-style-type: none;
   padding-left: 0px;
 }
+
+li {
+  list-style-position: outside;
+}
+
 a {
   text-decoration: none;
 }

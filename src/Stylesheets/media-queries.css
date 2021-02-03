@@ -65,4 +65,37 @@
     margin: 50px 0;
     background-color: #f0f0c9d7;
   }
+
+  .beer-card {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 12px;
+    word-wrap: normal;
+  }
+
+  .beer-card-image {
+    margin: 10px;
+    object-fit: contain;
+    height: 30vh;
+  }
+
+  .beer-card-info {
+    margin: 0px;
+    max-width: 90%;
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* flex-grow: 1; */
+    text-align: start;
+  }
+
+  .side-card {
+    margin: 10px;
+    max-width: 100px;
+  }
 }

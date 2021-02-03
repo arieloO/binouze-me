@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import StarRating from "./StarRating";
 import qs from "qs";
-import ColorCorner from "./ColorCorner.js";
+import BeerColor from "./BeerColor.js";
 
 const BeerCard = ({ match, favBeers, setFavBeers }) => {
   const queryString = qs.parse(match.params.id, {
@@ -49,7 +49,6 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
   }
   return (
     <div className="beer-card">
-      <ColorCorner ebc={beerData.ebc} size={100} />
       <div className="beer-img-star">
         <img
           src={beerData.image_url}
@@ -57,23 +56,44 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
           className="beer-card-image"
         ></img>
         <StarRating
+          id="beer-card-rating"
           beerRating={favBeers ? favBeers[beerId] : 0}
           onChange={changeFavBeers}
           size={36}
           customClass={"beer-stars"}
         />
+        <label htmlFor="beer-card-rating">Rate this Beer !</label>
       </div>
 
       <div className="beer-card-info">
         <h1 className="beer-card-title">
           <strong>{beerData.name.toUpperCase()}</strong>
         </h1>
-        <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
+        <h3 style={{ fontStyle: "italic", fontWeight: "bold" }}>
           {beerData.tagline}
-        </p>
-        <h2>BREWERS TIPS</h2>
-        <p>{beerData.brewers_tips}</p>
-        <h2>FOOD PAIRING</h2>
+        </h3>
+        <div className="beer-card-data">
+          <BeerColor ebc={beerData.ebc} size={80} />
+          <div className="beer-color-display">
+            {beerData.abv}
+            <span
+              style={{
+                fontSize: "2.3em",
+                lineHeight: 0.5,
+              }}
+            >
+              %
+            </span>
+          </div>
+          <div className="beer-color-display">{beerData.ibu} ibu</div>
+        </div>
+        <div className="icon-title-main">
+          <img
+            src="https://img.icons8.com/wired/30/000000/food-and-wine.png"
+            alt="food pairing icon"
+          />
+          <h2>FOOD PAIRING</h2>
+        </div>
 
         <ul>
           {beerData.food_pairing.map((dishes, id) => (
@@ -83,22 +103,52 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
       </div>
       <div>
         <div className="side-card">
+          {/* SIDE DETAILS  */}
+
           {/* <h2>More details</h2> */}
           <div>
-            <h3>malts</h3>
+            <div className="icon-title-side">
+              <img
+                src="https://img.icons8.com/carbon-copy/30/000000/wheat.png"
+                alt="malt icon"
+              />
+              <h3>malts</h3>
+            </div>
             <ul>
               {listIngredients("malt").map((hop, id) => (
                 <li key={id}>{hop}</li>
               ))}
             </ul>
-            <h3>hops</h3>
+
+            <div className="icon-title-side">
+              <img
+                src="https://img.icons8.com/carbon-copy/30/000000/hops.png"
+                alt="hops icon"
+              />
+              <h3>hops</h3>
+            </div>
             <ul>
               {listIngredients("hops").map((hop, id) => (
                 <li key={id}>{hop}</li>
               ))}
             </ul>
-            <h3>yeast</h3>
+            <div className="icon-title-side">
+              <img
+                src="https://img.icons8.com/carbon-copy/30/000000/microorganisms.png"
+                alt="yeast icon"
+              />
+              <h3>yeast</h3>
+            </div>
+
             <p>{beerData.ingredients.yeast}</p>
+            <div className="icon-title-side">
+              <img
+                src="https://img.icons8.com/dotty/30/000000/cook-male.png"
+                alt="recipe icon"
+              />
+              <h3>the brewers tips</h3>
+            </div>
+            <p>{beerData.brewers_tips}</p>
           </div>
         </div>
       </div>
