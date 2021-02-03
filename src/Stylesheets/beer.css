@@ -39,13 +39,13 @@
 }
 
 .beer-card-info h1,
-.beer-card-info h2 {
+.icon-title-main {
   margin: 20px 0 0 0;
 }
 
 .beer-card-info ul,
 .beer-card-info p {
-  margin: 12px 0 16px 12px;
+  margin: 12px 0 16px 40px;
 }
 
 .beer-card-info li:before {
@@ -54,6 +54,15 @@
   font-weight: bolder;
   color: #bd632f54;
   margin: 6px 10px 0 0;
+}
+
+.icon-title-main {
+  display: flex;
+  align-items: center;
+}
+
+.icon-title-main img {
+  margin-right: 20px;
 }
 
 /* ----------- SINGLE BEER SIDE INFO ----------- */
@@ -67,6 +76,20 @@
   margin: 30px;
   padding: 20px;
   border-radius: 8px;
+}
+
+.side-card ul,
+.side-card p {
+  margin-block-start: 0em;
+  padding-left: 40px;
+  font-size: smaller;
+  max-width: 34ch;
+}
+
+.icon-title-side {
+  display: flex;
+  align-items: center;
+  /* margin-block-start: 1em; */
 }
 
 /* ----------- SINGLE BEER STAR RATING ----------- */
