@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+html {
+  font-family: "Open Sans", "roboto", monospace;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   text-align: center;
-  font-family: Courier;
+  /* font-family: Courier; */
   margin: 0 auto;
   height: 100%;
   width: 100%;
@@ -58,15 +63,36 @@ body {
 body {
   background-color: #f0f0c9;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", monospace, cursive;
+}
+
 h1 {
-  margin: 15px;
+  margin: 10px 0;
 }
+
 h2 {
-  margin: 10px;
+  margin: 10px 0;
 }
+
 h3 {
   margin: 10px;
 }
+
+h4 {
+  margin: 10px 0;
+}
+
+h5 {
+  margin: 10px 0;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0px;

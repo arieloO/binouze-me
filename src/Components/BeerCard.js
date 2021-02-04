@@ -55,6 +55,22 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
           alt={beerData.name}
           className="beer-card-image"
         ></img>
+        <div className="beer-card-data">
+          <BeerColor ebc={beerData.ebc} size={40} />
+          <div className="beer-color-display">
+            {beerData.abv}
+            <span
+              style={{
+                fontWeight: 100,
+                fontSize: "1.3em",
+                lineHeight: 0.5,
+              }}
+            >
+              %
+            </span>
+          </div>
+          <div className="beer-color-display">{beerData.ibu} ibu</div>
+        </div>
         <StarRating
           id="beer-card-rating"
           beerRating={favBeers ? favBeers[beerId] : 0}
@@ -69,30 +85,18 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
         <h1 className="beer-card-title">
           <strong>{beerData.name.toUpperCase()}</strong>
         </h1>
-        <h3 style={{ fontStyle: "italic", fontWeight: "bold" }}>
-          {beerData.tagline}
-        </h3>
-        <div className="beer-card-data">
-          <BeerColor ebc={beerData.ebc} size={80} />
-          <div className="beer-color-display">
-            {beerData.abv}
-            <span
-              style={{
-                fontSize: "2.3em",
-                lineHeight: 0.5,
-              }}
-            >
-              %
-            </span>
-          </div>
-          <div className="beer-color-display">{beerData.ibu} ibu</div>
+        <h4>{beerData.tagline}</h4>
+
+        <div className="beer-description">
+          <p>{beerData.description}</p>
         </div>
         <div className="icon-title-main">
           <img
             src="https://img.icons8.com/wired/30/000000/food-and-wine.png"
             alt="food pairing icon"
           />
-          <h2>FOOD PAIRING</h2>
+
+          <h2>Food pairing</h2>
         </div>
 
         <ul>
