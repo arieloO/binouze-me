@@ -39,6 +39,7 @@
   top: 0px;
   height: 100vh;
   background-color: transparent;
+  transition: left 1.2s ease-in-out;
 }
 
 .nav-filters {
@@ -53,26 +54,17 @@
   width: 256px;
   padding: 0 2px;
   border-right: solid 1px #114a74;
-  transition: left 0.1s ease-in;
-
-  /* position: sticky; */
-  /* left: 0;
-  top: 13vh;
-  z-index: 10;
-  margin: 50px 0; */
+  transition: left 1.2s ease-in-out;
   background-color: #f0f0c9;
 }
 
 .nav-filters-hidden {
   width: 50px;
-  transition: left 0.1s ease-in-out;
-
-  position: sticky;
   left: -200px;
   top: 12vh;
   z-index: 10;
   margin: 50px 0;
-  background-color: #f0f0c9d7;
+  transition: left 1.2s ease-in-out;
 }
 
 /* .filters-list {

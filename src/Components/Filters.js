@@ -1,5 +1,5 @@
 import React from "react";
-import MultiSliderTest from "./Slider.js";
+import MultiSliderTest from "./SliderComponents/Slider.js";
 import BeerTypeFilter from "./BeerTypeFilter";
 import { SRMColorRadient, SRMcolor } from "./SrmStyles.js";
 import { yeastTypes, beerTypes } from "./FilterCategories";
@@ -21,6 +21,8 @@ const ListFilters = ({
       className="nav-filter-wrapper"
       style={{
         background: `${hidden && isMobile ? "transparent" : "#aaaa9825"}`,
+        left: `${hidden && isMobile ? "-600px" : "0"}`,
+        transition: "left 1.2s ease-in-out;",
       }}
     >
       <div
