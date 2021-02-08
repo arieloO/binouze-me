@@ -17,14 +17,14 @@ const ListFilters = ({
   isMobile,
 }) => {
   return (
-    <div
-      className="nav-filter-wrapper"
-      style={{
-        background: `${hidden && isMobile ? "transparent" : "#aaaa9825"}`,
-        left: `${hidden && isMobile ? "-600px" : "0"}`,
-        transition: "left 1.2s ease-in-out;",
-      }}
-    >
+    <div className="nav-filter-wrapper">
+      <div
+        className={
+          hidden
+            ? "nav-filter-background nav-filter-background-hidden"
+            : "nav-filter-background"
+        }
+      ></div>
       <div
         className={hidden ? "nav-filters nav-filters-hidden" : "nav-filters"}
       >
@@ -32,7 +32,7 @@ const ListFilters = ({
           <h3 hidden={isMobile}>filters</h3>
         </div>
         <div id="filters-container">
-          <div className={hidden ? "filter-hidden" : "filter"}>
+          <div className="filter">
             {" "}
             alcohol by volume
             <MultiSliderTest
@@ -44,7 +44,7 @@ const ListFilters = ({
               ticksNumber={6}
             />
           </div>
-          <div className={hidden ? "filter-hidden" : "filter"}>
+          <div className="filter">
             bitterness - IBU
             <MultiSliderTest
               rangeDomain={ibuDomain}
@@ -56,7 +56,7 @@ const ListFilters = ({
               // sliderBackgroundColor={}
             />
           </div>
-          <div className={hidden ? "filter-hidden" : "filter"}>
+          <div className="filter">
             color -SRM
             <MultiSliderTest
               rangeDomain={srmDomain}
@@ -72,7 +72,7 @@ const ListFilters = ({
             />
           </div>
 
-          <div className={hidden ? "filter-hidden" : "filter"}>
+          <div className="filter">
             <BeerTypeFilter
               key="1"
               handleSwitch={handleNameSearch}
