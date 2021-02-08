@@ -33,16 +33,6 @@
   height: 100vh;
 }
 
-.nav-filter-background {
-  /* position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-  height: 100vh;
-  background-color: transparent;
-  transition: left 0.5s ease-in-out;
-  will-change: left; */
-}
-
 .nav-filters {
   position: -webkit-sticky;
   position: sticky;
@@ -87,11 +77,8 @@
 .filter {
   margin: 10px 5px;
   justify-content: flex-start;
+  text-align: center;
   /* transition: opacity 1s ease-in-out; */
-}
-
-.filter-hidden {
-  /* opacity: 0; */
 }
 
 .filter ul {
@@ -168,7 +155,6 @@
 }
 
 .filter-option-hidden {
-  /* display: none; */
   padding: 0;
   margin: 0;
   height: 0;

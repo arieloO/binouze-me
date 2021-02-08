@@ -196,15 +196,19 @@ a.active-nav-route {
 
 .nav-options {
   position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
   position: sticky;
+  top: 0;
   z-index: 12;
-  top: 0px;
   display: flex;
-  height: 50px;
   justify-content: space-between;
   align-items: center;
-  background-color: #f0f0c9fa;
+  text-align: center;
+  height: 50px;
   margin: 0 10px;
+  background-color: #f0f0c9fa;
   border-bottom: solid 1px #114a74;
 }
 
