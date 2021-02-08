@@ -95,6 +95,7 @@
 /* -------------------------------------------------------- */
 
 .beer-card-data {
+  font-size: small;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -113,14 +114,12 @@
 }
 
 .beer-color-display {
+  display: inline-block;
   border-radius: 10px;
   border: 2px solid #bd632f36;
-
   width: 40px;
   height: 40px;
-  font-size: 1em;
   text-align: center;
-  word-break: break-word;
 }
 
 /* ----------- SINGLE BEER SIDE INFO ----------- */
