@@ -17,10 +17,11 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  box-shadow: -1px -1px 5px #00000038, 0px 3px 2px #00000038;
-  background-color: #ffffff34;
   overflow: hidden;
   border-radius: 3px 5px 5px 5px;
+  text-align: center;
+  box-shadow: -1px -1px 5px #00000038, 0px 3px 2px #00000038;
+  background-color: #ffffff34;
   margin: 6px;
   height: 264px;
   transition: border-radius 300ms ease-in-out;
