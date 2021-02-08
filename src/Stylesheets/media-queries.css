@@ -57,6 +57,7 @@
     width: 100vw;
     background-color: #aaaa9854;
   }
+
   .nav-filters {
     position: -webkit-sticky;
     position: sticky;
@@ -84,8 +85,8 @@
 
   .beer-card {
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: space-between;
+    flex-wrap: nowrap;
     align-items: center;
     overflow: hidden;
     margin: 10px;
@@ -102,16 +103,15 @@
   .beer-card-info {
     margin: 0px;
     max-width: 90%;
-    /* overflow: hidden; */
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    /* flex-grow: 1; */
     text-align: start;
   }
 
   .side-card {
     margin: 10px;
-    max-width: 100px;
+    min-width: auto;
   }
 }

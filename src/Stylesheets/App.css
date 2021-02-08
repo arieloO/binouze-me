@@ -19,22 +19,15 @@ body {
 body {
   min-height: 100vh;
   max-width: 100vw;
-  height: -webkit-fill-available;
+
   overflow-x: hidden;
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  text-align: center;
   margin: 0;
-  height: 100%;
+  /* height: 100%;
   height: -webkit-fill-available;
-  width: 100%;
-  /* overflow: visible;
-  overflow-x: hidden;
-  overflow-y: scroll; */
+  width: 100%; */
 }
 
 .app-header {
