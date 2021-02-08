@@ -55,22 +55,7 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
           alt={beerData.name}
           className="beer-card-image"
         ></img>
-        <div className="beer-card-data">
-          <BeerColor ebc={beerData.ebc} size={40} />
-          <div className="beer-color-display">
-            {beerData.abv}
-            <span
-              style={{
-                fontWeight: 100,
-                fontSize: "1.3em",
-                lineHeight: 0.5,
-              }}
-            >
-              %
-            </span>
-          </div>
-          <div className="beer-color-display">{beerData.ibu} ibu</div>
-        </div>
+
         <StarRating
           id="beer-card-rating"
           beerRating={favBeers ? favBeers[beerId] : 0}
@@ -90,20 +75,37 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
         <div className="beer-description">
           <p>{beerData.description}</p>
         </div>
-        <div className="icon-title-main">
-          <img
-            src="https://img.icons8.com/wired/30/000000/food-and-wine.png"
-            alt="food pairing icon"
-          />
 
-          <h2>Food pairing</h2>
+        <div>
+          <div className="icon-title-main">
+            <img
+              src="https://img.icons8.com/wired/30/000000/food-and-wine.png"
+              alt="food pairing icon"
+            />
+
+            <h2>Food pairing</h2>
+          </div>
+
+          <ul>
+            {beerData.food_pairing.map((dishes, id) => (
+              <li key={id}>{dishes}</li>
+            ))}
+          </ul>
         </div>
-
-        <ul>
-          {beerData.food_pairing.map((dishes, id) => (
-            <li key={id}>{dishes}</li>
-          ))}
-        </ul>
+        <div className="beer-card-data">
+          <div>
+            <span>ebc : </span>
+            <BeerColor ebc={beerData.ebc} size={40} />
+          </div>
+          <div>
+            <span>abv : </span>
+            <div className="beer-color-display">{beerData.abv}%</div>
+          </div>
+          <div>
+            <span>ibu : </span>
+            <div className="beer-color-display">{beerData.ibu}</div>
+          </div>
+        </div>
       </div>
       <div>
         <div className="side-card">

@@ -1,5 +1,12 @@
 /* MEDIA QUERIES */
 
+/* @media (max-width: 700px) {
+  #root {
+    height: 100vmax;
+    width: 100vmin;
+  }
+} */
+
 @media (max-width: 640px) {
   .app-header {
     padding: 8px;
@@ -20,6 +27,9 @@
     margin: 8px;
   }
 
+  /* ----------- NAV OPTIONS ----------- */
+  /* -------------------------------------------------------- */
+
   .nav-options {
     height: 50px;
     width: 96vw;
@@ -29,6 +39,9 @@
     align-items: center;
     margin: 0 4px;
   }
+
+  /* ----------- FILTERS  ----------- */
+  /* -------------------------------------------------------- */
 
   .nav-filter-wrapper {
     overflow: visible;
@@ -65,6 +78,9 @@
     margin: 50px 0;
     background-color: #f0f0c9d7;
   }
+
+  /* ----------- BEER  ----------- */
+  /* -------------------------------------------------------- */
 
   .beer-card {
     flex-direction: column;

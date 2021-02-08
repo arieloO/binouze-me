@@ -84,6 +84,7 @@ function App() {
           width: "100%",
           padding: "2px",
           justifyContent: "center",
+          alignSelf: "flex-end",
           boxShadow: "0px 1px 2px -1px inset #124e78",
         }}
       >

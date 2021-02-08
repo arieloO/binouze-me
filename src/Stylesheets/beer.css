@@ -7,10 +7,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  overflow: hidden;
+  flex-wrap: wrap;
+  /* height: 100%; */
   box-shadow: -2px -2px 6px #00000038, 0px 3px 2px #00000038;
   background-color: #ffffff34;
   margin: 20px;
+  padding: 30px;
   border-radius: 12px;
 }
 
@@ -21,21 +23,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 30px;
+  /* margin: 30px; */
 }
 
 .beer-card-image {
   margin: 0 0 30px 0;
   object-fit: contain;
   height: 45vh;
+  max-height: 325px;
 }
 
 /* ----------- SINGLE BEER MAIN INFO ----------- */
 /* -------------------------------------------------------- */
 
 .beer-card-info {
-  margin: 30px;
-  width: 375px;
+  margin: 0 30px;
+  min-width: 350px;
+  max-width: 500px;
+  flex-grow: 2;
   /* overflow: hidden; */
   display: flex;
   flex-direction: column;
@@ -83,6 +88,7 @@
 .beer-description {
   padding: 0;
   margin: 0;
+  max-width: 600px;
 }
 
 /* ----------- SINGLE BEER Visual DATA ----------- */
@@ -90,7 +96,20 @@
 
 .beer-card-data {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+}
+.beer-card-data div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 3px 0;
+}
+
+.beer-card-data div span {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .beer-color-display {
@@ -113,10 +132,9 @@
   text-align: start;
   border: solid 3px #bd632f36;
   background-color: #bd632f54;
-  margin: 30px;
   padding: 20px;
   border-radius: 8px;
-  min-width: 265px;
+  min-width: 200px;
 }
 
 .side-card ul,
