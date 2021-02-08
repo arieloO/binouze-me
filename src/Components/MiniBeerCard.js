@@ -64,7 +64,7 @@ const MiniBeerCard = ({ id, beerRating, setFavBeers }) => {
         </div>
 
         <div className="mini-card-info">
-          <NavLink to={`/beers/id=${beerData.id}`}>
+          <NavLink to={`/catalogue/beers/id=${beerData.id}`}>
             <p className="mini-card-title">
               <strong>{beerData.name}</strong>
             </p>
