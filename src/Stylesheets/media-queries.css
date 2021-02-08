@@ -48,10 +48,14 @@
     height: 100%;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
+    opacity: 0.6;
+    background-color: #00000017;
+    transition: opacity 0.3s ease-in;
   }
 
   .nav-filter-background-hidden {
     z-index: -1;
+    opacity: 0;
   }
 
   .nav-filters {
