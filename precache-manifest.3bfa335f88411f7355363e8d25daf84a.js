@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b4a49cbfd1f9a49097760b60cb6eae4c",
+    "revision": "fbaf95cc021029e5946112d073e43220",
     "url": "/binouze-me/index.html"
   },
   {
-    "revision": "be5bca701f097519ff0e",
-    "url": "/binouze-me/static/css/main.e97c482d.chunk.css"
+    "revision": "dc984568312c8ab34932",
+    "url": "/binouze-me/static/css/main.1eca21ac.chunk.css"
   },
   {
     "revision": "071bac38edc383bfad30",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/binouze-me/static/js/2.58902641.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "be5bca701f097519ff0e",
-    "url": "/binouze-me/static/js/main.92338ff9.chunk.js"
+    "revision": "dc984568312c8ab34932",
+    "url": "/binouze-me/static/js/main.3e71a12c.chunk.js"
   },
   {
     "revision": "f3995f14043257ea7ff8",
