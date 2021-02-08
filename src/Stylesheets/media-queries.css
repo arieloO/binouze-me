@@ -105,3 +105,9 @@
     min-width: auto;
   }
 }
+
+@-moz-document url-prefix() {
+  .nav-filter-background {
+    background-color: #00000065;
+  }
+}
