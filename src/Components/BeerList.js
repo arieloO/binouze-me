@@ -158,6 +158,7 @@ const BeerList = ({ location, history }) => {
           onChange={handlePathChangeFilters}
           handleNameSearch={setNameSearch}
           hidden={hiddenFilters}
+          handleHiddenFilters={setHiddenFilters}
           isMobile={isMobile}
         />
         <div className="wrapper">

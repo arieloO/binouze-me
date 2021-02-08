@@ -14,6 +14,7 @@ const ListFilters = ({
   onChange,
   handleNameSearch,
   hidden,
+  handleHiddenFilters,
   isMobile,
 }) => {
   return (
@@ -24,6 +25,7 @@ const ListFilters = ({
             ? "nav-filter-background nav-filter-background-hidden"
             : "nav-filter-background"
         }
+        onClick={() => handleHiddenFilters(!hidden)}
       ></div>
       <div
         className={hidden ? "nav-filters nav-filters-hidden" : "nav-filters"}
