@@ -1,4 +1,4 @@
-Binouze-me is a little app I built with the REST api Punkapi.com to show some skills !
+Binouze-me is a little app I built with the REST api [Punkapi.com](https://punkapi.com/) to show some skills !
 Come try it out [here](https://arieloo.github.io/binouze-me/) : https://arieloo.github.io/binouze-me/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
