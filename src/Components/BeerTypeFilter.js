@@ -16,7 +16,7 @@ const BeerNamesSearches = ({
 
   // console.log(open);
   return (
-    <div className="filter">
+    <div className={open ? "" : "beer-type-filter"}>
       <div
         className={open ? "option-title opened" : "option-title"}
         onClick={() => {
@@ -26,7 +26,13 @@ const BeerNamesSearches = ({
       >
         <h3> {`type of ${category}`}</h3>
       </div>
-      <ul className="filter-option-list">
+      <ul
+        className={
+          open
+            ? "filter-option-list"
+            : "filter-option-list filter-option-list-hidden"
+        }
+      >
         {typesArray.map((beerType, index) => {
           const beerValue = beerType.replace(" ", "_");
 

@@ -87,11 +87,18 @@
   justify-content: flex-start;
 }
 
+.beer-type-filter {
+  height: 52px;
+}
+
 .option-title {
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
   z-index: 2;
+  height: 50px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   background-color: #f0f0c9;
   opacity: 1;
@@ -126,18 +133,22 @@
 .filter-option-list {
   display: flex;
   justify-content: flex-start;
-  margin: 0 auto;
+  margin: 0;
+  margin-block-start: 0;
   border-width: 0 0 0 0;
   border-style: solid;
   border-color: #bd632f;
+}
+.filter-option-list-hidden {
+  transform: translateY(-50px);
 }
 
 .filter-option-list li:first-child {
   border-width: 0 0 1px 0;
 }
 .filter-option-list li:last-child {
-  margin-bottom: 30px;
-  border-radius: 10px;
+  margin-bottom: 10px;
+  border-radius: 0 0 0 5px;
 }
 
 .filter-option {
