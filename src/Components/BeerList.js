@@ -9,6 +9,36 @@ import { useWindowWidth } from "../Hooks/LayoutHooks.js";
 
 // import { yeastTypes } from "../lib/yeastTypes.js";
 
+const useSearchChange = () => {
+  const [searchFields, setSearchFields] = useState({});
+
+  const handleSearchValues = (e) => {
+    console.log(
+      "@@@@@@@@@@@@@@@@@",
+      e.currentTarget.value,
+      searchFields[e.currentTarget.name]
+    );
+    if (e.currentTarget.value === searchFields[e.currentTarget.name]) {
+      setSearchFields({
+        ...searchFields,
+        [e.currentTarget.name]: "",
+      });
+    } else {
+      console.log(
+        "!!!!!!!!!!!!!!!",
+        e.currentTarget.name,
+        e.currentTarget.value
+      );
+      setSearchFields({
+        ...searchFields,
+        [e.currentTarget.name]: e.currentTarget.value,
+      });
+    }
+  };
+
+  return [searchFields, handleSearchValues];
+};
+
 const BeerList = ({ location, history }) => {
   const [beers, setBeers] = useState([]);
 
@@ -17,9 +47,9 @@ const BeerList = ({ location, history }) => {
 
   const page = parseInt(parseInt(queryString.page)) || 1;
 
-  const itemsPage = parseInt(parseInt(queryString.items)) || 25;
+  const itemsPage = parseInt(parseInt(queryString.items)) || 50;
 
-  console.log("queryString : ", queryString, page, itemsPage);
+  // console.log("queryString : ", queryString, page, itemsPage);
 
   const pageDisplay = `page ${page}`;
 
@@ -42,14 +72,16 @@ const BeerList = ({ location, history }) => {
   const srmDomain = [0, 601];
   const srmRange = getRangeFromQueryParams("srm") || srmDomain;
 
-  console.log("filter ranges :", abvRange, ibuRange, srmRange);
+  // console.log("filter ranges :", abvRange, ibuRange, srmRange);
+
   //handle params changes
   const handlePathChange = (page, itemsPage) => {
     const path = `/catalogue/?page=${page}&items=${itemsPage}&abv=${abvRange[0]}-${abvRange[1]}&ibu=${ibuRange[0]}-${ibuRange[1]}&srm=${srmRange[0]}-${srmRange[1]}`;
     history.push(path);
   };
+
   const handlePathChangeFilters = (abv, ibu, srm) => {
-    console.log("consoleLog SRM", srm); //this is a mess
+    // console.log("consoleLog SRM", srm); //this is a mess
     const path = `/catalogue/?page=${page}&items=${itemsPage}&abv=${abv[0]}-${abv[1]}&ibu=${ibu[0]}-${ibu[1]}&srm=${srm[0]}-${srm[1]}`;
     history.push(path);
   };
@@ -68,46 +100,60 @@ const BeerList = ({ location, history }) => {
 
   // can't find where is the loop from
 
-  const [nameSearch, setNameSearch] = useState();
+  const [nameSearch, setNameSearch] = useSearchChange();
+
+  // const handleSearchChange = (category, value) => {
+  //   let newSearch = { ...nameSearch };
+  //   newSearch.category = value;
+  //   console.log(
+  //     nameSearch,
+  //     " + ",
+  //     category,
+  //     " : ",
+  //     value,
+  //     " ===>> ",
+  //     newSearch
+  //   );
+  //   setNameSearch(newSearch);
+  // };
+
+  // const [fetchRequestString, setFetchRequestString] = useState()
 
   const fetchRequestString =
     `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}` +
     `&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}` +
     `&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}` +
-    `&ebc_gt=${parseInt(srmRange[0]) / 2}&ebc_lt=${parseInt(srmRange[1]) / 2}`;
+    `&ebc_gt=${parseInt(srmRange[0]) / 2}&ebc_lt=${parseInt(srmRange[1]) / 2}` +
+    (nameSearch.beer ? `&beer_name=${nameSearch.beer}` : "") +
+    (nameSearch.yeast ? `&yeast=${nameSearch.yeast}` : "");
 
   useEffect(() => {
     fetch(fetchRequestString)
       .then((response) => response.json())
+      .then((responseData) => filterBeerContainer(responseData))
       .then((responseData) => {
         console.log("USEEFFECT N°1", fetchRequestString);
-        setBeers(filterBeerContainer(responseData));
+        setBeers(responseData);
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [fetchRequestString]);
-
-  // might exclude or create filter for https://images.punkapi.com/v2/keg.png
-
-  useEffect(() => {
-    if (nameSearch !== undefined) {
-      const newFetchRequestString = fetchRequestString.concat(
-        `&yeast=${nameSearch}`
-      );
-      fetch(newFetchRequestString)
-        .then((response) => response.json())
-        .then((responseData) => {
-          console.log("USEEFFECT N°2");
-          setBeers(responseData);
-        })
-        .catch((error) => {
-          console.log("Error fetching and parsing data", error);
-        });
-    }
   }, [nameSearch, fetchRequestString]);
 
-  console.log("beers : ", beers && beers);
+  // useEffect(() => {
+  //   fetch(fetchRequestString)
+  //     .then((response) => response.json())
+  //     .then((responseData) => filterBeerContainer(responseData))
+  //     .then((responseData) => {
+  //       console.log("USEEFFECT N°2", fetchRequestString);
+  //       setBeers(responseData);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error fetching and parsing data", error);
+  //     });
+  // }, [nameSearch, fetchRequestString]);
+
+  // console.log("beers : ", beers && beers);
 
   // GRID LARGE OR SMALL ITEMS
 
@@ -156,6 +202,7 @@ const BeerList = ({ location, history }) => {
           srmDomain={srmDomain}
           srmRange={srmRange}
           onChange={handlePathChangeFilters}
+          nameSearch={nameSearch}
           handleNameSearch={setNameSearch}
           hidden={hiddenFilters}
           handleHiddenFilters={setHiddenFilters}

@@ -12,6 +12,7 @@ const ListFilters = ({
   srmDomain,
   srmRange,
   onChange,
+  nameSearch,
   handleNameSearch,
   hidden,
   handleHiddenFilters,
@@ -76,15 +77,18 @@ const ListFilters = ({
 
           <div className="filter">
             <BeerTypeFilter
-              key="1"
-              handleSwitch={handleNameSearch}
-              category="Beer"
+              handleNameSearch={handleNameSearch}
+              selected={nameSearch.beer}
+              category="beer"
               typesArray={beerTypes}
             />
+          </div>
+
+          <div className="filter">
             <BeerTypeFilter
-              key="2"
-              handleSwitch={handleNameSearch}
-              category="Yeast"
+              handleNameSearch={handleNameSearch}
+              selected={nameSearch.yeast}
+              category="yeast"
               typesArray={yeastTypes}
             />
             {/* <div
