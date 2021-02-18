@@ -202,14 +202,14 @@ a.active-nav-route {
   position: sticky;
   top: 0;
   z-index: 12;
+  height: 50px;
+  margin: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  height: 50px;
-  margin: 0 10px;
-  background-color: #f0f0c9fa;
   border-bottom: solid 1px #114a74;
+  background-color: #f0f0c9fa;
 }
 
 .nav-options select {

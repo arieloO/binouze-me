@@ -93,17 +93,20 @@
 
 .option-title {
   position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
   position: sticky;
-  top: 0px;
+  top: 0;
   z-index: 2;
+  cursor: pointer;
+  opacity: 1;
   height: 50px;
   display: flex;
   align-items: center;
-  cursor: pointer;
-  background-color: #f0f0c9;
-  opacity: 1;
-  border: 1px solid #bd632f;
   border-width: 0 0 1px 0;
+  border: 1px solid #bd632f;
+  background-color: #f0f0c9;
 }
 
 .option-title h3 {
