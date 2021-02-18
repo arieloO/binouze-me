@@ -7,6 +7,7 @@ import "./Stylesheets/beer.css";
 import "./Stylesheets/topBeers.css";
 import "./Stylesheets/media-queries.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import BeerList from "./Components/BeerList.js";
 import HeaderNav from "./Components/HeaderNav.js";
 import BeerCard from "./Components/BeerCard";
@@ -37,8 +38,10 @@ function App() {
       <div className="App">
         <header className="app-header">
           <div className="site-title">
-            <h2>binouze-me</h2>
-            <h5>welcome to Brewdog</h5>
+            <NavLink to="/">
+              <h2>binouze-me</h2>
+              <h5>welcome to Brewdog</h5>
+            </NavLink>
           </div>
           <HeaderNav />
         </header>
