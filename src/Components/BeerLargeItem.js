@@ -24,7 +24,7 @@ const BeerLargeItem = ({ beer }) => {
         </div>
 
         <div className="mini-card-info">
-          <NavLink to={`/beers/id=${beer.id}`}>
+          <NavLink to={`/catalogue/beers/id=${beer.id}`}>
             <p className="mini-card-title">
               <strong>{beer.name}</strong>
             </p>
