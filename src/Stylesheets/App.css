@@ -177,7 +177,7 @@ a.active-nav-route {
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: 1px;
+  /* padding: 1px; */
   margin: 0 auto;
 }
 
