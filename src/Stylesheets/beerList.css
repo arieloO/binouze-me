@@ -44,7 +44,7 @@
 }
 
 .beer-item:hover .beer-image {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .pic-name {

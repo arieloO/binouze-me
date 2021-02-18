@@ -55,15 +55,16 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
           alt={beerData.name}
           className="beer-card-image"
         ></img>
-
-        <StarRating
-          id="beer-card-rating"
-          beerRating={favBeers ? favBeers[beerId] : 0}
-          onChange={changeFavBeers}
-          size={36}
-          customClass={"beer-stars"}
-        />
-        <label htmlFor="beer-card-rating">Rate this Beer !</label>
+        <div>
+          <StarRating
+            id="beer-card-rating"
+            beerRating={favBeers ? favBeers[beerId] : 0}
+            onChange={changeFavBeers}
+            size={36}
+            customClass={"beer-stars"}
+          />
+          <label htmlFor="beer-card-rating">Rate this Beer !</label>
+        </div>
       </div>
 
       <div className="beer-card-info">

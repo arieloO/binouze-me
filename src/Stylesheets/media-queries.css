@@ -84,14 +84,26 @@
     word-wrap: normal;
   }
 
+  .beer-card > div {
+    margin: 30px auto;
+  }
+
+  .beer-card > div > div {
+    margin: 10px 0;
+  }
+
   .beer-card-image {
     margin: 10px;
     object-fit: contain;
     height: 30vh;
   }
 
+  .beer-img-star {
+    margin: 30px auto;
+  }
+
   .beer-card-info {
-    margin: 0px;
+    margin: 30px auto;
     max-width: 90%;
     min-width: 0;
     display: flex;
@@ -101,8 +113,15 @@
   }
 
   .side-card {
-    margin: 10px;
+    margin: 30px auto;
+
     min-width: auto;
+  }
+}
+
+@media (max-width: 1040px) {
+  .beer-card > div {
+    margin: 15px 15px;
   }
 }
 

@@ -8,11 +8,10 @@
   justify-content: space-between;
   align-items: stretch;
   flex-wrap: wrap;
-  /* height: 100%; */
   box-shadow: -2px -2px 6px #00000038, 0px 3px 2px #00000038;
   background-color: #ffffff34;
   margin: 20px;
-  padding: 30px;
+  padding: 40px;
   border-radius: 12px;
 }
 
@@ -22,15 +21,16 @@
 .beer-img-star {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   /* margin: 30px; */
 }
 
 .beer-card-image {
   margin: 0 0 30px 0;
   object-fit: contain;
-  height: 45vh;
-  max-height: 325px;
+  min-height: 45vh;
+  max-height: 55vh;
 }
 
 /* ----------- SINGLE BEER MAIN INFO ----------- */
@@ -38,12 +38,13 @@
 
 .beer-card-info {
   margin: 0 30px;
-  min-width: 350px;
-  max-width: 500px;
+  min-width: 250px;
+  max-width: 300px;
   flex-grow: 2;
   /* overflow: hidden; */
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: stretch;
   /* flex-grow: 1; */
   text-align: start;
@@ -51,7 +52,7 @@
 
 .beer-card-info h1,
 .icon-title-main {
-  margin: 20px 0 0 0;
+  margin: 0;
 }
 
 .beer-card-info ul,
@@ -117,8 +118,8 @@
   display: inline-block;
   border-radius: 10px;
   border: 2px solid #bd632f36;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   text-align: center;
 }
 
