@@ -11,6 +11,7 @@
   grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(1fr, 276px));
   margin: 8px;
+  margin-bottom: 30px;
 }
 
 .beer-item {
@@ -90,4 +91,32 @@
   margin: 0;
   width: 122px;
   height: 0px;
+}
+
+.load-more-button-container {
+  grid-column: 1 / -1;
+}
+
+.load-more-button {
+  position: relative;
+  bottom: -10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: solid 2px #f3f3db;
+  color: #042a2b;
+  box-shadow: -1px -1px 6px #00000038, 0px 3px 2px #00000038;
+  transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in,
+    border 0.3s ease-in-out;
+}
+
+.load-more-button:hover {
+  background-color: #f2bb05;
+  border: solid 2px #124e78;
+  box-shadow: -1px -1px 5px #00000080, 0px 3px 2px #0000009d;
 }

@@ -13,22 +13,12 @@ const useSearchChange = () => {
   const [searchFields, setSearchFields] = useState({});
 
   const handleSearchValues = (e) => {
-    console.log(
-      "@@@@@@@@@@@@@@@@@",
-      e.currentTarget.value,
-      searchFields[e.currentTarget.name]
-    );
     if (e.currentTarget.value === searchFields[e.currentTarget.name]) {
       setSearchFields({
         ...searchFields,
         [e.currentTarget.name]: "",
       });
     } else {
-      console.log(
-        "!!!!!!!!!!!!!!!",
-        e.currentTarget.name,
-        e.currentTarget.value
-      );
       setSearchFields({
         ...searchFields,
         [e.currentTarget.name]: e.currentTarget.value,
@@ -225,6 +215,14 @@ const BeerList = ({ location, history }) => {
           {beers.length > 0 ? (
             <div className="beer-list" style={gridStyle()}>
               {beers.map((beer) => beerItem(beer))}
+              <div className="load-more-button-container">
+                <button className="load-more-button">
+                  <img
+                    src="https://img.icons8.com/carbon-copy/64/000000/plus--v1.png"
+                    alt="load more content"
+                  />
+                </button>
+              </div>
             </div>
           ) : (
             <NoResult />
