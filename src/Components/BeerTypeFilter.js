@@ -12,7 +12,7 @@ const BeerNamesSearches = ({
     // console.log(open);
   }, [open]);
 
-  console.log("$$$$$$$$$$$$$", category, selected);
+  // console.log("$$$$$$$$$$$$$", category, selected);
 
   // console.log(open);
   return (

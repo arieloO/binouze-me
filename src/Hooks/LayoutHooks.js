@@ -4,7 +4,7 @@ export const useWindowWidth = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const handleResize = (e) => {
-    console.log("HANDLE WIDTH", e);
+    // console.log("HANDLE WIDTH", e);
     setWindowWidth(e.target.innerWidth);
   };
 
