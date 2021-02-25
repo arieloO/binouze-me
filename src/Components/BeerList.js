@@ -6,28 +6,9 @@ import NavOptions from "./NavOptions.js";
 import ListFilters from "./Filters.js";
 import NoResult from "./NoResult";
 import { useWindowWidth } from "../Hooks/LayoutHooks.js";
+import { useSearchChange } from "../Hooks/UseSearchChange";
 
 // import { yeastTypes } from "../lib/yeastTypes.js";
-
-const useSearchChange = () => {
-  const [searchFields, setSearchFields] = useState({});
-
-  const handleSearchValues = (e) => {
-    if (e.currentTarget.value === searchFields[e.currentTarget.name]) {
-      setSearchFields({
-        ...searchFields,
-        [e.currentTarget.name]: "",
-      });
-    } else {
-      setSearchFields({
-        ...searchFields,
-        [e.currentTarget.name]: e.currentTarget.value,
-      });
-    }
-  };
-
-  return [searchFields, handleSearchValues];
-};
 
 const BeerList = ({ location, history }) => {
   const [beers, setBeers] = useState([]);
@@ -91,21 +72,6 @@ const BeerList = ({ location, history }) => {
   // can't find where is the loop from
 
   const [nameSearch, setNameSearch] = useSearchChange();
-
-  // const handleSearchChange = (category, value) => {
-  //   let newSearch = { ...nameSearch };
-  //   newSearch.category = value;
-  //   console.log(
-  //     nameSearch,
-  //     " + ",
-  //     category,
-  //     " : ",
-  //     value,
-  //     " ===>> ",
-  //     newSearch
-  //   );
-  //   setNameSearch(newSearch);
-  // };
 
   // const [fetchRequestString, setFetchRequestString] = useState()
 
