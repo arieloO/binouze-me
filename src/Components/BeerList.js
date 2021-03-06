@@ -48,21 +48,26 @@ const initialAbvDomain = [0, 56];
 const initialIbuDomain = [0, 250];
 const initialSrmDomain = [0, 601];
 
+// BeerList
+
 const BeerList = ({ location, history }) => {
   const [beers, setBeers] = useState([]);
 
-  //get Page & itemsPage from query params
+  // page & nav
+  const [page, setPage] = useState(1);
+  const [isLastPage, setIsLastPage] = useState(false);
+  const [itemsPage, setItemsPage] = useState(50);
+
+  // reset Page & Scroll Top
+  const resetPageAndScrollTop = () => {
+    setPage(1);
+    window.scrollTo(0, 78);
+  };
+
   const queryString = useMemo(
     () => qs.parse(location.search, { ignoreQueryPrefix: true }),
     [location.search]
   );
-
-  // const page = parseInt(parseInt(queryString.page)) || 1;
-  // const itemsPage = parseInt(parseInt(queryString.items)) || 50;
-
-  const [page, setPage] = useState(1);
-  const [isLastPage, setIsLastPage] = useState(false);
-  const [itemsPage, setItemsPage] = useState(50);
 
   const pageDisplay = `page ${page}`;
 
@@ -77,8 +82,7 @@ const BeerList = ({ location, history }) => {
   //handle params changes
 
   const handlePathChangeFilters = (abv, ibu, srm) => {
-    setPage(1);
-    window.scrollTo(0, 78);
+    resetPageAndScrollTop();
     const path = `/catalogue/?abv=${abv[0]}-${abv[1]}&ibu=${ibu[0]}-${ibu[1]}&srm=${srm[0]}-${srm[1]}`;
     history.push(path);
   };
@@ -95,8 +99,16 @@ const BeerList = ({ location, history }) => {
 
   const [nameSearch, setNameSearch] = useSearchChange();
 
+  // handle search change & reset page
+
+  const handleSearchChange = (...param) => {
+    resetPageAndScrollTop();
+    return setNameSearch(...param);
+  };
+
   useEffect(() => {
     const navQueriesString = makeNavQueriesString(page, itemsPage);
+    console.log(nameSearch);
     const filtersQueriesString = makeFiltersQueriesString(
       abvRange,
       ibuRange,
@@ -180,7 +192,7 @@ const BeerList = ({ location, history }) => {
           srmRange={srmRange}
           onChange={handlePathChangeFilters}
           nameSearch={nameSearch}
-          handleNameSearch={setNameSearch}
+          handleNameSearch={handleSearchChange}
           hidden={hiddenFilters}
           handleHiddenFilters={setHiddenFilters}
           isMobile={isMobile}
