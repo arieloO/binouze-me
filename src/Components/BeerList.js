@@ -61,6 +61,7 @@ const BeerList = ({ location, history }) => {
   // const itemsPage = parseInt(parseInt(queryString.items)) || 50;
 
   const [page, setPage] = useState(1);
+  const [isLastPage, setIsLastPage] = useState(false);
   const [itemsPage, setItemsPage] = useState(50);
 
   const pageDisplay = `page ${page}`;
@@ -108,6 +109,10 @@ const BeerList = ({ location, history }) => {
 
     fetch(requestString)
       .then((response) => response.json())
+      .then((responseData) => {
+        setIsLastPage(responseData.length < 50);
+        return responseData;
+      })
       .then((responseData) => filterBeerContainer(responseData))
       .then((responseData) => {
         console.log("USEEFFECT N°1", requestString, responseData);
@@ -199,6 +204,7 @@ const BeerList = ({ location, history }) => {
               <div className="load-more-button-container">
                 <button
                   className="load-more-button"
+                  disabled={isLastPage}
                   onClick={() => setPage(page + 1)}
                 >
                   <img
