@@ -112,11 +112,35 @@
   color: #042a2b;
   box-shadow: -1px -1px 6px #00000038, 0px 3px 2px #00000038;
   transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in,
-    border 0.3s ease-in-out;
+    border 0.3s ease-in-out, opacity 0.6s ease-in;
 }
 
-.load-more-button:hover {
+.load-more-button img {
+  transition: transform 0.3s ease-in;
+}
+
+.load-more-button:hover,
+.load-more-button:focus {
   background-color: #f2bb05;
   border: solid 2px #124e78;
   box-shadow: -1px -1px 5px #00000080, 0px 3px 2px #0000009d;
+}
+
+.load-more-button:disabled:hover,
+.load-more-button:disabled:focus {
+  background-color: #f23c05;
+  border: solid 1px #001829;
+  box-shadow: -1px -1px 5px #00000080, 0px 3px 2px #0000009d;
+}
+.load-more-button:disabled:hover img,
+.load-more-button:disabled:focus img {
+  transform: rotate(45deg);
+}
+
+.load-more-button:disabled {
+  border: solid 4px #f23c05;
+}
+
+.load-more-button:focus-visible {
+  outline: none;
 }
