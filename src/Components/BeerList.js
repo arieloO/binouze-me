@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import qs from "qs";
 import BeerSmallItem from "./BeerSmallItem.js";
 import BeerLargeItem from "./BeerLargeItem.js";
@@ -8,52 +8,76 @@ import NoResult from "./NoResult";
 import { useWindowWidth } from "../Hooks/LayoutHooks.js";
 import { useSearchChange } from "../Hooks/UseSearchChange";
 
-// import { yeastTypes } from "../lib/yeastTypes.js";
+const makeNavQueriesString = (page, itemsPage) => {
+  return `?page=${page || 1}&per_page=${itemsPage}`;
+};
+
+const makeFiltersQueriesString = (abvRange, ibuRange, srmRange, nameSearch) => {
+  if (abvRange) {
+    let string =
+      `&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}` +
+      `&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}` +
+      `&ebc_gt=${parseInt(srmRange[0]) / 2}&ebc_lt=${
+        parseInt(srmRange[1]) / 2
+      }` +
+      (nameSearch.beer ? `&beer_name=${nameSearch.beer}` : "") +
+      (nameSearch.yeast ? `&yeast=${nameSearch.yeast}` : "");
+
+    return string;
+  } else {
+    return "";
+  }
+};
+
+const makeRequestString = (navQueriesString, filtersQueriesString) => {
+  return (
+    `https://api.punkapi.com/v2/beers${navQueriesString}` +
+    `${filtersQueriesString}`
+  );
+};
+
+const getRangeFromQueryParams = (queryString, param) => {
+  if (queryString[param]) {
+    const paramQuery = queryString[param].split("-");
+    const paramRange = [parseInt(paramQuery[0]), parseInt(paramQuery[1])];
+    return paramRange;
+  }
+};
+
+const initialAbvDomain = [0, 56];
+const initialIbuDomain = [0, 250];
+const initialSrmDomain = [0, 601];
 
 const BeerList = ({ location, history }) => {
   const [beers, setBeers] = useState([]);
 
   //get Page & itemsPage from query params
-  const queryString = qs.parse(location.search, { ignoreQueryPrefix: true });
+  const queryString = useMemo(
+    () => qs.parse(location.search, { ignoreQueryPrefix: true }),
+    [location.search]
+  );
 
-  const page = parseInt(parseInt(queryString.page)) || 1;
+  // const page = parseInt(parseInt(queryString.page)) || 1;
+  // const itemsPage = parseInt(parseInt(queryString.items)) || 50;
 
-  const itemsPage = parseInt(parseInt(queryString.items)) || 50;
-
-  // console.log("queryString : ", queryString, page, itemsPage);
+  const [page, setPage] = useState(1);
+  const [itemsPage, setItemsPage] = useState(50);
 
   const pageDisplay = `page ${page}`;
 
-  const getRangeFromQueryParams = (param) => {
-    if (queryString[param]) {
-      const paramQuery = queryString[param].split("-");
-      const paramRange = [parseInt(paramQuery[0]), parseInt(paramQuery[1])];
-      return paramRange;
-    }
-  };
-
-  //ListFilters.js fetch parameters
-
-  const abvDomain = [0, 56];
-  const abvRange = getRangeFromQueryParams("abv") || abvDomain;
-
-  const ibuDomain = [0, 250];
-  const ibuRange = getRangeFromQueryParams("ibu") || ibuDomain;
-
-  const srmDomain = [0, 601];
-  const srmRange = getRangeFromQueryParams("srm") || srmDomain;
-
-  // console.log("filter ranges :", abvRange, ibuRange, srmRange);
+  const { abvRange, ibuRange, srmRange } = useMemo(() => {
+    return {
+      abvRange: getRangeFromQueryParams(queryString, "abv") || initialAbvDomain,
+      ibuRange: getRangeFromQueryParams(queryString, "ibu") || initialIbuDomain,
+      srmRange: getRangeFromQueryParams(queryString, "srm") || initialSrmDomain,
+    };
+  }, [queryString]);
 
   //handle params changes
-  const handlePathChange = (page, itemsPage) => {
-    const path = `/catalogue/?page=${page}&items=${itemsPage}&abv=${abvRange[0]}-${abvRange[1]}&ibu=${ibuRange[0]}-${ibuRange[1]}&srm=${srmRange[0]}-${srmRange[1]}`;
-    history.push(path);
-  };
 
   const handlePathChangeFilters = (abv, ibu, srm) => {
-    // console.log("consoleLog SRM", srm); //this is a mess
-    const path = `/catalogue/?page=${page}&items=${itemsPage}&abv=${abv[0]}-${abv[1]}&ibu=${ibu[0]}-${ibu[1]}&srm=${srm[0]}-${srm[1]}`;
+    setPage(1);
+    const path = `/catalogue/?abv=${abv[0]}-${abv[1]}&ibu=${ibu[0]}-${ibu[1]}&srm=${srm[0]}-${srm[1]}`;
     history.push(path);
   };
 
@@ -67,49 +91,40 @@ const BeerList = ({ location, history }) => {
     );
   };
 
-  // console.log("FILTER BOTTLES ONLY", filterBeerContainer(beers));
-
-  // can't find where is the loop from
-
   const [nameSearch, setNameSearch] = useSearchChange();
 
-  // const [fetchRequestString, setFetchRequestString] = useState()
-
-  const fetchRequestString =
-    `https://api.punkapi.com/v2/beers?page=${page}&per_page=${itemsPage}` +
-    `&abv_gt=${abvRange[0]}&abv_lt=${abvRange[1]}` +
-    `&ibu_gt=${ibuRange[0]}&ibu_lt=${ibuRange[1]}` +
-    `&ebc_gt=${parseInt(srmRange[0]) / 2}&ebc_lt=${parseInt(srmRange[1]) / 2}` +
-    (nameSearch.beer ? `&beer_name=${nameSearch.beer}` : "") +
-    (nameSearch.yeast ? `&yeast=${nameSearch.yeast}` : "");
-
   useEffect(() => {
-    fetch(fetchRequestString)
+    const navQueriesString = makeNavQueriesString(page, itemsPage);
+    const filtersQueriesString = makeFiltersQueriesString(
+      abvRange,
+      ibuRange,
+      srmRange,
+      nameSearch
+    );
+    const requestString = makeRequestString(
+      navQueriesString,
+      filtersQueriesString
+    );
+
+    fetch(requestString)
       .then((response) => response.json())
       .then((responseData) => filterBeerContainer(responseData))
       .then((responseData) => {
-        console.log("USEEFFECT N°1", fetchRequestString);
-        setBeers(responseData);
+        console.log("USEEFFECT N°1", requestString, responseData);
+        if (page > 1) {
+          setBeers((beers) => [...beers, ...responseData]);
+        } else {
+          setBeers(responseData);
+        }
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-  }, [nameSearch, fetchRequestString]);
 
-  // useEffect(() => {
-  //   fetch(fetchRequestString)
-  //     .then((response) => response.json())
-  //     .then((responseData) => filterBeerContainer(responseData))
-  //     .then((responseData) => {
-  //       console.log("USEEFFECT N°2", fetchRequestString);
-  //       setBeers(responseData);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error fetching and parsing data", error);
-  //     });
-  // }, [nameSearch, fetchRequestString]);
-
-  // console.log("beers : ", beers && beers);
+    return () => {
+      console.log("useEffect N°1 : callBack function");
+    };
+  }, [abvRange, ibuRange, srmRange, nameSearch, page, itemsPage]);
 
   // GRID LARGE OR SMALL ITEMS
 
@@ -151,11 +166,11 @@ const BeerList = ({ location, history }) => {
     <div>
       <div className="body-wrapper">
         <ListFilters
-          abvDomain={abvDomain}
+          abvDomain={initialAbvDomain}
           abvRange={abvRange}
-          ibuDomain={ibuDomain}
+          ibuDomain={initialIbuDomain}
           ibuRange={ibuRange}
-          srmDomain={srmDomain}
+          srmDomain={initialSrmDomain}
           srmRange={srmRange}
           onChange={handlePathChangeFilters}
           nameSearch={nameSearch}
@@ -170,7 +185,7 @@ const BeerList = ({ location, history }) => {
             itemsPage={itemsPage}
             page={page}
             pageDisplay={pageDisplay}
-            onChange={handlePathChange}
+            // onChange={handlePathChange}
             largeGrid={largeGrid}
             switchGrid={switchGrid}
             hiddenFilters={hiddenFilters}
@@ -182,7 +197,10 @@ const BeerList = ({ location, history }) => {
             <div className="beer-list" style={gridStyle()}>
               {beers.map((beer) => beerItem(beer))}
               <div className="load-more-button-container">
-                <button className="load-more-button">
+                <button
+                  className="load-more-button"
+                  onClick={() => setPage(page + 1)}
+                >
                   <img
                     src="https://img.icons8.com/carbon-copy/64/000000/plus--v1.png"
                     alt="load more content"
