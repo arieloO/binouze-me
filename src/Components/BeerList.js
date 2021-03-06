@@ -69,8 +69,6 @@ const BeerList = ({ location, history }) => {
     [location.search]
   );
 
-  const pageDisplay = `page ${page}`;
-
   const { abvRange, ibuRange, srmRange } = useMemo(() => {
     return {
       abvRange: getRangeFromQueryParams(queryString, "abv") || initialAbvDomain,
@@ -199,17 +197,12 @@ const BeerList = ({ location, history }) => {
         />
         <div className="wrapper">
           <NavOptions
-            beers={beers}
-            itemsPage={itemsPage}
-            page={page}
-            pageDisplay={pageDisplay}
-            // onChange={handlePathChange}
             largeGrid={largeGrid}
             switchGrid={switchGrid}
             hiddenFilters={hiddenFilters}
             handleHiddenFilters={setHiddenFilters}
             isMobile={isMobile}
-          ></NavOptions>
+          />
 
           {beers.length > 0 ? (
             <div className="beer-list" style={gridStyle()}>
