@@ -78,6 +78,7 @@ const BeerList = ({ location, history }) => {
 
   const handlePathChangeFilters = (abv, ibu, srm) => {
     setPage(1);
+    window.scrollTo(0, 78);
     const path = `/catalogue/?abv=${abv[0]}-${abv[1]}&ibu=${ibu[0]}-${ibu[1]}&srm=${srm[0]}-${srm[1]}`;
     history.push(path);
   };
