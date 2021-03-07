@@ -106,7 +106,6 @@ const BeerList = ({ location, history }) => {
 
   useEffect(() => {
     const navQueriesString = makeNavQueriesString(page, itemsPage);
-    console.log(nameSearch);
     const filtersQueriesString = makeFiltersQueriesString(
       abvRange,
       ibuRange,
@@ -126,7 +125,7 @@ const BeerList = ({ location, history }) => {
       })
       .then((responseData) => filterBeerContainer(responseData))
       .then((responseData) => {
-        console.log("USEEFFECT N°1", requestString, responseData);
+        // console.log("USEEFFECT N°1", requestString, responseData);
         if (page > 1) {
           setBeers((beers) => [...beers, ...responseData]);
         } else {
@@ -138,7 +137,7 @@ const BeerList = ({ location, history }) => {
       });
 
     return () => {
-      console.log("useEffect N°1 : callBack function");
+      // console.log("useEffect N°1 : callBack function");
     };
   }, [abvRange, ibuRange, srmRange, nameSearch, page, itemsPage]);
 

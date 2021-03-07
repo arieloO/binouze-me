@@ -16,14 +16,6 @@ import NoMatch from "./Components/NoMatch";
 import ComingSoon from "./Components/ComingSoon";
 
 function App() {
-  console.log("render app");
-
-  // const device = {
-  //   width: window.innerWidth,
-  //   isMobile: window.innerWidth < 640,
-  // };
-  // const DeviceContext = createContext();
-
   const localState = JSON.parse(localStorage.getItem("favBeers"));
 
   const [favBeers, setFavBeers] = useState(localState || false);
