@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/binouze-me/static/css/main.50c596b8.chunk.css",
-    "main.js": "/binouze-me/static/js/main.679e1866.chunk.js",
-    "main.js.map": "/binouze-me/static/js/main.679e1866.chunk.js.map",
+    "main.css": "/binouze-me/static/css/main.ae47fe0a.chunk.css",
+    "main.js": "/binouze-me/static/js/main.5d419bfc.chunk.js",
+    "main.js.map": "/binouze-me/static/js/main.5d419bfc.chunk.js.map",
     "runtime-main.js": "/binouze-me/static/js/runtime-main.59c9af3a.js",
     "runtime-main.js.map": "/binouze-me/static/js/runtime-main.59c9af3a.js.map",
     "static/js/2.bdad553d.chunk.js": "/binouze-me/static/js/2.bdad553d.chunk.js",
     "static/js/2.bdad553d.chunk.js.map": "/binouze-me/static/js/2.bdad553d.chunk.js.map",
     "index.html": "/binouze-me/index.html",
-    "precache-manifest.df866cd48a6804721674ceb756dd2688.js": "/binouze-me/precache-manifest.df866cd48a6804721674ceb756dd2688.js",
+    "precache-manifest.aed4a08c441fdd19c923314a53cd7909.js": "/binouze-me/precache-manifest.aed4a08c441fdd19c923314a53cd7909.js",
     "service-worker.js": "/binouze-me/service-worker.js",
-    "static/css/main.50c596b8.chunk.css.map": "/binouze-me/static/css/main.50c596b8.chunk.css.map",
+    "static/css/main.ae47fe0a.chunk.css.map": "/binouze-me/static/css/main.ae47fe0a.chunk.css.map",
     "static/js/2.bdad553d.chunk.js.LICENSE.txt": "/binouze-me/static/js/2.bdad553d.chunk.js.LICENSE.txt",
     "static/media/filter-icon.2c1a2d53.svg": "/binouze-me/static/media/filter-icon.2c1a2d53.svg",
     "static/media/large-items-icon.e73f2e0b.svg": "/binouze-me/static/media/large-items-icon.e73f2e0b.svg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.59c9af3a.js",
     "static/js/2.bdad553d.chunk.js",
-    "static/css/main.50c596b8.chunk.css",
-    "static/js/main.679e1866.chunk.js"
+    "static/css/main.ae47fe0a.chunk.css",
+    "static/js/main.5d419bfc.chunk.js"
   ]
 }
