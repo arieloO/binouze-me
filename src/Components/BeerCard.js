@@ -94,17 +94,16 @@ const BeerCard = ({ match, favBeers, setFavBeers }) => {
           </ul>
         </div>
         <div className="beer-card-data">
-          <div>
-            <span>European Brewery Convention : </span>
-            <BeerColor ebc={beerData.ebc} size={40} />
-          </div>
-          <div>
+          <BeerColor ebc={beerData.ebc} size={40} />
+
+          <div className="beer-data-display">
             <span>Alcohol by Volume : </span>
-            <div className="beer-color-display">{beerData.abv}%</div>
+            <span>{beerData.abv}%</span>
           </div>
-          <div>
+
+          <div className="beer-data-display">
             <span>International Bitterness Unit : </span>
-            <div className="beer-color-display">{beerData.ibu}</div>
+            <span>{beerData.ibu}</span>
           </div>
         </div>
       </div>

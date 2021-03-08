@@ -104,23 +104,34 @@
 .beer-card-data div {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
-  margin: 3px 0;
+  flex-grow: 2;
+  margin: 5px 0;
 }
 
 .beer-card-data div span {
   display: inline-block;
   margin-right: 10px;
+  padding: 2px 4px;
+}
+
+.beer-data-display {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6px;
+  /* border: 2px solid #bd632f36; */
+  min-height: 40px;
+  box-shadow: 2px 2px 10px #bd632f2d, 1px 2px 2px #bd632f4f;
+  border-top: none;
+  padding: 2px;
+  flex-grow: 2;
+  height: 20px;
+  /* text-align: center; */
+  background-color: #f2bb0567;
 }
 
 .beer-color-display {
-  display: inline-block;
-  border-radius: 10px;
-  border: 2px solid #bd632f36;
-  width: 30px;
-  height: 30px;
-  text-align: center;
+  font-weight: 500;
 }
 
 /* ----------- SINGLE BEER SIDE INFO ----------- */
@@ -132,6 +143,7 @@
   text-align: start;
   border: solid 3px #bd632f36;
   background-color: #bd632f54;
+  box-shadow: 2px 2px 10px #bd632f2d;
   padding: 20px;
   border-radius: 8px;
   min-width: 200px;
