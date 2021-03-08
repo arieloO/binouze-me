@@ -7,7 +7,7 @@ const BeerSmallItem = ({ beer }) => {
 
   return (
     <NavLink to={`/catalogue/beers/id=${beer.id}`}>
-      <div className="beer-item">
+      <div className="beer-small-item beer-item">
         <ColorCorner ebc={beer.ebc} size={25} />
         <img src={beer.image_url} alt={beer.name} className="beer-image"></img>
         <div className="pic-name">

@@ -10,23 +10,19 @@
 }
 
 .mini-beer-card {
-  position: relative;
-  display: flex;
   flex-direction: row;
-  align-items: stretch;
-  box-shadow: -1px -1px 5px #00000038, 0px 3px 2px #00000038;
   background-color: #ffffff34;
   height: 200px;
-  margin: 6px;
   border-radius: 3px 8px 8px 8px;
-  overflow: hidden;
-  transition: border-radius 300ms ease-in-out;
+  box-shadow: -1px -1px 5px #00000038, 0px 3px 2px #00000038;
 }
 
+/* 
 .mini-beer-card:hover {
   border-radius: 8px;
   transform: scale(1.02);
-}
+} */
+
 .mini-beer-card a {
   padding: 0;
   margin: 0;

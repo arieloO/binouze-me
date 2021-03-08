@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import ColorCorner from "./ColorCorner.js";
 
 const BeerLargeItem = ({ beer }) => {
   // href={beer.image_url} target="_blank" rel="noopener noreferrer"
@@ -11,8 +12,9 @@ const BeerLargeItem = ({ beer }) => {
     //   </div>
     // </NavLink>
 
-    <div className="mini-beer-card">
+    <div className="mini-beer-card beer-item">
       <div style={{ display: "flex", flexDirection: "row", height: "100%" }}>
+        <ColorCorner ebc={beer.ebc} size={25} />
         <div style={{ alignSelf: "center" }}>
           <NavLink to={`/catalogue/beers/id=${beer.id}`}>
             <img

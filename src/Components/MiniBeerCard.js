@@ -50,7 +50,7 @@ const MiniBeerCard = ({ id, beerRating, setFavBeers }) => {
     );
   } else {
     return (
-      <div className="mini-beer-card">
+      <div className="mini-beer-card beer-item">
         <ColorCorner ebc={beerData.ebc} size={30} />
         {/* <div style={{ display: "flex", flexDirection: "row", height: "100%" }}> */}
         <div style={{ alignSelf: "center" }}>
