@@ -120,7 +120,7 @@
   justify-content: space-between;
   border-radius: 6px;
   /* border: 2px solid #bd632f36; */
-  min-height: 40px;
+  min-height: 24px;
   box-shadow: 2px 2px 10px #bd632f2d, 1px 2px 2px #bd632f4f;
   border-top: none;
   padding: 2px;
@@ -132,6 +132,7 @@
 
 .beer-color-display {
   font-weight: 500;
+  min-height: 40px;
 }
 
 /* ----------- SINGLE BEER SIDE INFO ----------- */
